@@ -1,0 +1,287 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+
+const NAV_LINKS = [
+  {
+    label: "About", href: "#about",
+    icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>,
+  },
+  {
+    label: "Skills", href: "#skills",
+    icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
+  },
+  {
+    label: "Projects", href: "#projects",
+    icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>,
+  },
+  {
+    label: "Blog", href: "#blog",
+    icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>,
+  },
+  {
+    label: "Contact", href: "#contact",
+    icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>,
+  },
+];
+
+export function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 32);
+    handler();
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  return (
+    <>
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 100,
+          padding: "0.75rem 1rem",
+          pointerEvents: "none",
+        }}
+      >
+        <motion.nav
+          initial={{ y: -40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            maxWidth: 1060,
+            margin: "0 auto",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "1rem",
+            padding: scrolled ? "0.55rem 1.25rem" : "0.7rem 1.5rem",
+            background: scrolled
+              ? "var(--nav-bg)"
+              : "rgba(11,17,32,0.55)",
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
+            borderRadius: "1rem",
+            border: "1px solid var(--border-strong)",
+            boxShadow: scrolled
+              ? "0 8px 32px rgba(0,0,0,0.25), 0 0 0 1px var(--accent-glow)"
+              : "0 4px 24px rgba(0,0,0,0.2)",
+            transition: "padding 0.3s, background 0.3s, box-shadow 0.3s",
+            pointerEvents: "all",
+          }}
+        >
+          {/* Logo */}
+          <a
+            href="#top"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontWeight: 800,
+              fontSize: "1.1rem",
+              color: "var(--text-primary)",
+              textDecoration: "none",
+              letterSpacing: "-0.04em",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.15rem",
+              flexShrink: 0,
+            }}
+          >
+            <span style={{ color: "var(--accent)" }}>VB</span>
+            <span style={{ color: "var(--text-muted)", fontWeight: 400, fontSize: "1rem" }}>/</span>
+            <span> Bakhmut</span>
+          </a>
+
+          {/* Desktop nav */}
+          <ul
+            className="desktop-nav"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.1rem",
+              listStyle: "none",
+              margin: 0,
+              padding: 0,
+            }}
+          >
+            {NAV_LINKS.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.35rem",
+                    padding: "0.35rem 0.7rem",
+                    fontSize: "0.8125rem",
+                    fontWeight: 500,
+                    color: "var(--text-secondary)",
+                    textDecoration: "none",
+                    borderRadius: "0.5rem",
+                    transition: "color 0.2s, background 0.2s",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "var(--accent)";
+                    (e.currentTarget as HTMLElement).style.background = "var(--accent-glow)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)";
+                    (e.currentTarget as HTMLElement).style.background = "transparent";
+                  }}
+                >
+                  <span style={{ opacity: 0.7 }}>{l.icon}</span>
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* Right controls */}
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            {/* Availability dot */}
+            <span
+              className="avail-badge"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.35rem",
+                fontSize: "0.72rem",
+                fontWeight: 700,
+                letterSpacing: "0.04em",
+                color: "#10b981",
+                background: "rgba(16,185,129,0.1)",
+                border: "1px solid rgba(16,185,129,0.3)",
+                borderRadius: "100px",
+                padding: "0.28rem 0.75rem",
+                whiteSpace: "nowrap",
+              }}
+            >
+              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10b981", display: "inline-block", boxShadow: "0 0 6px #10b981" }} />
+              Available for Work
+            </span>
+
+            <ThemeToggle />
+
+            <a
+              href="#contact"
+              className="btn-primary desktop-cta"
+              style={{ padding: "0.42rem 1.1rem", fontSize: "0.8rem" }}
+            >
+              Get in Touch
+            </a>
+
+            {/* Hamburger */}
+            <button
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle navigation menu"
+              aria-expanded={open}
+              className="hamburger"
+              style={{
+                display: "none",
+                flexDirection: "column",
+                justifyContent: "center",
+                gap: 5,
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: "0.25rem",
+                width: 32,
+                height: 32,
+              }}
+            >
+              {[
+                open ? "rotate(45deg) translate(5px,5px)" : "none",
+                undefined,
+                open ? "rotate(-45deg) translate(5px,-5px)" : "none",
+              ].map((transform, i) => (
+                <span
+                  key={i}
+                  style={{
+                    display: "block",
+                    width: 22,
+                    height: 2,
+                    background: "var(--text-primary)",
+                    borderRadius: 2,
+                    transform: transform ?? "none",
+                    opacity: i === 1 && open ? 0 : 1,
+                    transition: "transform 0.25s, opacity 0.25s",
+                  }}
+                />
+              ))}
+            </button>
+          </div>
+        </motion.nav>
+      </div>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.22 }}
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 99,
+              background: "var(--bg-primary)",
+              display: "flex",
+              flexDirection: "column",
+              padding: "5.5rem 1.5rem 2rem",
+            }}
+          >
+            {NAV_LINKS.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.75rem",
+                  padding: "1rem 0",
+                  fontFamily: "var(--font-display)",
+                  fontSize: "1.5rem",
+                  fontWeight: 600,
+                  color: "var(--text-primary)",
+                  textDecoration: "none",
+                  borderBottom: "1px solid var(--border)",
+                }}
+              >
+                <span style={{ color: "var(--accent)" }}>{l.icon}</span>
+                {l.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="btn-primary"
+              style={{ marginTop: "1.5rem", justifyContent: "center" }}
+            >
+              Get in Touch
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .desktop-nav { display: none !important; }
+          .desktop-cta { display: none !important; }
+          .avail-badge { display: none !important; }
+          .hamburger { display: flex !important; }
+        }
+        @media (max-width: 960px) {
+          .avail-badge { display: none !important; }
+        }
+      `}</style>
+    </>
+  );
+}
