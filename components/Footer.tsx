@@ -107,7 +107,7 @@ export function Footer() {
       >
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div
-            style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", gap: "2.5rem", marginBottom: "2.5rem" }}
+            style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr 1fr", gap: "2rem", marginBottom: "2.5rem" }}
             className="footer-grid"
           >
             {/* Brand */}
@@ -179,6 +179,34 @@ export function Footer() {
               </ul>
             </div>
 
+            {/* Services */}
+            <div>
+              <h3 style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "1rem" }}>
+                Services
+              </h3>
+              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                {[
+                  { label: "Web Design (Melbourne)", href: "/services/web-design/melbourne" },
+                  { label: "Web Development (Melbourne)", href: "/services/web-development/melbourne" },
+                  { label: "AI Automation (Melbourne)", href: "/services/ai-automation/melbourne" },
+                  { label: "SEO Optimisation", href: "/services/seo-optimization" },
+                  { label: "Ecommerce Solutions", href: "/services/ecommerce-solutions" },
+                  { label: "Business Web Solutions", href: "/services/business-web-solutions" },
+                ].map((l) => (
+                  <li key={l.href}>
+                    <a
+                      href={l.href}
+                      style={{ fontSize: "0.875rem", color: "var(--text-secondary)", textDecoration: "none", transition: "color 0.2s" }}
+                      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--accent)")}
+                      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-secondary)")}
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Locations */}
             <div>
               <h3 style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "1rem" }}>
@@ -188,9 +216,9 @@ export function Footer() {
                 {[
                   { label: "Melbourne", href: "/locations/melbourne" },
                   { label: "Sydney", href: "/locations/sydney" },
-                  { label: "Victoria", href: "/locations/victoria" },
-                  { label: "Services", href: "/#services" },
-                  { label: "Pricing", href: "/#pricing" },
+                  { label: "Web Design Melbourne", href: "/services/web-design/melbourne" },
+                  { label: "Web Design Sydney", href: "/services/web-design/sydney" },
+                  { label: "AI Automation Melbourne", href: "/services/ai-automation/melbourne" },
                 ].map((l) => (
                   <li key={l.href}>
                     <a
@@ -267,15 +295,20 @@ export function Footer() {
       </div>
 
       <style>{`
-        @media (max-width: 1024px) {
-          .footer-grid { grid-template-columns: 1.5fr 1fr 1fr !important; }
-          .footer-grid > div:last-child { grid-column: 1 / -1; }
+        @media (max-width: 1200px) {
+          .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr !important; }
+          .footer-grid > div:nth-child(5) { grid-column: 1 / -1; }
         }
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+          .footer-grid { grid-template-columns: 1fr 1fr 1fr !important; }
+          .footer-grid > div:nth-child(1) { grid-column: 1 / -1; }
+          .footer-grid > div:nth-child(5) { grid-column: auto; }
+        }
+        @media (max-width: 600px) {
           .footer-grid { grid-template-columns: 1fr 1fr !important; }
-          .footer-grid > div:last-child { grid-column: auto; }
+          .footer-grid > div:nth-child(1) { grid-column: 1 / -1; }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 400px) {
           .footer-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>

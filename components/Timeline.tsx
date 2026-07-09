@@ -218,7 +218,7 @@ export function Timeline() {
                     No milestones recorded for {activeYear}. Try a different year.
                   </motion.p>
                 ) : (
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "1rem" }}>
+                  <div className="timeline-cards-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "1rem", alignItems: "flex-start" }}>
                     {activeItems.map((item) => (
                       <motion.div
                         key={`${item.year}-${item.title}`}
@@ -294,6 +294,12 @@ export function Timeline() {
           </div>
         </ScrollReveal>
       </div>
+
+      <style>{`
+        @media (max-width: 767px) {
+          .timeline-cards-grid { min-height: 560px !important; }
+        }
+      `}</style>
     </section>
   );
 }

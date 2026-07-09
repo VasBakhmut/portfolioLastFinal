@@ -1,8 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+
+const SERVICE_LINKS = [
+  { label: "Web Design", href: "/services/web-design" },
+  { label: "Web Development", href: "/services/web-development" },
+  { label: "SEO Optimisation", href: "/services/seo-optimization" },
+  { label: "Ecommerce Solutions", href: "/services/ecommerce-solutions" },
+  { label: "Business Web Solutions", href: "/services/business-web-solutions" },
+  { label: "AI Chatbots & Automation", href: "/services/ai-automation" },
+];
 
 const NAV_LINKS = [
   {
@@ -16,10 +25,6 @@ const NAV_LINKS = [
   {
     label: "Projects", href: "#projects",
     icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>,
-  },
-  {
-    label: "Services", href: "#services",
-    icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>,
   },
   {
     label: "Pricing", href: "#pricing",
@@ -38,12 +43,25 @@ const NAV_LINKS = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 32);
     handler();
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -118,6 +136,103 @@ export function Navbar() {
               padding: 0,
             }}
           >
+            {/* Services dropdown */}
+            <li ref={dropdownRef} style={{ position: "relative" }}>
+              <button
+                onClick={() => setServicesOpen((v) => !v)}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.35rem",
+                  padding: "0.35rem 0.7rem",
+                  fontSize: "0.8125rem",
+                  fontWeight: 500,
+                  color: servicesOpen ? "var(--accent)" : "var(--text-secondary)",
+                  background: servicesOpen ? "var(--accent-glow)" : "transparent",
+                  borderRadius: "0.5rem",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "color 0.2s, background 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.color = "var(--accent)";
+                  (e.currentTarget as HTMLElement).style.background = "var(--accent-glow)";
+                }}
+                onMouseLeave={(e) => {
+                  if (!servicesOpen) {
+                    (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)";
+                    (e.currentTarget as HTMLElement).style.background = "transparent";
+                  }
+                }}
+              >
+                <span style={{ opacity: 0.7 }}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+                </span>
+                Services
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  style={{ transform: servicesOpen ? "rotate(180deg)" : "none", transition: "transform 0.2s" }}
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+
+              {/* Dropdown panel */}
+              {servicesOpen && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "calc(100% + 0.5rem)",
+                    left: 0,
+                    background: "var(--nav-bg)",
+                    backdropFilter: "blur(24px)",
+                    WebkitBackdropFilter: "blur(24px)",
+                    border: "1px solid var(--border-strong)",
+                    borderRadius: "0.75rem",
+                    padding: "0.5rem",
+                    minWidth: 220,
+                    zIndex: 10,
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
+                  }}
+                >
+                  {SERVICE_LINKS.map((l) => (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      onClick={() => setServicesOpen(false)}
+                      style={{
+                        display: "block",
+                        padding: "0.5rem 0.75rem",
+                        fontSize: "0.8rem",
+                        fontWeight: 500,
+                        color: "var(--text-secondary)",
+                        textDecoration: "none",
+                        borderRadius: "0.5rem",
+                        transition: "color 0.2s, background 0.2s",
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLElement).style.color = "var(--accent)";
+                        (e.currentTarget as HTMLElement).style.background = "var(--accent-glow)";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)";
+                        (e.currentTarget as HTMLElement).style.background = "transparent";
+                      }}
+                    >
+                      {l.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </li>
+
             {NAV_LINKS.map((l) => (
               <li key={l.href}>
                 <a
@@ -176,10 +291,11 @@ export function Navbar() {
 
             <ThemeToggle />
 
+            {/* Task 1 fix: whiteSpace + minWidth ensure button never wraps */}
             <a
               href="#contact"
               className="btn-primary desktop-cta"
-              style={{ padding: "0.42rem 1.1rem", fontSize: "0.8rem" }}
+              style={{ padding: "0.42rem 1.1rem", fontSize: "0.8rem", whiteSpace: "nowrap", minWidth: "fit-content" }}
             >
               Get in Touch
             </a>
@@ -243,8 +359,45 @@ export function Navbar() {
               display: "flex",
               flexDirection: "column",
               padding: "5.5rem 1.5rem 2rem",
+              overflowY: "auto",
             }}
           >
+            {/* Services links in mobile menu */}
+            <div style={{ borderBottom: "1px solid var(--border)", marginBottom: "0.25rem" }}>
+              <div
+                style={{
+                  padding: "0.75rem 0",
+                  fontFamily: "var(--font-display)",
+                  fontSize: "0.75rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "var(--text-muted)",
+                }}
+              >
+                Services
+              </div>
+              {SERVICE_LINKS.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    padding: "0.625rem 0",
+                    fontSize: "1rem",
+                    fontWeight: 500,
+                    color: "var(--text-secondary)",
+                    textDecoration: "none",
+                    borderBottom: "1px solid var(--border)",
+                  }}
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+
             {NAV_LINKS.map((l) => (
               <a
                 key={l.href}

@@ -17,7 +17,7 @@ const SERVICES = [
     priceHint: "from $199",
   },
   {
-    slug: "ai-chatbots",
+    slug: "ai-automation",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2a10 10 0 1 0 10 10"/><circle cx="18" cy="5" r="3"/><path d="M12 8v4l3 3"/>
@@ -29,7 +29,7 @@ const SERVICES = [
     priceHint: "from $99",
   },
   {
-    slug: "seo",
+    slug: "seo-optimization",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -41,7 +41,7 @@ const SERVICES = [
     priceHint: "Free audit",
   },
   {
-    slug: "devops",
+    slug: "cloud-devops",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
