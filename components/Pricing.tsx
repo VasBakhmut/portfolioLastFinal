@@ -162,7 +162,7 @@ export function Pricing() {
         {/* ── Main 3 plans + Custom ── */}
         <div
           className="pricing-main-grid"
-          style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1.25rem", marginBottom: "2rem" }}
+          style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem", marginBottom: "2rem" }}
         >
           {MAIN_PLANS.map((plan, i) => (
             <ScrollReveal key={plan.id} delay={i * 0.08}>
@@ -248,59 +248,6 @@ export function Pricing() {
             </ScrollReveal>
           ))}
 
-          {/* Custom project card */}
-          <ScrollReveal delay={0.24}>
-            <div
-              style={{
-                position: "relative",
-                padding: "1.625rem 1.375rem",
-                borderRadius: "1.125rem",
-                border: "1.5px dashed var(--border-strong)",
-                background: "var(--bg-card)",
-                backdropFilter: "blur(16px)",
-                WebkitBackdropFilter: "blur(16px)",
-                boxShadow: "var(--shadow-card)",
-                display: "flex",
-                flexDirection: "column",
-                height: "100%",
-                alignItems: "flex-start",
-              }}
-            >
-              <div style={{ width: 44, height: 44, borderRadius: "0.75rem", background: "var(--accent-glow)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--accent)", marginBottom: "1rem" }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                </svg>
-              </div>
-              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "0.9375rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "0.75rem" }}>
-                Custom Project
-              </h3>
-              <p style={{ fontSize: "0.8rem", color: "var(--text-secondary)", lineHeight: 1.65, flex: 1, marginBottom: "1.5rem" }}>
-                Need something bigger? A portal, SaaS, complex automation, or a corporate site? Let&apos;s scope it together.
-              </p>
-              <a
-                href="#contact"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: "0.4rem",
-                  padding: "0.6rem 0.875rem",
-                  borderRadius: "0.5rem",
-                  fontSize: "0.8rem", fontWeight: 700,
-                  textDecoration: "none",
-                  background: "var(--accent)",
-                  color: "#fff",
-                  transition: "opacity 0.2s",
-                  width: "100%",
-                  justifyContent: "center",
-                }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.85")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
-              >
-                Book a Call
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                </svg>
-              </a>
-            </div>
-          </ScrollReveal>
         </div>
 
         {/* ── AI & Automation tiers ── */}
@@ -418,7 +365,7 @@ export function Pricing() {
       </div>
 
       <style>{`
-        @media (max-width: 960px) {
+        @media (max-width: 860px) {
           .pricing-main-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 580px) {

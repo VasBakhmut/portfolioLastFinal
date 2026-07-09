@@ -205,7 +205,7 @@ export function Timeline() {
             </div>
 
             {/* Content area */}
-            <div style={{ padding: "1.75rem 2.5rem" }}>
+            <div style={{ padding: "1.75rem 2.5rem", minHeight: 420 }}>
               <AnimatePresence mode="popLayout">
                 {activeItems.length === 0 ? (
                   <motion.p

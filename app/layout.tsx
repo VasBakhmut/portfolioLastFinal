@@ -17,28 +17,28 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_URL = "https://vasylbakhmut.com.au";
+const SITE_URL = "https://bakhmut.com.au";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Vasyl Bakhmut — Full-Stack Web Developer & Business Automation | Melbourne",
+    default: "Vasyl Bakhmut | Full-Stack Web Developer & AI Automation Specialist Melbourne",
     template: "%s | Vasyl Bakhmut",
   },
   description:
-    "Melbourne-based full-stack web developer and business automation specialist. I build responsive websites, AI chatbots, and workflow automation for Australian small businesses. React, Next.js, Node.js.",
+    "Melbourne-based full-stack web developer and AI automation specialist. Custom websites, AI chatbots, workflow automation and SEO for Australian small businesses. Fast delivery, transparent pricing.",
   keywords: [
     "web developer Melbourne",
-    "full-stack developer Australia",
-    "business automation Melbourne",
-    "AI chatbot development",
-    "Next.js developer",
-    "React developer Melbourne",
-    "website development Melbourne",
-    "workflow automation Australia",
-    "SEO Melbourne",
-    "freelance developer Melbourne",
+    "AI automation Melbourne",
+    "web design Melbourne",
+    "small business website Australia",
+    "Next.js developer Melbourne",
+    "n8n automation Australia",
+    "AI chatbot Melbourne",
   ],
+  alternates: {
+    canonical: SITE_URL,
+  },
   authors: [{ name: "Vasyl Bakhmut", url: SITE_URL }],
   creator: "Vasyl Bakhmut",
   openGraph: {
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
     locale: "en_AU",
     url: SITE_URL,
     siteName: "Vasyl Bakhmut",
-    title: "Vasyl Bakhmut — Full-Stack Web Developer & Business Automation | Melbourne",
+    title: "Vasyl Bakhmut | Full-Stack Web Developer & AI Automation Specialist Melbourne",
     description:
-      "Melbourne-based full-stack web developer and business automation specialist. Websites, AI chatbots, and workflow automation for Australian small businesses.",
+      "Melbourne-based full-stack web developer and AI automation specialist. Custom websites, AI chatbots, workflow automation and SEO for Australian small businesses.",
     images: [
       {
         url: "/og-image.png", // TODO: create og-image.png (1200×630) in /public
@@ -60,8 +60,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vasyl Bakhmut — Full-Stack Developer & Automation | Melbourne",
-    description: "Websites, AI chatbots, and automation for Australian small businesses.",
+    title: "Vasyl Bakhmut | Full-Stack Developer & AI Automation Specialist Melbourne",
+    description: "Custom websites, AI chatbots, and workflow automation for Australian small businesses. Fast delivery, transparent pricing.",
     images: ["/og-image.png"], // TODO: same as OG image
   },
   robots: {

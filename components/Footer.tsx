@@ -107,7 +107,7 @@ export function Footer() {
       >
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div
-            style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr", gap: "2.5rem", marginBottom: "2.5rem" }}
+            style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr 1fr 1fr", gap: "2.5rem", marginBottom: "2.5rem" }}
             className="footer-grid"
           >
             {/* Brand */}
@@ -131,8 +131,11 @@ export function Footer() {
                 <span style={{ color: "var(--text-muted)", fontWeight: 400 }}>/</span>
                 <span> Bakhmut</span>
               </a>
-              <p style={{ fontSize: "0.8375rem", color: "var(--text-secondary)", lineHeight: 1.75, maxWidth: 260, marginBottom: "1.25rem" }}>
+              <p style={{ fontSize: "0.8375rem", color: "var(--text-secondary)", lineHeight: 1.75, maxWidth: 260, marginBottom: "0.625rem" }}>
                 Full-stack web developer &amp; business automation specialist helping Australian small businesses grow online.
+              </p>
+              <p style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: "1.25rem" }}>
+                Serving Melbourne CBD &#183; Bayside Melbourne &#183; Sydney &#183; Victoria &#183; Australia-wide
               </p>
               {/* Tech stack pills */}
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
@@ -162,6 +165,33 @@ export function Footer() {
               </h3>
               <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                 {NAV_LINKS.map((l) => (
+                  <li key={l.href}>
+                    <a
+                      href={l.href}
+                      style={{ fontSize: "0.875rem", color: "var(--text-secondary)", textDecoration: "none", transition: "color 0.2s" }}
+                      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--accent)")}
+                      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--text-secondary)")}
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Locations */}
+            <div>
+              <h3 style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "1rem" }}>
+                Locations
+              </h3>
+              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                {[
+                  { label: "Melbourne", href: "/locations/melbourne" },
+                  { label: "Sydney", href: "/locations/sydney" },
+                  { label: "Victoria", href: "/locations/victoria" },
+                  { label: "Services", href: "/#services" },
+                  { label: "Pricing", href: "/#pricing" },
+                ].map((l) => (
                   <li key={l.href}>
                     <a
                       href={l.href}
@@ -237,8 +267,13 @@ export function Footer() {
       </div>
 
       <style>{`
+        @media (max-width: 1024px) {
+          .footer-grid { grid-template-columns: 1.5fr 1fr 1fr !important; }
+          .footer-grid > div:last-child { grid-column: 1 / -1; }
+        }
         @media (max-width: 768px) {
           .footer-grid { grid-template-columns: 1fr 1fr !important; }
+          .footer-grid > div:last-child { grid-column: auto; }
         }
         @media (max-width: 480px) {
           .footer-grid { grid-template-columns: 1fr !important; }

@@ -13,7 +13,7 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
   {
     title: "Why Melbourne Small Businesses Need AI Automation in 2026",
-    excerpt: "From scheduling to customer follow-ups, discover how local businesses are saving 10+ hours per week with simple AI workflows.",
+    excerpt: "Melbourne small business owners are saving 10+ hours a week with n8n automation - from scheduling to customer follow-ups, here is how to get started.",
     readTime: "5 min read",
     date: "Coming soon",
     slug: "melbourne-ai-automation-2026",
@@ -23,7 +23,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     title: "Next.js vs WordPress: Which Is Right for Your Business Site?",
-    excerpt: "A practical comparison for Australian small business owners — covering performance, SEO, cost, and long-term maintainability.",
+    excerpt: "A practical comparison for Melbourne and Sydney small business owners - covering performance, SEO, cost, and long-term maintainability for Australian sites.",
     readTime: "7 min read",
     date: "Coming soon",
     slug: "nextjs-vs-wordpress-australia",
@@ -33,7 +33,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     title: "How to Improve Your Google Rankings Without an Agency",
-    excerpt: "A step-by-step guide to technical SEO and content strategy that any small business owner in Australia can follow independently.",
+    excerpt: "A step-by-step guide any Melbourne web developer or small business owner in Australia can follow - no agency required.",
     readTime: "6 min read",
     date: "Coming soon",
     slug: "seo-guide-australian-small-business",

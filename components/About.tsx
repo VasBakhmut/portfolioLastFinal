@@ -38,7 +38,8 @@ export function About() {
                 and problem-solving instincts from construction translate directly: I plan
                 before I build, I communicate constantly, and I don&apos;t cut corners.
                 Today I specialise in full-stack web applications and AI-powered workflow
-                automation for Australian small businesses.
+                automation for Australian small businesses. I work with clients across
+                Melbourne, Sydney, and regional Victoria &#8212; fully remote and online.
               </p>
             </div>
           </ScrollReveal>

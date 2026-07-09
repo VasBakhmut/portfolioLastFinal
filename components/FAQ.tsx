@@ -7,15 +7,15 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 const FAQ_ITEMS = [
   {
     q: "What's included in the website price &#8212; and what's not?",
-    a: "Every package includes design, development, mobile responsiveness, a contact form, and basic SEO setup as listed in each plan. Domain registration, premium plugins/integrations beyond what's listed, and ongoing hosting after the first month are not included &#8212; these are covered separately or as part of a Care plan.",
+    a: "Every package includes design, development, mobile responsiveness, a contact form, and basic SEO setup as listed in each plan &#8212; standard for any Melbourne small business website. Domain registration, premium plugins/integrations beyond what's listed, and ongoing hosting after the first month are not included &#8212; these are covered separately or as part of a Care plan.",
   },
   {
     q: "Do I need a Care plan, or can I host the site myself?",
-    a: "A Care plan is optional. You're welcome to take the finished website and host it yourself. The Care plan exists for clients who'd rather not deal with hosting, backups, uptime monitoring, and small content updates &#8212; I handle all of that so you don't have to.",
+    a: "A Care plan is optional. You're welcome to take the finished website and host it yourself on any platform. The Care plan exists for clients who'd rather not deal with hosting in Australia, backups, uptime monitoring, and small content updates &#8212; I handle all of that so you don't have to.",
   },
   {
     q: "How long does a typical project take?",
-    a: "A landing page is typically live within 7 days. A business website takes around 2&#8211;3 weeks depending on the number of pages and revisions. Ecommerce stores and custom/AI automation projects vary based on scope &#8212; I'll give you a clear timeline after our first call.",
+    a: "A landing page is typically live within 7 days. A business website takes around 2&#8211;3 weeks depending on the number of pages and revisions. As a web developer in Melbourne I try to work efficiently within your schedule &#8212; ecommerce stores and custom/AI automation projects vary based on scope and I'll give you a clear timeline after our first call.",
   },
   {
     q: "Can I upgrade from a landing page to a full business website later?",
@@ -31,11 +31,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Do you work with businesses outside Melbourne or Australia?",
-    a: "Yes. While I'm based in Melbourne and many of my clients are local Australian businesses, I work remotely with clients anywhere &#8212; all communication, design reviews, and project updates happen online.",
+    a: "Yes. While I'm based in Melbourne and serve clients across Melbourne, Sydney, and Victoria, I also work remotely with businesses anywhere in Australia and beyond &#8212; all communication, design reviews, and project updates happen online.",
   },
   {
     q: "What's the difference between the AI Starter, Integration, and Custom tiers?",
-    a: "Starter ($99) covers a single simple chatbot and a 1-hour consultation &#8212; good for testing the waters. Integration ($349) covers connecting tools you already use, like your CRM, email, or calendar, into one automated workflow. Custom (book a call) is for businesses that need multiple connected systems or bespoke automation tools &#8212; pricing depends on scope.",
+    a: "Starter ($99) covers a single simple chatbot and a 1-hour consultation &#8212; a great entry point for Melbourne businesses new to AI. Integration ($349) covers connecting tools with n8n automation: your CRM, email, or calendar into one automated workflow. Custom (book a call) is for businesses that need multiple connected systems or bespoke automation tools &#8212; pricing depends on scope.",
   },
   {
     q: "Is the SEO audit really free, with no obligation?",
@@ -52,7 +52,7 @@ const FAQ_SCHEMA = {
       name: "What's included in the website price — and what's not?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Every package includes design, development, mobile responsiveness, a contact form, and basic SEO setup as listed in each plan. Domain registration, premium plugins/integrations beyond what's listed, and ongoing hosting after the first month are not included — these are covered separately or as part of a Care plan.",
+        text: "Every package includes design, development, mobile responsiveness, a contact form, and basic SEO setup as listed in each plan — standard for any Melbourne small business website. Domain registration, premium plugins/integrations beyond what's listed, and ongoing hosting after the first month are not included — these are covered separately or as part of a Care plan.",
       },
     },
     {
@@ -60,7 +60,7 @@ const FAQ_SCHEMA = {
       name: "Do I need a Care plan, or can I host the site myself?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A Care plan is optional. You're welcome to take the finished website and host it yourself. The Care plan exists for clients who'd rather not deal with hosting, backups, uptime monitoring, and small content updates — I handle all of that so you don't have to.",
+        text: "A Care plan is optional. You're welcome to take the finished website and host it yourself on any platform. The Care plan exists for clients who'd rather not deal with hosting in Australia, backups, uptime monitoring, and small content updates — I handle all of that so you don't have to.",
       },
     },
     {
@@ -68,7 +68,7 @@ const FAQ_SCHEMA = {
       name: "How long does a typical project take?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A landing page is typically live within 7 days. A business website takes around 2–3 weeks depending on the number of pages and revisions. Ecommerce stores and custom/AI automation projects vary based on scope — I'll give you a clear timeline after our first call.",
+        text: "A landing page is typically live within 7 days. A business website takes around 2-3 weeks depending on the number of pages and revisions. As a web developer in Melbourne I try to work efficiently within your schedule — ecommerce stores and custom/AI automation projects vary based on scope and I'll give you a clear timeline after our first call.",
       },
     },
     {
@@ -100,7 +100,7 @@ const FAQ_SCHEMA = {
       name: "Do you work with businesses outside Melbourne or Australia?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. While I'm based in Melbourne and many of my clients are local Australian businesses, I work remotely with clients anywhere — all communication, design reviews, and project updates happen online.",
+        text: "Yes. While I'm based in Melbourne and serve clients across Melbourne, Sydney, and Victoria, I also work remotely with businesses anywhere in Australia and beyond — all communication, design reviews, and project updates happen online.",
       },
     },
     {
@@ -108,7 +108,7 @@ const FAQ_SCHEMA = {
       name: "What's the difference between the AI Starter, Integration, and Custom tiers?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Starter ($99) covers a single simple chatbot and a 1-hour consultation — good for testing the waters. Integration ($349) covers connecting tools you already use, like your CRM, email, or calendar, into one automated workflow. Custom (book a call) is for businesses that need multiple connected systems or bespoke automation tools — pricing depends on scope.",
+        text: "Starter ($99) covers a single simple chatbot and a 1-hour consultation — a great entry point for Melbourne businesses new to AI. Integration ($349) covers connecting tools with n8n automation: your CRM, email, or calendar into one automated workflow. Custom (book a call) is for businesses that need multiple connected systems or bespoke automation tools — pricing depends on scope.",
       },
     },
     {

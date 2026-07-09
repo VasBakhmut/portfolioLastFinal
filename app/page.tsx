@@ -16,9 +16,81 @@ import { Footer } from "@/components/Footer";
 import { ParticleBackground } from "@/components/ui/ParticleBackground";
 import { BackgroundDecor } from "@/components/ui/BackgroundDecor";
 
+const LOCAL_BUSINESS_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Vasyl Bakhmut — Web Developer & AI Automation",
+  url: "https://bakhmut.com.au",
+  telephone: "0425401444",
+  email: "bakhmutvas@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Cheltenham",
+    addressLocality: "Cheltenham",
+    addressRegion: "VIC",
+    postalCode: "3192",
+    addressCountry: "AU",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -37.9526,
+    longitude: 145.0592,
+  },
+  areaServed: [
+    { "@type": "City", name: "Melbourne" },
+    { "@type": "City", name: "Sydney" },
+    { "@type": "State", name: "Victoria" },
+    { "@type": "Country", name: "Australia" },
+  ],
+  priceRange: "$$",
+  sameAs: [
+    "https://linkedin.com/in/vasylbakhmut",
+    "https://github.com/vasylbakhmut",
+  ],
+};
+
+const PERSON_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Vasyl Bakhmut",
+  url: "https://bakhmut.com.au",
+  jobTitle: "Full-Stack Web Developer & AI Automation Specialist",
+  worksFor: {
+    "@type": "Organization",
+    name: "Self-Employed",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Cheltenham",
+    addressRegion: "VIC",
+    addressCountry: "AU",
+  },
+  email: "bakhmutvas@gmail.com",
+  sameAs: [
+    "https://linkedin.com/in/vasylbakhmut",
+    "https://github.com/vasylbakhmut",
+  ],
+};
+
+const WEBSITE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Vasyl Bakhmut",
+  url: "https://bakhmut.com.au",
+  description: "Full-stack web developer and AI automation specialist based in Melbourne, Australia.",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://bakhmut.com.au/#contact",
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export default function Home() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_SCHEMA) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_SCHEMA) }} />
       <ParticleBackground />
       <BackgroundDecor />
       <div style={{ position: "relative", zIndex: 1 }}>
