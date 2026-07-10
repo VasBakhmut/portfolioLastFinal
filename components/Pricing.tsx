@@ -216,7 +216,6 @@ export function Pricing() {
                   ))}
                 </ul>
 
-                {plan.carePlan && <CarePlanHint />}
               </div>
             </ScrollReveal>
           ))}
@@ -340,15 +339,14 @@ export function Pricing() {
       <style>{`
         @media (max-width: 860px) {
           .pricing-main-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .pricing-ai-grid { grid-template-columns: 1fr !important; }
+          .pricing-care-grid { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 580px) {
-          .pricing-main-grid { grid-template-columns: 1fr !important; }
-          .pricing-ai-grid { grid-template-columns: 1fr !important; }
-          .pricing-care-grid { grid-template-columns: 1fr !important; }
-        }
-        @media (max-width: 860px) {
-          .pricing-ai-grid { grid-template-columns: 1fr !important; }
-          .pricing-care-grid { grid-template-columns: 1fr !important; }
+          .pricing-main-grid { grid-template-columns: 1fr !important; gap: 0.75rem !important; }
+          .pricing-main-grid > div > div { padding: 1.125rem 1rem !important; }
+          .pricing-ai-grid { grid-template-columns: 1fr !important; gap: 0.625rem !important; }
+          .pricing-care-grid { grid-template-columns: 1fr !important; gap: 0.5rem !important; }
         }
       `}</style>
     </section>

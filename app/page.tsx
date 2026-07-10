@@ -1,10 +1,8 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Stats } from "@/components/Stats";
-import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects";
-import { Timeline } from "@/components/Timeline";
 import { Blog } from "@/components/Blog";
 import { Services } from "@/components/Services";
 import { Process } from "@/components/Process";
@@ -20,7 +18,7 @@ const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Vasyl Bakhmut — Web Developer & AI Automation",
-  url: "https://bakhmut.com.au",
+  url: "https://vasdev.au",
   telephone: "0425401444",
   email: "bakhmutvas@gmail.com",
   address: {
@@ -53,7 +51,7 @@ const PERSON_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Vasyl Bakhmut",
-  url: "https://bakhmut.com.au",
+  url: "https://vasdev.au",
   jobTitle: "Full-Stack Web Developer & AI Automation Specialist",
   worksFor: {
     "@type": "Organization",
@@ -76,11 +74,11 @@ const WEBSITE_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Vasyl Bakhmut",
-  url: "https://bakhmut.com.au",
+  url: "https://vasdev.au",
   description: "Full-stack web developer and AI automation specialist based in Melbourne, Australia.",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://bakhmut.com.au/#contact",
+    target: "https://vasdev.au/#contact",
     "query-input": "required name=search_term_string",
   },
 };
@@ -98,10 +96,8 @@ export default function Home() {
         <main>
           <Hero />
           <Stats />
-          <About />
           <Projects />
           <Skills />
-          <Timeline />
           <Services />
           <Process />
           <Pricing />

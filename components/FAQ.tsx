@@ -122,8 +122,11 @@ const FAQ_SCHEMA = {
   ],
 };
 
+const MOBILE_VISIBLE = 3;
+
 export function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState(false);
 
   const toggle = (i: number) => setOpenIdx((prev) => (prev === i ? null : i));
 
@@ -156,8 +159,9 @@ export function FAQ() {
         <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem" }}>
           {FAQ_ITEMS.map((item, i) => {
             const isOpen = openIdx === i;
+            const hiddenOnMobile = !mobileExpanded && i >= MOBILE_VISIBLE;
             return (
-              <ScrollReveal key={i} delay={i * 0.04}>
+              <div key={i} className={hiddenOnMobile ? "faq-hidden-mobile" : ""}><ScrollReveal delay={i * 0.04}>
                 <div
                   style={{
                     background: "var(--bg-card)",
@@ -234,11 +238,50 @@ export function FAQ() {
                     )}
                   </AnimatePresence>
                 </div>
-              </ScrollReveal>
+              </ScrollReveal></div>
             );
           })}
         </div>
+
+        {/* Mobile: show more/less */}
+        <div className="faq-toggle-btn" style={{ marginTop: "1.25rem", textAlign: "center" }}>
+          <button
+            onClick={() => setMobileExpanded((v) => !v)}
+            style={{
+              background: "var(--bg-card)",
+              border: "1.5px solid var(--border-strong)",
+              borderRadius: "0.625rem",
+              padding: "0.625rem 1.5rem",
+              fontSize: "0.875rem",
+              fontWeight: 600,
+              color: "var(--accent)",
+              cursor: "pointer",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.4rem",
+            }}
+          >
+            {mobileExpanded ? "Show Less" : `Show ${FAQ_ITEMS.length - MOBILE_VISIBLE} More Questions`}
+            <svg
+              width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+              style={{ transform: mobileExpanded ? "rotate(180deg)" : "none", transition: "transform 0.25s" }}
+            >
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+        </div>
       </div>
+
+      <style>{`
+        @media (min-width: 601px) {
+          .faq-hidden-mobile { display: block !important; }
+          .faq-toggle-btn { display: none !important; }
+        }
+        @media (max-width: 600px) {
+          .faq-hidden-mobile { display: none !important; }
+        }
+      `}</style>
     </section>
   );
 }

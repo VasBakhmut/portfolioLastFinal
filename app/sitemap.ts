@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SERVICES, LOCATIONS } from "@/lib/seo-pages-data";
 
-const BASE = "https://bakhmut.com.au";
+const BASE = "https://vasdev.au";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

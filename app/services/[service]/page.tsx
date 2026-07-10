@@ -32,11 +32,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: service.metaTitle,
     description: service.metaDescription,
-    alternates: { canonical: `https://bakhmut.com.au/services/${service.slug}` },
+    alternates: { canonical: `https://vasdev.au/services/${service.slug}` },
     openGraph: {
       title: service.metaTitle,
       description: service.metaDescription,
-      url: `https://bakhmut.com.au/services/${service.slug}`,
+      url: `https://vasdev.au/services/${service.slug}`,
       type: "website",
       locale: "en_AU",
     },
@@ -58,19 +58,19 @@ export default async function ServicePage({ params }: Props) {
     provider: {
       "@type": "Person",
       name: "Vasyl Bakhmut",
-      url: "https://bakhmut.com.au",
+      url: "https://vasdev.au",
     },
     areaServed: "Australia",
-    url: `https://bakhmut.com.au/services/${service.slug}`,
+    url: `https://vasdev.au/services/${service.slug}`,
   };
 
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://bakhmut.com.au" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "https://bakhmut.com.au/services" },
-      { "@type": "ListItem", position: 3, name: service.name, item: `https://bakhmut.com.au/services/${service.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://vasdev.au" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://vasdev.au/services" },
+      { "@type": "ListItem", position: 3, name: service.name, item: `https://vasdev.au/services/${service.slug}` },
     ],
   };
 

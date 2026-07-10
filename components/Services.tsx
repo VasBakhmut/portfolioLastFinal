@@ -107,10 +107,12 @@ export function Services() {
             <ScrollReveal key={s.title} delay={i * 0.1}>
               <Link
                 href={`/services/${s.slug}`}
-                className="glass-card"
+                className="glass-card service-card"
                 style={{ padding: "1.5rem", height: "100%", display: "flex", flexDirection: "column", textDecoration: "none", overflow: "hidden" }}
               >
+                {/* Icon — smaller on mobile via CSS class */}
                 <div
+                  className="service-icon"
                   style={{
                     width: 56, height: 56, borderRadius: "0.875rem",
                     display: "flex", alignItems: "center", justifyContent: "center",
@@ -131,7 +133,9 @@ export function Services() {
                 >
                   {s.title}
                 </h3>
+                {/* Description — hidden on mobile */}
                 <p
+                  className="service-desc"
                   style={{ fontSize: "0.8125rem", color: "var(--text-secondary)", lineHeight: 1.75, flex: 1 }}
                   dangerouslySetInnerHTML={{ __html: s.description }}
                 />
@@ -166,7 +170,11 @@ export function Services() {
           .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 500px) {
-          .services-grid { grid-template-columns: 1fr !important; }
+          .services-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.75rem !important; }
+          .service-card { padding: 0.875rem !important; }
+          .service-icon { width: 40px !important; height: 40px !important; margin-bottom: 0.625rem !important; border-radius: 0.625rem !important; }
+          .service-icon svg { width: 20px !important; height: 20px !important; }
+          .service-desc { display: none !important; }
         }
       `}</style>
     </section>

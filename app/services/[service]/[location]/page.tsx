@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = `${service.name} ${location.name} | ${location.state} | Vasyl Bakhmut`;
   const description = `${service.name} services in ${location.name}, ${location.state}. ${service.metaDescription}`;
-  const canonical = `https://bakhmut.com.au/services/${service.slug}/${location.slug}`;
+  const canonical = `https://vasdev.au/services/${service.slug}/${location.slug}`;
 
   return {
     title,
@@ -49,24 +49,24 @@ export default async function ServiceLocationPage({ params }: Props) {
     provider: {
       "@type": "Person",
       name: "Vasyl Bakhmut",
-      url: "https://bakhmut.com.au",
+      url: "https://vasdev.au",
     },
     areaServed: {
       "@type": "City",
       name: location.name,
       containedIn: location.state,
     },
-    url: `https://bakhmut.com.au/services/${service.slug}/${location.slug}`,
+    url: `https://vasdev.au/services/${service.slug}/${location.slug}`,
   };
 
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://bakhmut.com.au" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "https://bakhmut.com.au/services" },
-      { "@type": "ListItem", position: 3, name: service.name, item: `https://bakhmut.com.au/services/${service.slug}` },
-      { "@type": "ListItem", position: 4, name: location.name, item: `https://bakhmut.com.au/services/${service.slug}/${location.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://vasdev.au" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://vasdev.au/services" },
+      { "@type": "ListItem", position: 3, name: service.name, item: `https://vasdev.au/services/${service.slug}` },
+      { "@type": "ListItem", position: 4, name: location.name, item: `https://vasdev.au/services/${service.slug}/${location.slug}` },
     ],
   };
 

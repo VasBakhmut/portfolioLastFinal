@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = `Web Developer & AI Automation ${location.name} | Vasyl Bakhmut`;
   const description = `Full-stack web developer and AI automation specialist serving ${location.name}, ${location.state}. Custom websites, AI chatbots, SEO. ${location.type === "local" ? "Based locally." : "Remote-first, same timezone."}`;
-  const canonical = `https://bakhmut.com.au/locations/${location.slug}`;
+  const canonical = `https://vasdev.au/locations/${location.slug}`;
 
   return {
     title,
@@ -40,7 +40,7 @@ export default async function LocationPage({ params }: Props) {
     "@type": "LocalBusiness",
     name: "Vasyl Bakhmut — Web Developer & AI Automation",
     description: `Web development and AI automation services in ${location.name}, ${location.state}.`,
-    url: "https://bakhmut.com.au",
+    url: "https://vasdev.au",
     telephone: "0425401444",
     email: "bakhmutvas@gmail.com",
     address: {
@@ -68,8 +68,8 @@ export default async function LocationPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://bakhmut.com.au" },
-      { "@type": "ListItem", position: 2, name: location.name, item: `https://bakhmut.com.au/locations/${location.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://vasdev.au" },
+      { "@type": "ListItem", position: 2, name: location.name, item: `https://vasdev.au/locations/${location.slug}` },
     ],
   };
 

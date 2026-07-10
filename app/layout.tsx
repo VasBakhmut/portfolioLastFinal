@@ -17,7 +17,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_URL = "https://bakhmut.com.au";
+const SITE_URL = "https://vasdev.au";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

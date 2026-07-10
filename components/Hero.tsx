@@ -92,7 +92,7 @@ export function Hero() {
               fontFamily: "var(--font-display)",
               fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)",
               fontWeight: 500,
-              color: "var(--text-secondary)",
+              color: "var(--accent)",
               marginBottom: "1.25rem",
               lineHeight: 1.4,
             }}
@@ -100,20 +100,50 @@ export function Hero() {
             Full-Stack Web Developer &amp; Business Automation Specialist
           </motion.p>
 
+          <motion.h2
+            {...fadeUp(0.35)}
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(1rem, 2vw, 1.175rem)",
+              fontWeight: 700,
+              color: "var(--text-primary)",
+              marginBottom: "0.875rem",
+              lineHeight: 1.3,
+            }}
+          >
+            From Building Sites to{" "}
+            <span style={{ color: "var(--accent)", opacity: 0.85 }}>Building Software</span>
+          </motion.h2>
+
           <motion.p
             {...fadeUp(0.4)}
             style={{
-              fontSize: "1rem",
+              fontSize: "0.9375rem",
               color: "var(--text-secondary)",
-              lineHeight: 1.75,
+              lineHeight: 1.8,
+              maxWidth: 560,
+              marginBottom: "0.75rem",
+            }}
+          >
+            For over a decade, I managed complex construction projects &#8212; leading teams,
+            budgets, compliance, and client relationships. Working under pressure and delivering
+            on tight deadlines taught me the value of clear communication and reliable execution.
+          </motion.p>
+
+          <motion.p
+            {...fadeUp(0.45)}
+            style={{
+              fontSize: "0.9375rem",
+              color: "var(--text-secondary)",
+              lineHeight: 1.8,
               maxWidth: 560,
               marginBottom: "2.25rem",
             }}
           >
-            I build responsive, accessible, and performant web applications with modern
-            technologies &#8212; passionate about intuitive UX and clean, maintainable code.
-            I also specialise in business automation and AI integration to help Australian
-            small businesses save time and grow smarter.
+            In 2022, I transitioned into software development, bringing the same structured
+            approach to every project. Today I help Australian small businesses build full-stack
+            web applications and AI-powered automation, delivering projects remotely from
+            Melbourne to clients nationwide.
           </motion.p>
 
           <motion.div

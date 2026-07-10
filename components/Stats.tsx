@@ -36,14 +36,13 @@ const STATS = [
   },
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2"/>
-        <line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+      <svg width="22" height="22" viewBox="0 0 800 800" fill="none" stroke="currentColor" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round">
+        {/* Australia outline — simplified vector path */}
+        <path d="M420,120 C445,118 470,125 490,138 C510,150 522,168 530,188 C538,208 542,230 548,252 C554,274 562,296 575,314 C588,332 606,346 618,364 C630,382 636,404 630,424 C624,444 606,460 592,478 C578,496 568,516 558,538 C548,560 540,584 528,606 C516,628 500,648 480,660 C460,672 436,676 414,672 C392,668 372,656 354,642 C336,628 320,610 308,590 C296,570 288,548 280,526 C272,504 264,482 252,462 C240,442 224,424 214,404 C204,384 200,362 202,340 C204,318 212,298 224,280 C236,262 252,248 268,234 C284,220 300,208 316,196 C332,184 348,172 366,162 C384,152 404,144 420,120 Z"/>
       </svg>
     ),
-    count: 37,
-    suffix: "+",
-    label: "Projects Delivered",
+    display: "100%",
+    label: "Local — Based in AU",
   },
 ];
 

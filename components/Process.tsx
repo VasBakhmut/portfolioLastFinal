@@ -149,11 +149,14 @@ export function Process() {
 
       <style>{`
         @media (max-width: 768px) {
-          .process-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .process-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1rem !important; }
           .process-line { display: none !important; }
         }
         @media (max-width: 480px) {
-          .process-grid { grid-template-columns: 1fr !important; }
+          .process-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.75rem !important; }
+          .process-grid > div > div > div:first-child { width: 48px !important; height: 48px !important; margin-bottom: 0.875rem !important; }
+          .process-grid > div > div > div:first-child svg { width: 18px !important; height: 18px !important; }
+          .process-grid p { font-size: 0.75rem !important; line-height: 1.6 !important; }
         }
       `}</style>
     </section>
