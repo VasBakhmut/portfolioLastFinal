@@ -19,7 +19,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "melbourne-ai-automation-2026",
     category: "AI & Automation",
     placeholder: true,
-    image: "/placeholder-blog-1.png",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=60",
   },
   {
     title: "Next.js vs WordPress: Which Is Right for Your Business Site?",
@@ -29,7 +29,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "nextjs-vs-wordpress-australia",
     category: "Web Development",
     placeholder: true,
-    image: "/placeholder-blog-2.png",
+    image: "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=800&auto=format&fit=crop&q=60",
   },
   {
     title: "How to Improve Your Google Rankings Without an Agency",
@@ -39,7 +39,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "seo-guide-australian-small-business",
     category: "SEO",
     placeholder: true,
-    image: "/placeholder-blog-3.png",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=60",
   },
   {
     title: "Building a Telegram Bot with Node.js and Google Speech API",
@@ -49,7 +49,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "telegram-bot-nodejs-google-speech",
     category: "Web Development",
     placeholder: true,
-    image: "/placeholder-blog-4.png",
+    image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&auto=format&fit=crop&q=60",
   },
   {
     title: "n8n vs Zapier: Which Automation Tool Is Better for Your Business?",
@@ -59,7 +59,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "n8n-vs-zapier-australia",
     category: "AI & Automation",
     placeholder: true,
-    image: "/placeholder-blog-5.png",
+    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&auto=format&fit=crop&q=60",
   },
   {
     title: "Core Web Vitals Explained for Non-Technical Business Owners",
@@ -69,7 +69,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "core-web-vitals-explained",
     category: "SEO",
     placeholder: true,
-    image: "/placeholder-blog-6.png",
+    image: "https://images.unsplash.com/photo-1571721795195-a2ca2d3370a9?w=800&auto=format&fit=crop&q=60",
   },
 ];
 

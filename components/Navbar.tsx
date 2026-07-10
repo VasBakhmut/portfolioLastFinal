@@ -44,7 +44,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 32);
@@ -267,28 +267,6 @@ export function Navbar() {
 
           {/* Right controls */}
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            {/* Availability dot */}
-            <span
-              className="avail-badge"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.35rem",
-                fontSize: "0.72rem",
-                fontWeight: 700,
-                letterSpacing: "0.04em",
-                color: "#10b981",
-                background: "rgba(16,185,129,0.1)",
-                border: "1px solid rgba(16,185,129,0.3)",
-                borderRadius: "100px",
-                padding: "0.28rem 0.75rem",
-                whiteSpace: "nowrap",
-              }}
-            >
-              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10b981", display: "inline-block", boxShadow: "0 0 6px #10b981" }} />
-              Available for Work
-            </span>
-
             <ThemeToggle />
 
             {/* Task 1 fix: whiteSpace + minWidth ensure button never wraps */}
@@ -436,11 +414,7 @@ export function Navbar() {
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
           .desktop-cta { display: none !important; }
-          .avail-badge { display: none !important; }
           .hamburger { display: flex !important; }
-        }
-        @media (max-width: 960px) {
-          .avail-badge { display: none !important; }
         }
       `}</style>
     </>

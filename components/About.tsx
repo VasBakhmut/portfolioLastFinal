@@ -15,7 +15,7 @@ export function About() {
       id="about"
       style={{ padding: "4rem 1.5rem", position: "relative", zIndex: 1 }}
     >
-      <div style={{ maxWidth: 900, margin: "0 auto" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <ScrollReveal>
           <p className="section-label"><span>&#8212;</span> About Me</p>
           <h2 className="section-heading" style={{ marginBottom: "2rem" }}>

@@ -297,7 +297,7 @@ export function Timeline() {
 
       <style>{`
         @media (max-width: 767px) {
-          .timeline-cards-grid { min-height: 560px !important; }
+          .timeline-cards-grid { height: 572px !important; overflow-y: auto !important; }
         }
       `}</style>
     </section>

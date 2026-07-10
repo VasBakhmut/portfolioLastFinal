@@ -99,13 +99,13 @@ export default function Home() {
           <Hero />
           <Stats />
           <About />
-          <Skills />
           <Projects />
+          <Skills />
           <Timeline />
-          <Blog />
           <Services />
           <Process />
           <Pricing />
+          <Blog />
           <SeoAuditBanner />
           <FAQ />
           <Contact />

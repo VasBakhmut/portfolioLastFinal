@@ -20,7 +20,7 @@ const PROJECTS: ProjectWithPrice[] = [
     tech: ["Node.js", "Express", "Telegraf", "Google API", "TypeScript"],
     budget: "Personal Project",
     price: "~$500 AUD",
-    image: "/placeholder-project-1.png",
+    image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&auto=format&fit=crop&q=60",
     githubUrl: "https://github.com/vasylbakhmut",
   },
   {
@@ -32,7 +32,7 @@ const PROJECTS: ProjectWithPrice[] = [
     tech: ["JavaScript", "HTML5", "SCSS", "Responsive Design"],
     budget: "Training Project",
     price: "~$200 AUD",
-    image: "/placeholder-project-2.png",
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&auto=format&fit=crop&q=60",
     liveUrl: "#",
   },
   {
@@ -43,7 +43,7 @@ const PROJECTS: ProjectWithPrice[] = [
     tech: ["React", "Next.js", "Node.js"],
     price: "TBD",
     placeholder: true,
-    image: "/placeholder-project-3.png",
+    image: "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=800&auto=format&fit=crop&q=60",
   },
   {
     id: "coming-soon-2",
@@ -53,7 +53,7 @@ const PROJECTS: ProjectWithPrice[] = [
     tech: ["Python", "LangChain", "n8n"],
     price: "TBD",
     placeholder: true,
-    image: "/placeholder-project-4.png",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=60",
   },
 ];
 

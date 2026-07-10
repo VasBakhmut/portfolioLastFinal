@@ -216,33 +216,6 @@ export function Pricing() {
                   ))}
                 </ul>
 
-                <a
-                  href={plan.ctaHref}
-                  style={{
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    padding: "0.6rem 0.875rem",
-                    borderRadius: "0.5rem",
-                    fontSize: "0.8rem", fontWeight: 700,
-                    textDecoration: "none",
-                    background: plan.popular ? plan.color : "transparent",
-                    color: plan.popular ? "#fff" : plan.color,
-                    border: `1.5px solid ${plan.color}`,
-                    transition: "opacity 0.2s, transform 0.2s",
-                  }}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.opacity = "0.85";
-                    el.style.transform = "translateY(-1px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.opacity = "1";
-                    el.style.transform = "none";
-                  }}
-                >
-                  {plan.cta}
-                </a>
-
                 {plan.carePlan && <CarePlanHint />}
               </div>
             </ScrollReveal>

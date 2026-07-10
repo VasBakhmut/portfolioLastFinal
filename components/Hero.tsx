@@ -164,7 +164,7 @@ export function Hero() {
           className="hero-photo"
           style={{ flexShrink: 0, position: "relative" }}
         >
-          <div className="hero-photo-ring" style={{ position: "relative", width: 260, height: 260 }}>
+          <div className="hero-photo-ring" style={{ position: "relative", width: 286, height: 286 }}>
             {/* Spinning glow ring */}
             <div
               style={{
@@ -199,7 +199,7 @@ export function Hero() {
                 src="/vasyl-avatar.jpg"
                 alt="Vasyl Bakhmut — Full-Stack Web Developer Melbourne"
                 fill
-                sizes="260px"
+                sizes="286px"
                 style={{ objectFit: "cover" }}
                 priority
               />
@@ -285,7 +285,7 @@ export function Hero() {
         @media (max-width: 768px) {
           .hero-grid { grid-template-columns: 1fr !important; }
           .hero-photo { display: flex !important; flex-direction: column; align-items: center; order: -1; }
-          .hero-photo-ring { width: 160px !important; height: 160px !important; }
+          .hero-photo-ring { width: 176px !important; height: 176px !important; }
         }
       `}</style>
     </section>

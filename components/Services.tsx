@@ -5,6 +5,18 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const SERVICES = [
   {
+    slug: "web-design",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 3v6"/>
+      </svg>
+    ),
+    title: "Web Design",
+    description: "Clean, modern, and conversion-focused website designs built mobile-first for Australian small businesses. Every design is tailored to your brand and built to perform.",
+    color: "#ec4899",
+    priceHint: "from $199",
+  },
+  {
     slug: "web-development",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -15,18 +27,6 @@ const SERVICES = [
     description: "Fast, accessible, and SEO-optimised websites and web applications built with React, Next.js, and TypeScript &#8212; designed to convert visitors into customers.",
     color: "#06b6d4",
     priceHint: "from $199",
-  },
-  {
-    slug: "ai-automation",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2a10 10 0 1 0 10 10"/><circle cx="18" cy="5" r="3"/><path d="M12 8v4l3 3"/>
-      </svg>
-    ),
-    title: "AI Chatbots & Automation",
-    description: "Custom AI assistants, workflow automation with n8n, CRM integrations, and intelligent tools that save your team hours of repetitive work every week.",
-    color: "#8b5cf6",
-    priceHint: "from $99",
   },
   {
     slug: "seo-optimization",
@@ -41,16 +41,40 @@ const SERVICES = [
     priceHint: "Free audit",
   },
   {
-    slug: "cloud-devops",
+    slug: "ecommerce-solutions",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
       </svg>
     ),
-    title: "Cloud & DevOps Consulting",
-    description: "AWS setup, Docker containerisation, CI/CD pipelines, and Vercel deployments &#8212; making sure your infrastructure is reliable, scalable, and cost-efficient.",
-    color: "#f59e0b",
-    priceHint: "from $149",
+    title: "Ecommerce Solutions",
+    description: "Custom online stores with Australian payment gateways, product management, and mobile-first checkout &#8212; built to turn browsers into buyers.",
+    color: "#f97316",
+    priceHint: "from $799",
+  },
+  {
+    slug: "business-web-solutions",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+      </svg>
+    ),
+    title: "Business Web Solutions",
+    description: "Complete website packages for Australian SMBs &#8212; multi-page sites, CMS integration, contact forms, and SEO basics from a single point of contact.",
+    color: "#3b82f6",
+    priceHint: "from $299",
+  },
+  {
+    slug: "ai-automation",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2a10 10 0 1 0 10 10"/><circle cx="18" cy="5" r="3"/><path d="M12 8v4l3 3"/>
+      </svg>
+    ),
+    title: "AI Chatbots & Automation",
+    description: "Custom AI assistants, workflow automation with n8n, CRM integrations, and intelligent tools that save your team hours of repetitive work every week.",
+    color: "#8b5cf6",
+    priceHint: "from $99",
   },
 ];
 
@@ -76,7 +100,7 @@ export function Services() {
         </ScrollReveal>
 
         <div
-          style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1.25rem" }}
+          style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}
           className="services-grid"
         >
           {SERVICES.map((s, i) => (
@@ -138,7 +162,7 @@ export function Services() {
       </div>
 
       <style>{`
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
           .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 500px) {
