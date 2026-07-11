@@ -8,52 +8,70 @@ import type { Project } from "@/types";
 
 interface ProjectWithPrice extends Project {
   price?: string;
+  categories?: string[];
+  link?: { type: "demo" | "private"; url?: string; label: string };
 }
 
 const PROJECTS: ProjectWithPrice[] = [
   {
-    id: "telegram-bot",
-    title: "Telegram Audio-to-Text Bot",
+    id: "orhtorah",
+    title: "Orhtorah Community Platform",
     description:
-      "A Telegram bot that receives audio files and returns accurate text transcriptions using the Google Speech-to-Text API. Handles multiple audio formats and replies inline in the chat.",
-    type: "Automation",
-    tech: ["Node.js", "Express", "Telegraf", "Google API", "TypeScript"],
-    budget: "Personal Project",
-    price: "~$500 AUD",
-    image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&auto=format&fit=crop&q=60",
-    githubUrl: "https://github.com/vasylbakhmut",
-  },
-  {
-    id: "landing-pages",
-    title: "Bakery & Beauty Salon Landing Pages",
-    description:
-      "Two polished, fully responsive landing pages built as a practical training project. Custom design, mobile-first layout, smooth scroll interactions.",
-    type: "Landing Page",
-    tech: ["JavaScript", "HTML5", "SCSS", "Responsive Design"],
-    budget: "Training Project",
-    price: "~$200 AUD",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&auto=format&fit=crop&q=60",
-    liveUrl: "#",
-  },
-  {
-    id: "coming-soon-1",
-    title: "Coming Soon",
-    description: "A new project is in the works. Check back shortly for details on the tech stack, problem solved, and outcomes delivered.",
+      "A full-featured community platform for a Melbourne Jewish organisation — built with custom membership management, event registrations, donation payments via Stripe, a personal Chitas study system, and a content management dashboard for news and photos.",
     type: "Web App",
-    tech: ["React", "Next.js", "Node.js"],
-    price: "TBD",
-    placeholder: true,
-    image: "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=800&auto=format&fit=crop&q=60",
+    tech: ["Next.js", "TypeScript", "NestJS", "Stripe", "Custom CMS"],
+    categories: ["Web Development", "Client Project"],
+    price: "~$900 AUD",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80",
+    link: { type: "demo", url: "https://www.orhtorah.au/", label: "Live Demo" },
   },
   {
-    id: "coming-soon-2",
-    title: "Coming Soon",
-    description: "An AI-powered workflow automation tool for Australian SMEs &#8212; launching soon.",
+    id: "tradie-saas",
+    title: "Tradie Quoting & Invoicing SaaS",
+    description:
+      "A multilingual quoting and invoicing SaaS for tradespeople — clients write in their native language, the system translates to English, generates professional PDF quotes and invoices, and sends them directly to customers.",
+    type: "SaaS",
+    tech: ["Node.js", "React", "NestJS", "Puppeteer", "Google Translate API"],
+    categories: ["SaaS", "Client Project"],
+    price: "~$400 AUD",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80",
+    link: { type: "private", label: "Private Client Project" },
+  },
+  {
+    id: "builder-ai",
+    title: "Builder AI Quoting SaaS",
+    description:
+      "An AI-powered quoting SaaS for builders — type a few words like 'bathroom 3x4 with bath and shower' and the system expands it into a full 3–4 page detailed quote covering labour, materials, and specifications. Generates and emails professional PDF documents.",
     type: "Automation",
-    tech: ["Python", "LangChain", "n8n"],
-    price: "TBD",
-    placeholder: true,
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=60",
+    tech: ["Next.js", "NestJS", "OpenAI API", "Puppeteer"],
+    categories: ["AI", "SaaS", "Client Project"],
+    price: "~$2,800 AUD",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80",
+    link: { type: "private", label: "Private Client Project" },
+  },
+  {
+    id: "salon-booking",
+    title: "Salon Booking & Appointment SaaS",
+    description:
+      "A booking and appointment management SaaS for hair salons — clients book online, the system manages schedules, sends automated SMS and email reminders, and keeps a full client history.",
+    type: "SaaS",
+    tech: ["Next.js", "NestJS", "OpenAI API"],
+    categories: ["SaaS", "Client Project"],
+    price: "~$400 AUD",
+    image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80",
+    link: { type: "private", label: "Private Client Project" },
+  },
+  {
+    id: "dog-food",
+    title: "Dog Food Brand Landing Page",
+    description:
+      "A conversion-focused landing page for a dog food brand — bold product photography, ingredient highlights, trust signals, and a streamlined order flow designed to turn visitors into buyers.",
+    type: "Landing Page",
+    tech: ["Next.js", "NestJS", "Supabase"],
+    categories: ["Landing Page", "Client Project"],
+    price: "~$780 AUD",
+    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80",
+    link: { type: "private", label: "Private Client Project" },
   },
 ];
 
@@ -61,6 +79,7 @@ const TYPE_COLORS: Record<string, string> = {
   Automation: "#8b5cf6",
   "Landing Page": "#06b6d4",
   "Web App": "#10b981",
+  SaaS: "#f97316",
 };
 
 const PAGE_SIZE = 3;
@@ -208,19 +227,19 @@ function ProjectCard({ project: p }: { project: ProjectWithPrice }) {
               position: "absolute",
               top: "0.625rem",
               right: "0.625rem",
-              background: p.placeholder ? "var(--bg-card)" : "var(--accent)",
-              color: p.placeholder ? "var(--text-muted)" : "#fff",
-              fontSize: "0.8rem",
-              fontWeight: 800,
-              letterSpacing: "0.05em",
-              padding: "0.3rem 0.8rem",
+              background: "rgba(0,0,0,0.45)",
+              color: p.placeholder ? "rgba(255,255,255,0.5)" : "#fff",
+              fontSize: "0.72rem",
+              fontWeight: 700,
+              letterSpacing: "0.03em",
+              padding: "0.22rem 0.7rem",
               borderRadius: "100px",
               backdropFilter: "blur(8px)",
-              border: p.placeholder ? "1px solid var(--border)" : "none",
-              boxShadow: p.placeholder ? "none" : "0 2px 10px rgba(6,182,212,0.4)",
+              WebkitBackdropFilter: "blur(8px)",
+              border: `1px solid ${p.placeholder ? "rgba(255,255,255,0.15)" : "var(--accent)"}`,
             }}
           >
-            {p.placeholder ? "Coming Soon" : `💰 ${p.price}`}
+            {p.placeholder ? "Coming Soon" : p.price}
           </div>
         )}
         {!p.placeholder && (
@@ -230,27 +249,28 @@ function ProjectCard({ project: p }: { project: ProjectWithPrice }) {
 
       {/* Body */}
       <div style={{ padding: "1rem 1.125rem", flex: 1, display: "flex", flexDirection: "column" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", marginBottom: "0.5rem", flexWrap: "wrap" }}>
-          <span
-            style={{
-              fontSize: "0.65rem",
-              fontWeight: 700,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              padding: "0.18rem 0.55rem",
-              borderRadius: "100px",
-              background: `${typeColor}18`,
-              color: typeColor,
-              border: `1px solid ${typeColor}30`,
-            }}
-          >
-            {p.type}
-          </span>
-          {p.budget && (
-            <span style={{ fontSize: "0.65rem", fontWeight: 500, color: "var(--text-muted)", padding: "0.18rem 0.55rem", borderRadius: "100px", background: "var(--bg-secondary)", border: "1px solid var(--border)" }}>
-              {p.budget}
-            </span>
-          )}
+        <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", marginBottom: "0.5rem", flexWrap: "wrap" }}>
+          {(p.categories ?? [p.type]).map((cat) => {
+            const catColor = TYPE_COLORS[cat] ?? TYPE_COLORS[p.type] ?? "var(--accent)";
+            return (
+              <span
+                key={cat}
+                style={{
+                  fontSize: "0.65rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                  padding: "0.18rem 0.55rem",
+                  borderRadius: "100px",
+                  background: `${catColor}18`,
+                  color: catColor,
+                  border: `1px solid ${catColor}30`,
+                }}
+              >
+                {cat}
+              </span>
+            );
+          })}
         </div>
 
         <h3 style={{ fontFamily: "var(--font-display)", fontSize: "0.9375rem", fontWeight: 700, color: "var(--text-primary)", marginBottom: "0.375rem" }}>
@@ -268,19 +288,41 @@ function ProjectCard({ project: p }: { project: ProjectWithPrice }) {
           ))}
         </div>
 
-        {!p.placeholder && (
-          <div style={{ display: "flex", gap: "0.5rem" }}>
-            {p.liveUrl && (
-              <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: "0.75rem", padding: "0.35rem 0.75rem" }}>
-                Live Demo
-              </a>
-            )}
-            {p.githubUrl && (
-              <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ fontSize: "0.75rem", padding: "0.35rem 0.75rem" }}>
-                GitHub
-              </a>
-            )}
-          </div>
+        {p.link && (
+          p.link.type === "demo" ? (
+            <a
+              href={p.link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+              style={{ fontSize: "0.75rem", padding: "0.35rem 0.75rem", display: "inline-flex", alignItems: "center", gap: "0.3rem" }}
+            >
+              {p.link.label}
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+              </svg>
+            </a>
+          ) : (
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.35rem",
+                fontSize: "0.65rem",
+                fontWeight: 600,
+                color: "var(--text-muted)",
+                padding: "0.25rem 0.65rem",
+                borderRadius: "100px",
+                background: "var(--bg-secondary)",
+                border: "1px solid var(--border)",
+              }}
+            >
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              {p.link.label}
+            </span>
+          )
         )}
       </div>
     </div>

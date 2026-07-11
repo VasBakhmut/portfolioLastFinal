@@ -139,7 +139,8 @@ export function Services() {
                   style={{ fontSize: "0.8125rem", color: "var(--text-secondary)", lineHeight: 1.75, flex: 1 }}
                   dangerouslySetInnerHTML={{ __html: s.description }}
                 />
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "1rem" }}>
+                {/* Desktop: price + learn more; Mobile: hidden, arrow shown in CSS */}
+                <div className="service-bottom" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "1rem" }}>
                   <span
                     style={{
                       fontSize: "0.75rem", fontWeight: 700,
@@ -159,6 +160,21 @@ export function Services() {
                     </svg>
                   </span>
                 </div>
+                {/* Mobile-only: subtle arrow to hint clickability */}
+                <div
+                  className="service-arrow-mobile"
+                  style={{
+                    display: "none",
+                    marginTop: "0.5rem",
+                    justifyContent: "flex-end",
+                    color: s.color,
+                    opacity: 0.7,
+                  }}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </div>
               </Link>
             </ScrollReveal>
           ))}
@@ -175,6 +191,8 @@ export function Services() {
           .service-icon { width: 40px !important; height: 40px !important; margin-bottom: 0.625rem !important; border-radius: 0.625rem !important; }
           .service-icon svg { width: 20px !important; height: 20px !important; }
           .service-desc { display: none !important; }
+          .service-bottom { display: none !important; }
+          .service-arrow-mobile { display: flex !important; }
         }
       `}</style>
     </section>

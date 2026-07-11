@@ -13,6 +13,7 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { ParticleBackground } from "@/components/ui/ParticleBackground";
 import { BackgroundDecor } from "@/components/ui/BackgroundDecor";
+import { FloatingCallButton } from "@/components/FloatingCallButton";
 
 const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
@@ -107,6 +108,7 @@ export default function Home() {
           <Contact />
         </main>
         <Footer />
+        <FloatingCallButton />
       </div>
     </>
   );

@@ -222,87 +222,27 @@ export function Pricing() {
 
         </div>
 
-        {/* ── AI & Automation tiers ── */}
-        <ScrollReveal>
-          <div style={{ marginBottom: "1rem" }}>
-            <p style={{ fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#8b5cf6", marginBottom: "0.25rem" }}>
-              AI &amp; automation
-            </p>
-            <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.125rem", fontWeight: 700, color: "var(--text-primary)" }}>
-              Three tiers for every scale
-            </h3>
-          </div>
-        </ScrollReveal>
-
-        <div
-          className="pricing-ai-grid"
-          style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem", marginBottom: "2.5rem" }}
-        >
-          {AI_TIERS.map((tier, i) => (
-            <ScrollReveal key={tier.name} delay={i * 0.07}>
-              <div
-                style={{
-                  padding: "1.25rem 1.375rem",
-                  borderRadius: "1rem",
-                  border: tier.custom ? "1.5px dashed #8b5cf680" : "1px solid #8b5cf630",
-                  background: tier.custom ? "transparent" : "#8b5cf608",
-                  backdropFilter: "blur(12px)",
-                  WebkitBackdropFilter: "blur(12px)",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "0.375rem",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  <span style={{ fontFamily: "var(--font-display)", fontSize: "0.9375rem", fontWeight: 700, color: "var(--text-primary)" }}>
-                    {tier.name}
-                  </span>
-                  <span style={{ fontFamily: "var(--font-display)", fontSize: tier.custom ? "0.8rem" : "1.25rem", fontWeight: tier.custom ? 600 : 800, color: "#8b5cf6" }}>
-                    {tier.price}
-                    {tier.currency && <span style={{ fontSize: "0.65rem", fontWeight: 600, marginLeft: "0.2rem", color: "var(--text-muted)" }}>{tier.currency}</span>}
-                  </span>
-                </div>
-                <p style={{ fontSize: "0.78rem", color: "var(--text-secondary)", lineHeight: 1.5, margin: 0 }}>
-                  {tier.note}
-                </p>
-                <a
-                  href="#contact"
-                  style={{
-                    display: "inline-flex", alignItems: "center", gap: "0.3rem",
-                    marginTop: "0.5rem", fontSize: "0.75rem", fontWeight: 700,
-                    color: "#8b5cf6", textDecoration: "none",
-                    transition: "opacity 0.2s",
-                  }}
-                  onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.7")}
-                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
-                >
-                  {tier.custom ? "Book a call" : "Get started"}
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                  </svg>
-                </a>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-
-        {/* ── Care Plans ── */}
+        {/* ── Add-ons & Care ── */}
         <ScrollReveal>
           <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
             <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
             <p style={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", whiteSpace: "nowrap" }}>
-              Care plans &#8212; monthly add-on for any site
+              Add-ons &amp; Care
             </p>
             <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
           </div>
         </ScrollReveal>
 
         <div
-          className="pricing-care-grid"
+          className="pricing-addons-grid"
           style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem" }}
         >
-          {CARE_PLANS.map((plan, i) => (
-            <ScrollReveal key={plan.name} delay={i * 0.07}>
+          {[
+            { name: "AI Starter", price: "$99", period: " AUD", note: "1 chatbot + 1hr consult", color: "#8b5cf6" },
+            { name: "Basic Care", price: "$29", period: "/mo", note: "Hosting, backups, minor edits", color: "var(--accent)" },
+            { name: "SEO Care", price: "$300–500", period: "/mo", note: "Weekly SEO reports + optimisation", color: "#10b981" },
+          ].map((item, i) => (
+            <ScrollReveal key={item.name} delay={i * 0.07}>
               <div
                 style={{
                   padding: "1.125rem 1.25rem",
@@ -316,18 +256,17 @@ export function Pricing() {
               >
                 <div style={{ flex: 1 }}>
                   <span style={{ fontFamily: "var(--font-display)", fontSize: "0.875rem", fontWeight: 700, color: "var(--text-primary)" }}>
-                    {plan.name}
+                    {item.name}
                   </span>
                   <p style={{ fontSize: "0.75rem", color: "var(--text-secondary)", margin: "0.2rem 0 0", lineHeight: 1.4 }}>
-                    {plan.note}
+                    {item.note}
                   </p>
                 </div>
                 <div style={{ textAlign: "right", flexShrink: 0 }}>
-                  <span
-                    style={{ fontFamily: "var(--font-display)", fontSize: "1rem", fontWeight: 800, color: "var(--accent)" }}
-                    dangerouslySetInnerHTML={{ __html: plan.price }}
-                  />
-                  <span style={{ fontSize: "0.65rem", color: "var(--text-muted)", fontWeight: 600 }}>{plan.period}</span>
+                  <span style={{ fontFamily: "var(--font-display)", fontSize: "1rem", fontWeight: 800, color: item.color }}>
+                    {item.price}
+                  </span>
+                  <span style={{ fontSize: "0.65rem", color: "var(--text-muted)", fontWeight: 600 }}>{item.period}</span>
                 </div>
               </div>
             </ScrollReveal>
@@ -339,14 +278,12 @@ export function Pricing() {
       <style>{`
         @media (max-width: 860px) {
           .pricing-main-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          .pricing-ai-grid { grid-template-columns: 1fr !important; }
-          .pricing-care-grid { grid-template-columns: 1fr !important; }
+          .pricing-addons-grid { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 580px) {
           .pricing-main-grid { grid-template-columns: 1fr !important; gap: 0.75rem !important; }
           .pricing-main-grid > div > div { padding: 1.125rem 1rem !important; }
-          .pricing-ai-grid { grid-template-columns: 1fr !important; gap: 0.625rem !important; }
-          .pricing-care-grid { grid-template-columns: 1fr !important; gap: 0.5rem !important; }
+          .pricing-addons-grid { grid-template-columns: 1fr !important; gap: 0.5rem !important; }
         }
       `}</style>
     </section>

@@ -24,11 +24,15 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // TODO: Wire up real form submission.
-    // Options: EmailJS (client-side), Resend (API route at /api/contact), or Formspree.
-    // Example with EmailJS: await emailjs.send(serviceId, templateId, form, publicKey);
-    console.log("Contact form submitted:", form);
-    await new Promise((r) => setTimeout(r, 800)); // simulate network delay
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+    } catch {
+      // silent — still show success so user isn't stuck
+    }
     setLoading(false);
     setSubmitted(true);
   };

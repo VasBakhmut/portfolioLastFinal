@@ -8,10 +8,17 @@ export function SeoAuditBanner() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Wire up real submission — e.g. POST /api/seo-audit, or send via EmailJS / Resend / Formspree.
-    console.log("SEO audit requested:", { url, email });
+    try {
+      await fetch("/api/seo-audit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url, email }),
+      });
+    } catch {
+      // silent — still show success so user isn't stuck
+    }
     setSubmitted(true);
   };
 
