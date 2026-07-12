@@ -10,17 +10,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4001"}/api/blogs`,
-      { next: { revalidate: 86400, tags: ["blogs"] } }
-    );
-    if (!res.ok) return [];
-    const blogs: { slug: string }[] = await res.json();
-    return blogs.map((b) => ({ slug: b.slug }));
-  } catch {
-    return [];
-  }
+  return [];
 }
 
 export const dynamicParams = true;
