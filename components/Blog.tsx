@@ -4,11 +4,10 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { BLOG_POSTS } from "@/lib/blog-data";
+import { type BlogPost } from "@/lib/blog-data";
 
-const FEATURED = BLOG_POSTS.slice(0, 3);
-
-export function Blog() {
+export function Blog({ posts: postsProp }: { posts: BlogPost[] }) {
+  const FEATURED = postsProp.slice(0, 3);
   const [activeIndex, setActiveIndex] = useState(0);
   const touchStartX = useRef<number | null>(null);
 
@@ -53,82 +52,90 @@ export function Blog() {
           </div>
         </ScrollReveal>
 
-        {/* Desktop: 3-col grid */}
-        <div
-          style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem" }}
-          className="blog-grid-desktop"
-        >
-          {FEATURED.map((post, i) => (
-            <ScrollReveal key={post.slug} delay={i * 0.1}>
-              <BlogCard post={post} index={i} />
-            </ScrollReveal>
-          ))}
-        </div>
-
-        {/* Mobile: single card + arrows + dots */}
-        <div
-          className="blog-mobile-carousel"
-          onTouchStart={onTouchStart}
-          onTouchEnd={onTouchEnd}
-        >
-          <BlogCard post={FEATURED[activeIndex]} index={activeIndex} />
-
-          {/* Controls */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", marginTop: "1.25rem" }}>
-            <button
-              onClick={prev}
-              aria-label="Previous article"
-              style={{
-                width: 40, height: 40, borderRadius: "50%",
-                border: "1.5px solid var(--border-strong)",
-                background: "var(--bg-card)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                cursor: "pointer", color: "var(--text-secondary)",
-              }}
+        {FEATURED.length === 0 ? (
+          <div style={{ textAlign: "center", padding: "3rem 1rem", color: "var(--text-muted)", fontSize: "0.9375rem" }}>
+            Articles coming soon — check back shortly.
+          </div>
+        ) : (
+          <>
+            {/* Desktop: 3-col grid */}
+            <div
+              style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem" }}
+              className="blog-grid-desktop"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="15 18 9 12 15 6"/>
-              </svg>
-            </button>
-
-            {/* Dots */}
-            <div style={{ display: "flex", gap: "0.4rem" }}>
-              {FEATURED.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveIndex(i)}
-                  aria-label={`Go to article ${i + 1}`}
-                  style={{
-                    width: i === activeIndex ? 20 : 8,
-                    height: 8,
-                    borderRadius: 4,
-                    border: "none",
-                    background: i === activeIndex ? "var(--accent)" : "var(--border-strong)",
-                    cursor: "pointer",
-                    transition: "width 0.25s, background 0.25s",
-                    padding: 0,
-                  }}
-                />
+              {FEATURED.map((post, i) => (
+                <ScrollReveal key={post.slug} delay={i * 0.1}>
+                  <BlogCard post={post} index={i} />
+                </ScrollReveal>
               ))}
             </div>
 
-            <button
-              onClick={next}
-              aria-label="Next article"
-              style={{
-                width: 40, height: 40, borderRadius: "50%",
-                border: "1.5px solid var(--border-strong)",
-                background: "var(--bg-card)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                cursor: "pointer", color: "var(--text-secondary)",
-              }}
+            {/* Mobile: single card + arrows + dots */}
+            <div
+              className="blog-mobile-carousel"
+              onTouchStart={onTouchStart}
+              onTouchEnd={onTouchEnd}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="9 18 15 12 9 6"/>
-              </svg>
-            </button>
-          </div>
-        </div>
+              <BlogCard post={FEATURED[activeIndex]} index={activeIndex} />
+
+              {/* Controls */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", marginTop: "1.25rem" }}>
+                <button
+                  onClick={prev}
+                  aria-label="Previous article"
+                  style={{
+                    width: 40, height: 40, borderRadius: "50%",
+                    border: "1.5px solid var(--border-strong)",
+                    background: "var(--bg-card)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    cursor: "pointer", color: "var(--text-secondary)",
+                  }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="15 18 9 12 15 6"/>
+                  </svg>
+                </button>
+
+                {/* Dots */}
+                <div style={{ display: "flex", gap: "0.4rem" }}>
+                  {FEATURED.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveIndex(i)}
+                      aria-label={`Go to article ${i + 1}`}
+                      style={{
+                        width: i === activeIndex ? 20 : 8,
+                        height: 8,
+                        borderRadius: 4,
+                        border: "none",
+                        background: i === activeIndex ? "var(--accent)" : "var(--border-strong)",
+                        cursor: "pointer",
+                        transition: "width 0.25s, background 0.25s",
+                        padding: 0,
+                      }}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  onClick={next}
+                  aria-label="Next article"
+                  style={{
+                    width: 40, height: 40, borderRadius: "50%",
+                    border: "1.5px solid var(--border-strong)",
+                    background: "var(--bg-card)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    cursor: "pointer", color: "var(--text-secondary)",
+                  }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       <style>{`
@@ -148,7 +155,7 @@ export function Blog() {
   );
 }
 
-function BlogCard({ post, index }: { post: (typeof FEATURED)[0]; index: number }) {
+function BlogCard({ post, index }: { post: BlogPost; index: number }) {
   return (
     <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", display: "block" }}>
       <article

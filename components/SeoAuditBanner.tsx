@@ -3,23 +3,52 @@
 import { useState } from "react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
+function normalizeUrl(url: string) {
+  if (!url.startsWith("http://") && !url.startsWith("https://")) {
+    return "https://" + url;
+  }
+  return url;
+}
+
+function isValidUrl(url: string) {
+  try {
+    new URL(normalizeUrl(url));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export function SeoAuditBanner() {
   const [url, setUrl] = useState("");
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [urlError, setUrlError] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      await fetch("/api/seo-audit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url, email }),
-      });
-    } catch {
-      // silent — still show success so user isn't stuck
+    if (!isValidUrl(url)) {
+      setUrlError(true);
+      return;
     }
-    setSubmitted(true);
+    setUrlError(false);
+    setError(false);
+    const normalizedUrl = normalizeUrl(url);
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/seo-audit`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url: normalizedUrl, email }),
+        }
+      );
+      if (!res.ok) throw new Error("api error");
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    }
   };
 
   return (
@@ -105,10 +134,10 @@ export function SeoAuditBanner() {
                   }}
                 >
                   <input
-                    type="url"
-                    placeholder="Your website URL"
+                    type="text"
+                    placeholder="Your website URL (e.g. example.com.au)"
                     value={url}
-                    onChange={(e) => setUrl(e.target.value)}
+                    onChange={(e) => { setUrl(e.target.value); setUrlError(false); }}
                     required
                     style={{
                       padding: "0.75rem 1rem",
@@ -121,6 +150,11 @@ export function SeoAuditBanner() {
                       width: "100%",
                     }}
                   />
+                  {urlError && (
+                    <p style={{ color: "#fff", fontSize: "0.75rem", marginTop: "-0.25rem", opacity: 0.9 }}>
+                      Please enter a valid URL (e.g. example.com.au)
+                    </p>
+                  )}
                   <input
                     type="email"
                     placeholder="Your email address"
@@ -138,6 +172,12 @@ export function SeoAuditBanner() {
                       width: "100%",
                     }}
                   />
+                  {error && (
+                    <div style={{ padding: "0.625rem 0.875rem", borderRadius: "0.5rem", background: "rgba(0,0,0,0.25)", border: "1px solid rgba(255,255,255,0.3)", color: "#fff", fontSize: "0.8125rem" }}>
+                      Something went wrong. Please try again or email{" "}
+                      <a href="mailto:bakhmutvas@gmail.com" style={{ color: "#fff", fontWeight: 700 }}>bakhmutvas@gmail.com</a>
+                    </div>
+                  )}
                   <button
                     type="submit"
                     style={{

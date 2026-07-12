@@ -165,6 +165,7 @@ function QuestionModal({ onClose }: { onClose: () => void }) {
 	const [form, setForm] = useState({ name: '', email: '', question: '' })
 	const [loading, setLoading] = useState(false)
 	const [submitted, setSubmitted] = useState(false)
+	const [error, setError] = useState(false)
 	const overlayRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
@@ -183,17 +184,23 @@ function QuestionModal({ onClose }: { onClose: () => void }) {
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault()
 		setLoading(true)
+		setError(false)
 		try {
-			await fetch('/api/faq-question', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(form),
-			})
+			const res = await fetch(
+				`${process.env.NEXT_PUBLIC_API_URL}/api/faq-question`,
+				{
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(form),
+				}
+			)
+			if (!res.ok) throw new Error('api error')
+			setSubmitted(true)
 		} catch {
-			// silent — still show success so user isn't stuck
+			setError(true)
+		} finally {
+			setLoading(false)
 		}
-		setLoading(false)
-		setSubmitted(true)
 	}
 
 	return (
@@ -220,10 +227,13 @@ function QuestionModal({ onClose }: { onClose: () => void }) {
 					border: '1px solid var(--border-strong)',
 					borderRadius: '1.125rem',
 					padding: '2rem',
-					width: '100%',
+					width: 'calc(100% - 2rem)',
 					maxWidth: 480,
+					maxHeight: '90vh',
+					overflowY: 'auto',
 					position: 'relative',
-					boxShadow: '0 24px 64px rgba(0,0,0,0.3)',
+					zIndex: 1,
+					boxShadow: '0 24px 64px rgba(0,0,0,0.4)',
 				}}
 			>
 				{/* Close button */}
@@ -297,6 +307,12 @@ function QuestionModal({ onClose }: { onClose: () => void }) {
 								onBlur={e => ((e.currentTarget as HTMLElement).style.borderColor = 'var(--border-strong)')}
 							/>
 						</div>
+						{error && (
+							<div style={{ padding: '0.75rem 1rem', borderRadius: '0.625rem', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.35)', color: '#ef4444', fontSize: '0.875rem', lineHeight: 1.5 }}>
+								Something went wrong. Please try again or email{' '}
+								<a href='mailto:bakhmutvas@gmail.com' style={{ color: '#ef4444', fontWeight: 600 }}>bakhmutvas@gmail.com</a>
+							</div>
+						)}
 						<button
 							type='submit' className='btn-primary'
 							disabled={loading}
@@ -470,23 +486,6 @@ export function FAQ() {
 					})}
 				</div>
 
-				{/* Still have questions? */}
-				<div style={{ marginTop: '2.5rem', textAlign: 'center' }}>
-					<p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', marginBottom: '0.875rem' }}>
-						Still have questions?
-					</p>
-					<button
-						onClick={() => setModalOpen(true)}
-						className='btn-outline'
-						style={{ fontSize: '0.875rem' }}
-					>
-						Ask me directly
-						<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2.5' strokeLinecap='round' strokeLinejoin='round'>
-							<path d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/>
-						</svg>
-					</button>
-				</div>
-
 				{/* Mobile: show more/less */}
 				<div
 					className='faq-toggle-btn'
@@ -530,6 +529,23 @@ export function FAQ() {
 					</button>
 				</div>
 			</div>
+
+				{/* Still have questions? */}
+				<div style={{ marginTop: '2.5rem', textAlign: 'center' }}>
+					<p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', marginBottom: '0.875rem' }}>
+						Still have questions?
+					</p>
+					<button
+						onClick={() => setModalOpen(true)}
+						className='btn-outline'
+						style={{ fontSize: '0.875rem' }}
+					>
+						Ask me directly
+						<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2.5' strokeLinecap='round' strokeLinejoin='round'>
+							<path d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/>
+						</svg>
+					</button>
+				</div>
 
 			<style>{`
         @media (min-width: 601px) {

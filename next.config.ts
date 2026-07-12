@@ -8,6 +8,19 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.railway.app",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "4001",
+      },
     ],
   },
 };

@@ -1,3 +1,4 @@
+import { getProjects, getBlogs, type ApiProject, type ApiBlog } from "@/lib/api";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Stats } from "@/components/Stats";
@@ -15,81 +16,47 @@ import { ParticleBackground } from "@/components/ui/ParticleBackground";
 import { BackgroundDecor } from "@/components/ui/BackgroundDecor";
 import { FloatingCallButton } from "@/components/FloatingCallButton";
 
-const LOCAL_BUSINESS_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "Vasyl Bakhmut — Web Developer & AI Automation",
-  url: "https://vasdev.au",
-  telephone: "0425401444",
-  email: "bakhmutvas@gmail.com",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Cheltenham",
-    addressLocality: "Cheltenham",
-    addressRegion: "VIC",
-    postalCode: "3192",
-    addressCountry: "AU",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: -37.9526,
-    longitude: 145.0592,
-  },
-  areaServed: [
-    { "@type": "City", name: "Melbourne" },
-    { "@type": "City", name: "Sydney" },
-    { "@type": "State", name: "Victoria" },
-    { "@type": "Country", name: "Australia" },
-  ],
-  priceRange: "$$",
-  sameAs: [
-    "https://linkedin.com/in/vasylbakhmut",
-    "https://github.com/vasylbakhmut",
-  ],
-};
 
-const PERSON_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Vasyl Bakhmut",
-  url: "https://vasdev.au",
-  jobTitle: "Full-Stack Web Developer & AI Automation Specialist",
-  worksFor: {
-    "@type": "Organization",
-    name: "Self-Employed",
-  },
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Cheltenham",
-    addressRegion: "VIC",
-    addressCountry: "AU",
-  },
-  email: "bakhmutvas@gmail.com",
-  sameAs: [
-    "https://linkedin.com/in/vasylbakhmut",
-    "https://github.com/vasylbakhmut",
-  ],
-};
+function mapProject(p: ApiProject) {
+  return {
+    id: p._id,
+    title: p.title,
+    description: p.description,
+    type: p.categories[0] ?? "Web App",
+    tech: p.tags,
+    categories: p.categories,
+    price: p.price,
+    image: p.image,
+    link:
+      p.linkType === "live"
+        ? { type: "demo" as const, url: p.linkUrl, label: "Live Demo" }
+        : { type: "private" as const, label: "Private Client Project" },
+  };
+}
 
-const WEBSITE_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "Vasyl Bakhmut",
-  url: "https://vasdev.au",
-  description: "Full-stack web developer and AI automation specialist based in Melbourne, Australia.",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: "https://vasdev.au/#contact",
-    "query-input": "required name=search_term_string",
-  },
-};
+function mapBlog(b: ApiBlog) {
+  return {
+    title: b.title,
+    excerpt: b.excerpt,
+    readTime: `${b.readTime} min read`,
+    date: new Date(b.createdAt).toLocaleDateString("en-AU", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    }),
+    slug: b.slug,
+    category: b.category,
+    image: b.image,
+  };
+}
 
-export default function Home() {
+export default async function Home() {
+  const [apiProjects, apiBlogs] = await Promise.all([getProjects(), getBlogs()]);
+  const projects = apiProjects.length ? apiProjects.map(mapProject) : undefined;
+  const blogs = apiBlogs.map(mapBlog);
+
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_SCHEMA) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_SCHEMA) }} />
       <ParticleBackground />
       <BackgroundDecor />
       <div style={{ position: "relative", zIndex: 1 }}>
@@ -97,12 +64,12 @@ export default function Home() {
         <main>
           <Hero />
           <Stats />
-          <Projects />
+          <Projects projects={projects} />
           <Skills />
           <Services />
           <Process />
           <Pricing />
-          <Blog />
+          <Blog posts={blogs} />
           <SeoAuditBanner />
           <FAQ />
           <Contact />

@@ -16,6 +16,7 @@ export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "", budget: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -24,17 +25,23 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError(false);
     try {
-      await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/contact`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        }
+      );
+      if (!res.ok) throw new Error("api error");
+      setSubmitted(true);
     } catch {
-      // silent — still show success so user isn't stuck
+      setError(true);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
-    setSubmitted(true);
   };
 
   const inputStyle: React.CSSProperties = {
@@ -155,6 +162,12 @@ export function Contact() {
                       onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)")}
                     />
                   </div>
+                  {error && (
+                    <div style={{ padding: "0.75rem 1rem", borderRadius: "0.625rem", background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.35)", color: "#ef4444", fontSize: "0.875rem", lineHeight: 1.5 }}>
+                      Something went wrong. Please try again or contact me directly at{" "}
+                      <a href="mailto:bakhmutvas@gmail.com" style={{ color: "#ef4444", fontWeight: 600 }}>bakhmutvas@gmail.com</a>
+                    </div>
+                  )}
                   <button
                     type="submit"
                     className="btn-primary"

@@ -84,10 +84,11 @@ const TYPE_COLORS: Record<string, string> = {
 
 const PAGE_SIZE = 3;
 
-export function Projects() {
+export function Projects({ projects: projectsProp }: { projects?: ProjectWithPrice[] } = {}) {
+  const projects = projectsProp ?? PROJECTS;
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-  const visible = PROJECTS.slice(0, visibleCount);
-  const canShowMore = visibleCount < PROJECTS.length;
+  const visible = projects.slice(0, visibleCount);
+  const canShowMore = visibleCount < projects.length;
   const canShowLess = visibleCount > PAGE_SIZE;
 
   return (
