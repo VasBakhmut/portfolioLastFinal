@@ -75,14 +75,15 @@ const PROJECTS: ProjectWithPrice[] = [
   },
 ];
 
-const TYPE_COLORS: Record<string, string> = {
-  Automation: "#7c3aed",
-  "Landing Page": "#0e7490",
-  "Web App": "#047857",
-  SaaS: "#c2410c",
-  "Client Project": "#0e7490",
-  AI: "#7c3aed",
+const CAT_STYLES: Record<string, { c: string; bg: string; bd: string }> = {
+  Automation:      { c: "var(--cat-auto)", bg: "var(--cat-auto-bg)", bd: "var(--cat-auto-bd)" },
+  "Landing Page":  { c: "var(--cat-land)", bg: "var(--cat-land-bg)", bd: "var(--cat-land-bd)" },
+  "Web App":       { c: "var(--cat-web)",  bg: "var(--cat-web-bg)",  bd: "var(--cat-web-bd)"  },
+  SaaS:            { c: "var(--cat-saas)", bg: "var(--cat-saas-bg)", bd: "var(--cat-saas-bd)" },
+  "Client Project":{ c: "var(--cat-land)", bg: "var(--cat-land-bg)", bd: "var(--cat-land-bd)" },
+  AI:              { c: "var(--cat-auto)", bg: "var(--cat-auto-bg)", bd: "var(--cat-auto-bd)" },
 };
+const DEFAULT_CAT = { c: "var(--cat-land)", bg: "var(--cat-land-bg)", bd: "var(--cat-land-bd)" };
 
 const PAGE_SIZE = 3;
 
@@ -199,7 +200,6 @@ export function Projects({ projects: projectsProp }: { projects: ProjectWithPric
 }
 
 function ProjectCard({ project: p }: { project: ProjectWithPrice }) {
-  const typeColor = TYPE_COLORS[p.type] ?? "var(--accent)";
 
   return (
     <div
@@ -260,7 +260,7 @@ function ProjectCard({ project: p }: { project: ProjectWithPrice }) {
       <div style={{ padding: "1rem 1.125rem", flex: 1, display: "flex", flexDirection: "column" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", marginBottom: "0.5rem", flexWrap: "wrap" }}>
           {(p.categories ?? [p.type]).map((cat) => {
-            const catColor = TYPE_COLORS[cat] ?? TYPE_COLORS[p.type] ?? "var(--accent)";
+            const cs = CAT_STYLES[cat] ?? CAT_STYLES[p.type] ?? DEFAULT_CAT;
             return (
               <span
                 key={cat}
@@ -271,9 +271,9 @@ function ProjectCard({ project: p }: { project: ProjectWithPrice }) {
                   textTransform: "uppercase",
                   padding: "0.18rem 0.55rem",
                   borderRadius: "100px",
-                  background: `${catColor}18`,
-                  color: catColor,
-                  border: `1px solid ${catColor}30`,
+                  background: cs.bg,
+                  color: cs.c,
+                  border: `1px solid ${cs.bd}`,
                 }}
               >
                 {cat}

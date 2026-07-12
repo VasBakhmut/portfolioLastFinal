@@ -143,7 +143,7 @@ export function Footer() {
                   marginBottom: "0.875rem",
                 }}
               >
-                <span style={{ color: "var(--accent)" }}>VB</span>
+                <span style={{ color: "var(--btn-outline-color)" }}>VB</span>
                 <span style={{ color: "var(--text-secondary)", fontWeight: 400 }}>/</span>
                 <span> Bakhmut</span>
               </a>
@@ -163,9 +163,9 @@ export function Footer() {
                       fontWeight: 600,
                       padding: "0.2rem 0.55rem",
                       borderRadius: "100px",
-                      background: "var(--accent-glow)",
+                      background: "transparent",
                       color: "var(--btn-outline-color)",
-                      border: "1px solid var(--accent-glow-strong)",
+                      border: "1px solid var(--btn-outline-color)",
                     }}
                   >
                     {t}
@@ -287,7 +287,7 @@ export function Footer() {
                 ))}
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                <a href="mailto:bakhmutvas@gmail.com" style={{ fontSize: "0.8125rem", color: "var(--accent)", textDecoration: "none", fontWeight: 600 }}>
+                <a href="mailto:bakhmutvas@gmail.com" style={{ fontSize: "0.8125rem", color: "var(--btn-outline-color)", textDecoration: "none", fontWeight: 600 }}>
                   bakhmutvas@gmail.com
                 </a>
                 <span style={{ display: "flex", alignItems: "center", gap: "0.4rem", fontSize: "0.8125rem", color: "var(--text-secondary)" }}>

@@ -1,4 +1,5 @@
 import { getProjects, getBlogs, type ApiProject, type ApiBlog } from "@/lib/api";
+import dynamic from "next/dynamic";
 
 export const revalidate = 300; // re-fetch every 5 min as fallback if webhook revalidation fails
 import { Navbar } from "@/components/Navbar";
@@ -14,9 +15,16 @@ import { SeoAuditBanner } from "@/components/SeoAuditBanner";
 import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
-import { ParticleBackground } from "@/components/ui/ParticleBackground";
 import { BackgroundDecor } from "@/components/ui/BackgroundDecor";
-import { FloatingCallButton } from "@/components/FloatingCallButton";
+
+const ParticleBackground = dynamic(
+  () => import("@/components/ui/ParticleBackground").then((m) => ({ default: m.ParticleBackground })),
+  { ssr: false }
+);
+const FloatingCallButton = dynamic(
+  () => import("@/components/FloatingCallButton").then((m) => ({ default: m.FloatingCallButton })),
+  { ssr: false }
+);
 
 
 function mapProject(p: ApiProject) {

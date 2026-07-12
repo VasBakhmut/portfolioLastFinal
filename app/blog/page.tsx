@@ -101,7 +101,7 @@ function BlogCard({ post }: { post: ApiBlog }) {
           <p style={{ fontSize: "0.7875rem", color: "var(--text-secondary)", lineHeight: 1.65, flex: 1, marginBottom: "0.875rem" }}>
             {post.excerpt}
           </p>
-          <span style={{ fontSize: "0.78rem", fontWeight: 600, color: "var(--accent)", display: "flex", alignItems: "center", gap: "0.3rem" }}>
+          <span style={{ fontSize: "0.78rem", fontWeight: 600, color: "var(--btn-outline-color)", display: "flex", alignItems: "center", gap: "0.3rem" }}>
             Read Article
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>

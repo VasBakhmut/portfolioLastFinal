@@ -209,10 +209,12 @@ function QuestionModal({ onClose }: { onClose: () => void }) {
 			onClick={(e) => { if (e.target === overlayRef.current) onClose() }}
 			style={{
 				position: 'fixed', inset: 0, zIndex: 200,
-				background: 'rgba(0,0,0,0.55)',
+				background: 'rgba(0,0,0,0.65)',
 				backdropFilter: 'blur(4px)',
-				display: 'flex', alignItems: 'center', justifyContent: 'center',
+				display: 'flex', alignItems: 'flex-start', justifyContent: 'center',
 				padding: '1rem',
+				paddingTop: '5vh',
+				overflowY: 'auto',
 			}}
 		>
 			<motion.div
@@ -221,19 +223,16 @@ function QuestionModal({ onClose }: { onClose: () => void }) {
 				exit={{ opacity: 0, scale: 0.95, y: 16 }}
 				transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
 				style={{
-					background: 'var(--bg-card)',
-					backdropFilter: 'blur(24px)',
-					WebkitBackdropFilter: 'blur(24px)',
+					background: 'var(--bg-card-solid)',
 					border: '1px solid var(--border-strong)',
 					borderRadius: '1.125rem',
 					padding: '2rem',
-					width: 'calc(100% - 2rem)',
+					width: '100%',
 					maxWidth: 480,
-					maxHeight: '90vh',
-					overflowY: 'auto',
 					position: 'relative',
 					zIndex: 1,
-					boxShadow: '0 24px 64px rgba(0,0,0,0.4)',
+					boxShadow: '0 24px 64px rgba(0,0,0,0.5)',
+					marginBottom: '1rem',
 				}}
 			>
 				{/* Close button */}
@@ -495,12 +494,12 @@ export function FAQ() {
 						onClick={() => setMobileExpanded(v => !v)}
 						style={{
 							background: 'var(--bg-card)',
-							border: '1.5px solid var(--border-strong)',
+							border: '1.5px solid var(--btn-outline-color)',
 							borderRadius: '0.625rem',
 							padding: '0.625rem 1.5rem',
 							fontSize: '0.875rem',
 							fontWeight: 600,
-							color: 'var(--accent)',
+							color: 'var(--btn-outline-color)',
 							cursor: 'pointer',
 							display: 'inline-flex',
 							alignItems: 'center',
