@@ -134,6 +134,7 @@ export function Contact() {
                     </label>
                     <select
                       name="budget"
+                      aria-label="Budget range (AUD)"
                       value={form.budget}
                       onChange={handleChange}
                       style={{ ...inputStyle, cursor: "pointer" }}

@@ -76,10 +76,12 @@ const PROJECTS: ProjectWithPrice[] = [
 ];
 
 const TYPE_COLORS: Record<string, string> = {
-  Automation: "#8b5cf6",
-  "Landing Page": "#06b6d4",
-  "Web App": "#10b981",
-  SaaS: "#f97316",
+  Automation: "#7c3aed",
+  "Landing Page": "#0e7490",
+  "Web App": "#047857",
+  SaaS: "#c2410c",
+  "Client Project": "#0e7490",
+  AI: "#7c3aed",
 };
 
 const PAGE_SIZE = 3;

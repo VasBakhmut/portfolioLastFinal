@@ -144,13 +144,13 @@ export function Footer() {
                 }}
               >
                 <span style={{ color: "var(--accent)" }}>VB</span>
-                <span style={{ color: "var(--text-muted)", fontWeight: 400 }}>/</span>
+                <span style={{ color: "var(--text-secondary)", fontWeight: 400 }}>/</span>
                 <span> Bakhmut</span>
               </a>
               <p style={{ fontSize: "0.8375rem", color: "var(--text-secondary)", lineHeight: 1.75, maxWidth: 260, marginBottom: "0.625rem" }}>
                 Full-stack web developer &amp; business automation specialist helping Australian small businesses grow online.
               </p>
-              <p style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: "1.25rem" }}>
+              <p style={{ fontSize: "0.75rem", color: "var(--text-secondary)", marginBottom: "1.25rem" }}>
                 Serving Melbourne CBD &#183; Bayside Melbourne &#183; Sydney &#183; Victoria &#183; Australia-wide
               </p>
               {/* Tech stack pills */}
@@ -164,7 +164,7 @@ export function Footer() {
                       padding: "0.2rem 0.55rem",
                       borderRadius: "100px",
                       background: "var(--accent-glow)",
-                      color: "var(--accent)",
+                      color: "var(--btn-outline-color)",
                       border: "1px solid var(--accent-glow-strong)",
                     }}
                   >
@@ -176,7 +176,7 @@ export function Footer() {
 
             {/* Nav */}
             <div>
-              <h3 style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "1rem" }}>
+              <h3 style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-secondary)", marginBottom: "1rem" }}>
                 Navigation
               </h3>
               <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
@@ -197,7 +197,7 @@ export function Footer() {
 
             {/* Services */}
             <div>
-              <h3 style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "1rem" }}>
+              <h3 style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-secondary)", marginBottom: "1rem" }}>
                 Services
               </h3>
               <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
@@ -225,7 +225,7 @@ export function Footer() {
 
             {/* Locations */}
             <div>
-              <h3 style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "1rem" }}>
+              <h3 style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-secondary)", marginBottom: "1rem" }}>
                 Locations
               </h3>
               <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
@@ -252,7 +252,7 @@ export function Footer() {
 
             {/* Connect */}
             <div>
-              <h3 style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "1rem" }}>
+              <h3 style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-secondary)", marginBottom: "1rem" }}>
                 Connect
               </h3>
               <div style={{ display: "flex", gap: "0.5rem", marginBottom: "1.25rem" }}>
@@ -300,10 +300,10 @@ export function Footer() {
 
           {/* Bottom bar */}
           <div style={{ paddingTop: "1.5rem", borderTop: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "0.5rem" }}>
-            <p style={{ fontSize: "0.7875rem", color: "var(--text-muted)" }}>
+            <p style={{ fontSize: "0.7875rem", color: "var(--text-secondary)" }}>
               &#169; {year} Vasyl Bakhmut. All rights reserved.
             </p>
-            <p style={{ fontSize: "0.7875rem", color: "var(--text-muted)" }}>
+            <p style={{ fontSize: "0.7875rem", color: "var(--text-secondary)" }}>
               Made with &#10084;&#65039; in Melbourne, Australia &#127462;&#127482;
             </p>
           </div>

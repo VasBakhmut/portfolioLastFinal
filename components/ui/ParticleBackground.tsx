@@ -22,8 +22,9 @@ export function ParticleBackground() {
 
     let animId: number;
     const particles: Particle[] = [];
-    const COUNT = 90;
-    const CONNECT_DIST = 160;
+    const isMobile = window.innerWidth < 768;
+    const COUNT = isMobile ? 40 : 70;
+    const CONNECT_DIST = isMobile ? 100 : 140;
 
     const resize = () => {
       // Set both CSS size and internal resolution
@@ -53,7 +54,10 @@ export function ParticleBackground() {
     const getAccent = () =>
       getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#06b6d4";
 
+    let frameSkip = 0;
     const draw = () => {
+      animId = requestAnimationFrame(draw);
+      if (isMobile && frameSkip++ % 2 !== 0) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const color = getAccent();
 
@@ -92,7 +96,6 @@ export function ParticleBackground() {
       }
 
       ctx.globalAlpha = 1;
-      animId = requestAnimationFrame(draw);
     };
 
     draw();
