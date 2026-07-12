@@ -52,7 +52,7 @@ function mapBlog(b: ApiBlog) {
 
 export default async function Home() {
   const [apiProjects, apiBlogs] = await Promise.all([getProjects(), getBlogs()]);
-  const projects = apiProjects.length ? apiProjects.map(mapProject) : undefined;
+  const projects = apiProjects.map(mapProject);
   const blogs = apiBlogs.map(mapBlog);
 
   return (

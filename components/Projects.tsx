@@ -84,11 +84,10 @@ const TYPE_COLORS: Record<string, string> = {
 
 const PAGE_SIZE = 3;
 
-export function Projects({ projects: projectsProp }: { projects?: ProjectWithPrice[] } = {}) {
-  const projects = projectsProp ?? PROJECTS;
+export function Projects({ projects: projectsProp }: { projects: ProjectWithPrice[] }) {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-  const visible = projects.slice(0, visibleCount);
-  const canShowMore = visibleCount < projects.length;
+  const visible = projectsProp.slice(0, visibleCount);
+  const canShowMore = visibleCount < projectsProp.length;
   const canShowLess = visibleCount > PAGE_SIZE;
 
   return (
@@ -129,52 +128,59 @@ export function Projects({ projects: projectsProp }: { projects?: ProjectWithPri
           </div>
         </ScrollReveal>
 
-        <div
-          className="projects-grid"
-          style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}
-        >
-          <AnimatePresence>
-            {visible.map((p, i) => (
-              <motion.div
-                key={p.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3, delay: i * 0.05 }}
-              >
-                <ProjectCard project={p} />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {/* Show more / show less */}
-        {(canShowMore || canShowLess) && (
-          <div style={{ display: "flex", justifyContent: "center", gap: "0.75rem", marginTop: "2rem" }}>
-            {canShowMore && (
-              <button
-                onClick={() => setVisibleCount((c) => Math.min(c + PAGE_SIZE, PROJECTS.length))}
-                className="btn-outline"
-              >
-                Show More
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </button>
-            )}
-            {canShowLess && (
-              <button
-                onClick={() => setVisibleCount((c) => Math.max(c - PAGE_SIZE, PAGE_SIZE))}
-                className="btn-outline"
-                style={{ opacity: 0.7 }}
-              >
-                Show Less
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="18 15 12 9 6 15"/>
-                </svg>
-              </button>
-            )}
+        {projectsProp.length === 0 ? (
+          <div style={{ textAlign: "center", padding: "3rem 1rem", color: "var(--text-muted)", fontSize: "0.9375rem" }}>
+            Projects coming soon — check back shortly.
           </div>
+        ) : (
+          <>
+            <div
+              className="projects-grid"
+              style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}
+            >
+              <AnimatePresence>
+                {visible.map((p, i) => (
+                  <motion.div
+                    key={p.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3, delay: i * 0.05 }}
+                  >
+                    <ProjectCard project={p} />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+
+            {(canShowMore || canShowLess) && (
+              <div style={{ display: "flex", justifyContent: "center", gap: "0.75rem", marginTop: "2rem" }}>
+                {canShowMore && (
+                  <button
+                    onClick={() => setVisibleCount((c) => Math.min(c + PAGE_SIZE, projectsProp.length))}
+                    className="btn-outline"
+                  >
+                    Show More
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                  </button>
+                )}
+                {canShowLess && (
+                  <button
+                    onClick={() => setVisibleCount((c) => Math.max(c - PAGE_SIZE, PAGE_SIZE))}
+                    className="btn-outline"
+                    style={{ opacity: 0.7 }}
+                  >
+                    Show Less
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="18 15 12 9 6 15"/>
+                    </svg>
+                  </button>
+                )}
+              </div>
+            )}
+          </>
         )}
       </div>
 
