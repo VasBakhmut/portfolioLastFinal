@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { getBlogBySlug } from "@/lib/api";
-import { getBlogPost, BLOG_POSTS } from "@/lib/blog-data";
+import { getBlogPost } from "@/lib/blog-data";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -10,8 +10,20 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return BLOG_POSTS.map((p) => ({ slug: p.slug }));
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4001"}/api/blogs`,
+      { next: { revalidate: 86400, tags: ["blogs"] } }
+    );
+    if (!res.ok) return [];
+    const blogs: { slug: string }[] = await res.json();
+    return blogs.map((b) => ({ slug: b.slug }));
+  } catch {
+    return [];
+  }
 }
+
+export const dynamicParams = true;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

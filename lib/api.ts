@@ -32,7 +32,7 @@ export interface ApiBlog {
 export async function getProjects(): Promise<ApiProject[]> {
   try {
     const res = await fetch(`${API_URL}/api/projects`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 86400, tags: ["projects"] },
     });
     if (!res.ok) return [];
     return res.json();
@@ -44,7 +44,7 @@ export async function getProjects(): Promise<ApiProject[]> {
 export async function getBlogs(): Promise<ApiBlog[]> {
   try {
     const res = await fetch(`${API_URL}/api/blogs`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 86400, tags: ["blogs"] },
     });
     if (!res.ok) return [];
     return res.json();
@@ -56,7 +56,7 @@ export async function getBlogs(): Promise<ApiBlog[]> {
 export async function getBlogBySlug(slug: string): Promise<ApiBlog | null> {
   try {
     const res = await fetch(`${API_URL}/api/blogs/${slug}`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 86400, tags: ["blogs", `blog-${slug}`] },
     });
     if (!res.ok) return null;
     return res.json();
