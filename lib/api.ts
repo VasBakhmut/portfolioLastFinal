@@ -33,7 +33,7 @@ export async function getProjects(): Promise<ApiProject[]> {
   try {
     const res = await fetch(`${API_URL}/api/projects`, {
       next: { revalidate: 86400, tags: ["projects"] },
-      signal: AbortSignal.timeout(5000),
+      signal: AbortSignal.timeout(8000),
     });
     if (!res.ok) return [];
     return res.json();
@@ -46,7 +46,7 @@ export async function getBlogs(): Promise<ApiBlog[]> {
   try {
     const res = await fetch(`${API_URL}/api/blogs`, {
       next: { revalidate: 86400, tags: ["blogs"] },
-      signal: AbortSignal.timeout(5000),
+      signal: AbortSignal.timeout(8000),
     });
     if (!res.ok) return [];
     return res.json();
@@ -59,7 +59,7 @@ export async function getBlogBySlug(slug: string): Promise<ApiBlog | null> {
   try {
     const res = await fetch(`${API_URL}/api/blogs/${slug}`, {
       next: { revalidate: 86400, tags: ["blogs", `blog-${slug}`] },
-      signal: AbortSignal.timeout(5000),
+      signal: AbortSignal.timeout(8000),
     });
     if (!res.ok) return null;
     return res.json();

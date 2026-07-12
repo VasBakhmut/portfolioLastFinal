@@ -1,4 +1,6 @@
 import { getProjects, getBlogs, type ApiProject, type ApiBlog } from "@/lib/api";
+
+export const revalidate = 300; // re-fetch every 5 min as fallback if webhook revalidation fails
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Stats } from "@/components/Stats";
