@@ -1,8 +1,30 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import { getBlogs, type ApiBlog } from "@/lib/api";
 
 export const revalidate = 300;
+
+export const metadata: Metadata = {
+  title: "Blog — Articles & Resources",
+  description:
+    "Practical guides on web development, AI automation, and SEO for Australian small businesses. Written by Vasyl Bakhmut, full-stack developer based in Melbourne.",
+  alternates: { canonical: "https://vasdev.au/blog" },
+  openGraph: {
+    title: "Articles & Resources | Vasyl Bakhmut",
+    description:
+      "Practical guides on web development, AI automation, and SEO for Australian small businesses.",
+    url: "https://vasdev.au/blog",
+    type: "website",
+    locale: "en_AU",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Articles & Resources | Vasyl Bakhmut",
+    description:
+      "Practical guides on web development, AI automation, and SEO for Australian small businesses.",
+  },
+};
 
 export default async function BlogPage() {
   const blogs = await getBlogs();

@@ -18,10 +18,47 @@ export const dynamicParams = true;
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const api = await getBlogBySlug(slug);
-  if (api) return { title: `${api.title} | Vasyl Bakhmut`, description: api.excerpt };
+
+  if (api) {
+    const canonical = `https://vasdev.au/blog/${slug}`;
+    return {
+      title: api.title,
+      description: api.excerpt,
+      alternates: { canonical },
+      openGraph: {
+        title: api.title,
+        description: api.excerpt,
+        url: canonical,
+        type: "article",
+        locale: "en_AU",
+        publishedTime: api.createdAt,
+        authors: ["Vasyl Bakhmut"],
+        ...(api.image ? { images: [{ url: api.image, alt: api.title }] } : {}),
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: api.title,
+        description: api.excerpt,
+        ...(api.image ? { images: [api.image] } : {}),
+      },
+    };
+  }
+
   const local = getBlogPost(slug);
   if (!local) return { title: "Post Not Found" };
-  return { title: `${local.title} | Vasyl Bakhmut`, description: local.excerpt };
+  const canonical = `https://vasdev.au/blog/${slug}`;
+  return {
+    title: local.title,
+    description: local.excerpt,
+    alternates: { canonical },
+    openGraph: {
+      title: local.title,
+      description: local.excerpt,
+      url: canonical,
+      type: "article",
+      locale: "en_AU",
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -38,8 +75,32 @@ export default async function BlogPostPage({ params }: Props) {
     });
     const readTime = `${api.readTime} min read`;
 
+    const articleJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: api.title,
+      description: api.excerpt,
+      datePublished: api.createdAt,
+      dateModified: api.createdAt,
+      url: `https://vasdev.au/blog/${slug}`,
+      author: {
+        "@type": "Person",
+        name: "Vasyl Bakhmut",
+        url: "https://vasdev.au",
+        jobTitle: "Full-Stack Web Developer & AI Automation Specialist",
+      },
+      publisher: {
+        "@type": "Person",
+        name: "Vasyl Bakhmut",
+        url: "https://vasdev.au",
+      },
+      mainEntityOfPage: { "@type": "WebPage", "@id": `https://vasdev.au/blog/${slug}` },
+      ...(api.image ? { image: api.image } : {}),
+    };
+
     return (
       <div style={{ minHeight: "100svh", background: "var(--bg-primary)", color: "var(--text-primary)", fontFamily: "var(--font-body, Inter, sans-serif)" }}>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
         {/* Back nav */}
         <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50, padding: "1rem 1.5rem", background: "var(--nav-bg)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", borderBottom: "1px solid var(--border)" }}>
           <div style={{ maxWidth: 760, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
