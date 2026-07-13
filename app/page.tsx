@@ -1,5 +1,4 @@
 import { getProjects, getBlogs, type ApiProject, type ApiBlog } from "@/lib/api";
-import dynamic from "next/dynamic";
 
 export const revalidate = 300; // re-fetch every 5 min as fallback if webhook revalidation fails
 import { Navbar } from "@/components/Navbar";
@@ -16,15 +15,7 @@ import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { BackgroundDecor } from "@/components/ui/BackgroundDecor";
-
-const ParticleBackground = dynamic(
-  () => import("@/components/ui/ParticleBackground").then((m) => ({ default: m.ParticleBackground })),
-  { ssr: false }
-);
-const FloatingCallButton = dynamic(
-  () => import("@/components/FloatingCallButton").then((m) => ({ default: m.FloatingCallButton })),
-  { ssr: false }
-);
+import { ClientOnlyWidgets } from "@/components/ClientOnlyWidgets";
 
 
 function mapProject(p: ApiProject) {
@@ -67,7 +58,7 @@ export default async function Home() {
 
   return (
     <>
-      <ParticleBackground />
+      <ClientOnlyWidgets />
       <BackgroundDecor />
       <div style={{ position: "relative", zIndex: 1 }}>
         <Navbar />
@@ -85,7 +76,6 @@ export default async function Home() {
           <Contact />
         </main>
         <Footer />
-        <FloatingCallButton />
       </div>
     </>
   );
