@@ -1,14 +1,10 @@
 "use client";
 
-import { motion, type Transition } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
-const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number];
-
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 32 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, delay, ease: EASE } satisfies Transition,
+const fu = (delay: number) => ({
+  style: { animation: `hero-fade-up 0.7s cubic-bezier(0.22,1,0.36,1) ${delay}s both` },
 });
 
 export function Hero() {
@@ -46,7 +42,7 @@ export function Hero() {
       >
         {/* Text */}
         <div>
-          <motion.div {...fadeUp(0.1)}>
+          <div {...fu(0.1)}>
             <span
               style={{
                 display: "inline-flex",
@@ -68,10 +64,10 @@ export function Hero() {
               </svg>
               Based in Melbourne, Australia
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            {...fadeUp(0.2)}
+          <h1
+            {...fu(0.2)}
             style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
@@ -84,10 +80,10 @@ export function Hero() {
           >
             Hi, I&apos;m{" "}
             <span className="gradient-text">Vasyl Bakhmut</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            {...fadeUp(0.3)}
+          <p
+            {...fu(0.3)}
             style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)",
@@ -98,10 +94,10 @@ export function Hero() {
             }}
           >
             Full-Stack Web Developer &amp; Business Automation Specialist
-          </motion.p>
+          </p>
 
-          <motion.h2
-            {...fadeUp(0.35)}
+          <h2
+            {...fu(0.35)}
             style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(1rem, 2vw, 1.175rem)",
@@ -113,10 +109,10 @@ export function Hero() {
           >
             From Building Sites to{" "}
             <span style={{ color: "var(--accent)", opacity: 0.85 }}>Building Software</span>
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            {...fadeUp(0.4)}
+          <p
+            {...fu(0.4)}
             style={{
               fontSize: "0.9375rem",
               color: "var(--text-secondary)",
@@ -128,10 +124,10 @@ export function Hero() {
             For over a decade, I managed complex construction projects &#8212; leading teams,
             budgets, compliance, and client relationships. Working under pressure and delivering
             on tight deadlines taught me the value of clear communication and reliable execution.
-          </motion.p>
+          </p>
 
-          <motion.p
-            {...fadeUp(0.45)}
+          <p
+            {...fu(0.45)}
             style={{
               fontSize: "0.9375rem",
               color: "var(--text-secondary)",
@@ -144,10 +140,10 @@ export function Hero() {
             approach to every project. Today I help Australian small businesses build full-stack
             web applications and AI-powered automation, delivering projects remotely from
             Melbourne to clients nationwide.
-          </motion.p>
+          </p>
 
-          <motion.div
-            {...fadeUp(0.5)}
+          <div
+            {...fu(0.5)}
             style={{ display: "flex", flexWrap: "wrap", gap: "0.875rem" }}
           >
             <a href="#projects" className="btn-primary">
@@ -160,10 +156,10 @@ export function Hero() {
             <a href="#contact" className="btn-outline">
               Get a Free Quote
             </a>
-          </motion.div>
+          </div>
 
-          <motion.div
-            {...fadeUp(0.6)}
+          <div
+            {...fu(0.6)}
             style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginTop: "2.5rem" }}
           >
             {["React", "Next.js", "TypeScript", "Node.js", "AI/ML"].map((t) => (
@@ -183,16 +179,13 @@ export function Hero() {
                 {t}
               </span>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Photo + availability badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.88 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        <div
           className="hero-photo"
-          style={{ flexShrink: 0, position: "relative" }}
+          style={{ flexShrink: 0, position: "relative", animation: "hero-scale-in 0.8s cubic-bezier(0.22,1,0.36,1) 0.3s both" }}
         >
           <div className="hero-photo-ring" style={{ position: "relative", width: 286, height: 286 }}>
             {/* Spinning glow ring */}
@@ -237,14 +230,12 @@ export function Hero() {
           </div>
 
           {/* Availability badge — below photo */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9, ease: EASE }}
+          <div
             style={{
               marginTop: "1rem",
               display: "flex",
               justifyContent: "center",
+              animation: "hero-fade-up 0.6s cubic-bezier(0.22,1,0.36,1) 0.9s both",
             }}
           >
             <div
@@ -277,11 +268,11 @@ export function Hero() {
                 Open to new projects
               </span>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
-      {/* Scroll cue */}
+      {/* Scroll cue — kept as Framer Motion (below fold, decorative) */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -312,6 +303,14 @@ export function Hero() {
       </motion.div>
 
       <style>{`
+        @keyframes hero-fade-up {
+          from { opacity: 0; transform: translateY(32px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes hero-scale-in {
+          from { opacity: 0; transform: scale(0.88); }
+          to   { opacity: 1; transform: scale(1); }
+        }
         @media (max-width: 768px) {
           .hero-grid { grid-template-columns: 1fr !important; }
           .hero-photo { display: flex !important; flex-direction: column; align-items: center; order: -1; }
