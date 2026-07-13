@@ -25,6 +25,7 @@
   --bg-footer: #eef2f7;
   --bg-footer-dark: #f0f4f8;
   --btn-outline-color: #0e7490;
+  --btn-outline-text: #ffffff;
   --cat-auto: #6d28d9; --cat-auto-bg: rgba(109,40,217,0.09); --cat-auto-bd: rgba(109,40,217,0.18);
   --cat-land: #0e7490; --cat-land-bg: rgba(14,116,144,0.09); --cat-land-bd: rgba(14,116,144,0.18);
   --cat-web:  #047857; --cat-web-bg:  rgba(4,120,87,0.09);   --cat-web-bd:  rgba(4,120,87,0.18);
@@ -52,7 +53,8 @@
   --shadow-glow: 0 0 40px rgba(34, 211, 238, 0.15);
   --bg-footer: #050c18;
   --bg-footer-dark: #030810;
-  --btn-outline-color: var(--accent);
+  --btn-outline-color: #22d3ee;
+  --btn-outline-text: #0c2233;
   --cat-auto: #a78bfa; --cat-auto-bg: rgba(167,139,250,0.15); --cat-auto-bd: rgba(167,139,250,0.3);
   --cat-land: #22d3ee; --cat-land-bg: rgba(34,211,238,0.15);  --cat-land-bd: rgba(34,211,238,0.3);
   --cat-web:  #34d399; --cat-web-bg:  rgba(52,211,153,0.15);  --cat-web-bd:  rgba(52,211,153,0.3);

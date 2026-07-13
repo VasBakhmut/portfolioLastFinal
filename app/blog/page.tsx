@@ -108,7 +108,7 @@ function BlogCard({ post }: { post: ApiBlog }) {
             <Image src={post.image} alt={post.title} fill sizes="(max-width: 600px) 100vw, 33vw" style={{ objectFit: "cover" }} />
           )}
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, var(--accent-glow), transparent)" }} />
-          <span style={{ position: "absolute", top: "0.75rem", left: "0.75rem", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", padding: "0.2rem 0.6rem", borderRadius: "100px", background: "var(--btn-outline-color)", color: "#0c2233" }}>
+          <span style={{ position: "absolute", top: "0.75rem", left: "0.75rem", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", padding: "0.2rem 0.6rem", borderRadius: "100px", background: "var(--btn-outline-color)", color: "var(--btn-outline-text)" }}>
             {post.category}
           </span>
         </div>

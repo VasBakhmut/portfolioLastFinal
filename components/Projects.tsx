@@ -271,7 +271,7 @@ function ProjectCard({ project: p }: { project: ProjectWithPrice }) {
                   textTransform: "uppercase",
                   padding: "0.18rem 0.55rem",
                   borderRadius: "100px",
-                  background: cs.bg,
+                  background: "transparent",
                   color: cs.c,
                   border: `1px solid ${cs.bd}`,
                 }}
