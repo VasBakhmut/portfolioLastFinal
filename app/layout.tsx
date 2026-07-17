@@ -101,7 +101,12 @@ const LOCAL_BUSINESS_SCHEMA = {
     { "@type": "Country", name: "Australia" },
   ],
   priceRange: "$$",
-  sameAs: ["https://linkedin.com/in/vasylbakhmut", "https://github.com/VasBakhmut"],
+  sameAs: [
+    "https://www.linkedin.com/in/vasyl-bakhmut-dev",
+    "https://www.facebook.com/vasyl.bakhmut",
+    "https://www.instagram.com/vasyl_bakhmut",
+    "https://github.com/VasBakhmut",
+  ],
 };
 
 const PERSON_SCHEMA = {
@@ -113,7 +118,12 @@ const PERSON_SCHEMA = {
   worksFor: { "@type": "Organization", name: "Self-Employed" },
   address: { "@type": "PostalAddress", addressLocality: "Cheltenham", addressRegion: "VIC", addressCountry: "AU" },
   email: "bakhmutvas@gmail.com",
-  sameAs: ["https://linkedin.com/in/vasylbakhmut", "https://github.com/VasBakhmut"],
+  sameAs: [
+    "https://www.linkedin.com/in/vasyl-bakhmut-dev",
+    "https://www.facebook.com/vasyl.bakhmut",
+    "https://www.instagram.com/vasyl_bakhmut",
+    "https://github.com/VasBakhmut",
+  ],
 };
 
 const WEBSITE_SCHEMA = {

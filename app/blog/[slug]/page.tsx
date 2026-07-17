@@ -101,20 +101,6 @@ export default async function BlogPostPage({ params }: Props) {
     return (
       <div style={{ minHeight: "100svh", background: "var(--bg-primary)", color: "var(--text-primary)", fontFamily: "var(--font-body, Inter, sans-serif)" }}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
-        {/* Back nav */}
-        <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50, padding: "1rem 1.5rem", background: "var(--nav-bg)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", borderBottom: "1px solid var(--border)" }}>
-          <div style={{ maxWidth: 760, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <Link href="/blog" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", fontSize: "0.8rem", fontWeight: 600, color: "var(--text-secondary)", textDecoration: "none" }}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
-              </svg>
-              All Articles
-            </Link>
-            <span style={{ fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.2rem 0.7rem", borderRadius: "100px", background: "var(--accent)", color: "#fff" }}>
-              {api.category}
-            </span>
-          </div>
-        </div>
 
         <article style={{ maxWidth: 760, margin: "0 auto", padding: "6rem 1.5rem 5rem" }}>
           <div style={{ display: "flex", gap: "0.75rem", alignItems: "center", marginBottom: "1.5rem", flexWrap: "wrap" }}>
@@ -195,21 +181,6 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <div style={{ minHeight: "100svh", background: "var(--bg-primary)", color: "var(--text-primary)", fontFamily: "var(--font-body, Inter, sans-serif)" }}>
-      {/* Back nav */}
-      <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50, padding: "1rem 1.5rem", background: "var(--nav-bg)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", borderBottom: "1px solid var(--border)" }}>
-        <div style={{ maxWidth: 760, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <Link href="/blog" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", fontSize: "0.8rem", fontWeight: 600, color: "var(--text-secondary)", textDecoration: "none" }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
-            </svg>
-            All Articles
-          </Link>
-          <span style={{ fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", padding: "0.2rem 0.7rem", borderRadius: "100px", background: "var(--accent)", color: "#fff" }}>
-            {post.category}
-          </span>
-        </div>
-      </div>
-
       <article style={{ maxWidth: 760, margin: "0 auto", padding: "6rem 1.5rem 5rem" }}>
         <div style={{ display: "flex", gap: "0.75rem", alignItems: "center", marginBottom: "1.5rem", flexWrap: "wrap" }}>
           <span style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>{post.date}</span>

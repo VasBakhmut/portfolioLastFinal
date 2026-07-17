@@ -1,28 +1,47 @@
 # Vasyl Bakhmut — Full-Stack Web Developer & AI Automation Specialist
 
-> Melbourne-based full-stack web developer and AI automation specialist
-serving small businesses across Australia.
+> Melbourne-based full-stack web developer and AI automation
+specialist helping Australian small businesses grow online.
+
+## About
+
+Vasyl Bakhmut is a full-stack web developer and AI automation
+specialist based in Cheltenham, Melbourne VIC 3192, Australia.
+With a background in construction project management and 3+ years
+in software development, Vasyl builds custom websites, AI chatbots,
+workflow automations, and SEO strategies for small businesses
+across Melbourne, Sydney, and Australia-wide.
 
 ## Services
-- Web Design: custom, mobile-first websites from $199 AUD
-- Web Development: React, Next.js, TypeScript applications
-- AI Chatbots & Automation: n8n workflows, CRM integration, from $99 AUD
-- SEO Optimisation: technical SEO, local search, free audit available
-- Ecommerce Solutions: custom online stores from $799 AUD
-- Business Web Solutions: multi-page business websites from $299 AUD
 
-## Location
-Based in Cheltenham, Melbourne VIC 3192, Australia.
-Serving Melbourne, Sydney, and businesses Australia-wide.
+- [Web Design Melbourne](https://www.vasdev.au/services/web-design/melbourne)
+- [Web Development](https://www.vasdev.au/services/web-development)
+- [AI Chatbots & Automation Melbourne](https://www.vasdev.au/services/ai-automation/melbourne)
+- [SEO Optimisation](https://www.vasdev.au/services/seo-optimization)
+- [Ecommerce Solutions](https://www.vasdev.au/services/ecommerce-solutions)
+- [Business Web Solutions](https://www.vasdev.au/services/business-web-solutions)
+
+## Locations
+
+- [Melbourne](https://www.vasdev.au/locations/melbourne)
+- [Sydney](https://www.vasdev.au/locations/sydney)
+
+## Pricing
+
+- Web Design: from $199 AUD
+- Business Website: from $299 AUD
+- AI Automation: from $99 AUD
+- Ecommerce Store: from $799 AUD
+- SEO Care Plan: from $300/month
+
+## Blog
+
+- [Blog](https://www.vasdev.au/blog)
 
 ## Contact
-Email: bakhmutvas@gmail.com
-Phone: 0425 401 444
-Website: https://www.vasdev.au
 
-## Key Pages
-- Homepage: https://www.vasdev.au
-- Web Design Melbourne: https://www.vasdev.au/services/web-design/melbourne
-- AI Automation Melbourne: https://www.vasdev.au/services/ai-automation/melbourne
-- Blog: https://www.vasdev.au/blog
-- Contact: https://www.vasdev.au/#contact
+- Website: https://www.vasdev.au
+- Email: bakhmutvas@gmail.com
+- Phone: 0425 401 444
+- LinkedIn: https://www.linkedin.com/in/vasyl-bakhmut-dev
+- GitHub: https://github.com/VasBakhmut
