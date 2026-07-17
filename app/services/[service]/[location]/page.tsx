@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = `${service.name} ${location.name} | ${location.state} | Vasyl Bakhmut`;
   const description = `${service.name} services in ${location.name}, ${location.state}. ${service.metaDescription}`;
-  const canonical = `https://vasdev.au/services/${service.slug}/${location.slug}`;
+  const canonical = `https://www.vasdev.au/services/${service.slug}/${location.slug}`;
 
   return {
     title,

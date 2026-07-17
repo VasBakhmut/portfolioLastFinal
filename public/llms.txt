@@ -1,0 +1,28 @@
+# Vasyl Bakhmut — Full-Stack Web Developer & AI Automation Specialist
+
+> Melbourne-based full-stack web developer and AI automation specialist
+serving small businesses across Australia.
+
+## Services
+- Web Design: custom, mobile-first websites from $199 AUD
+- Web Development: React, Next.js, TypeScript applications
+- AI Chatbots & Automation: n8n workflows, CRM integration, from $99 AUD
+- SEO Optimisation: technical SEO, local search, free audit available
+- Ecommerce Solutions: custom online stores from $799 AUD
+- Business Web Solutions: multi-page business websites from $299 AUD
+
+## Location
+Based in Cheltenham, Melbourne VIC 3192, Australia.
+Serving Melbourne, Sydney, and businesses Australia-wide.
+
+## Contact
+Email: bakhmutvas@gmail.com
+Phone: 0425 401 444
+Website: https://www.vasdev.au
+
+## Key Pages
+- Homepage: https://www.vasdev.au
+- Web Design Melbourne: https://www.vasdev.au/services/web-design/melbourne
+- AI Automation Melbourne: https://www.vasdev.au/services/ai-automation/melbourne
+- Blog: https://www.vasdev.au/blog
+- Contact: https://www.vasdev.au/#contact

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const api = await getBlogBySlug(slug);
 
   if (api) {
-    const canonical = `https://vasdev.au/blog/${slug}`;
+    const canonical = `https://www.vasdev.au/blog/${slug}`;
     return {
       title: api.title,
       description: api.excerpt,
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const local = getBlogPost(slug);
   if (!local) return { title: "Post Not Found" };
-  const canonical = `https://vasdev.au/blog/${slug}`;
+  const canonical = `https://www.vasdev.au/blog/${slug}`;
   return {
     title: local.title,
     description: local.excerpt,
@@ -82,7 +82,7 @@ export default async function BlogPostPage({ params }: Props) {
       description: api.excerpt,
       datePublished: api.createdAt,
       dateModified: api.createdAt,
-      url: `https://vasdev.au/blog/${slug}`,
+      url: `https://www.vasdev.au/blog/${slug}`,
       author: {
         "@type": "Person",
         name: "Vasyl Bakhmut",
@@ -94,7 +94,7 @@ export default async function BlogPostPage({ params }: Props) {
         name: "Vasyl Bakhmut",
         url: "https://vasdev.au",
       },
-      mainEntityOfPage: { "@type": "WebPage", "@id": `https://vasdev.au/blog/${slug}` },
+      mainEntityOfPage: { "@type": "WebPage", "@id": `https://www.vasdev.au/blog/${slug}` },
       ...(api.image ? { image: api.image } : {}),
     };
 

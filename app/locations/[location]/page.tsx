@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = `Web Developer & AI Automation ${location.name} | Vasyl Bakhmut`;
   const description = `Full-stack web developer and AI automation specialist serving ${location.name}, ${location.state}. Custom websites, AI chatbots, SEO. ${location.type === "local" ? "Based locally." : "Remote-first, same timezone."}`;
-  const canonical = `https://vasdev.au/locations/${location.slug}`;
+  const canonical = `https://www.vasdev.au/locations/${location.slug}`;
 
   return {
     title,
@@ -35,35 +35,6 @@ export default async function LocationPage({ params }: Props) {
   const location = getLocation(slug);
   if (!location) notFound();
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: "Vasyl Bakhmut — Web Developer & AI Automation",
-    description: `Web development and AI automation services in ${location.name}, ${location.state}.`,
-    url: "https://vasdev.au",
-    telephone: "0425401444",
-    email: "bakhmutvas@gmail.com",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: location.type === "local" ? "Cheltenham" : location.name,
-      addressRegion: location.state,
-      addressCountry: "AU",
-    },
-    ...(location.type === "local"
-      ? {
-          geo: {
-            "@type": "GeoCoordinates",
-            latitude: -37.9526,
-            longitude: 145.0592,
-          },
-        }
-      : {}),
-    areaServed: [
-      { "@type": "City", name: location.name },
-      ...location.suburbs.map((s) => ({ "@type": "Place", name: `${s}, ${location.name}` })),
-    ],
-  };
-
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -75,7 +46,6 @@ export default async function LocationPage({ params }: Props) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
       <Navbar />

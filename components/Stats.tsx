@@ -124,6 +124,8 @@ export function Stats() {
           .stats-grid > div:nth-child(odd) { border-right: 1px solid var(--border) !important; }
           .stats-grid > div:nth-child(1),
           .stats-grid > div:nth-child(2) { border-bottom: 1px solid var(--border) !important; }
+          .stats-grid > div { padding: 1rem !important; gap: 0.625rem !important; }
+          .stats-grid > div > div:first-child { width: 36px !important; height: 36px !important; }
         }
         @media (max-width: 400px) {
           .stats-grid { grid-template-columns: 1fr !important; }

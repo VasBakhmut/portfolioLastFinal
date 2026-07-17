@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Blog — Articles & Resources",
   description:
     "Practical guides on web development, AI automation, and SEO for Australian small businesses. Written by Vasyl Bakhmut, full-stack developer based in Melbourne.",
-  alternates: { canonical: "https://vasdev.au/blog" },
+  alternates: { canonical: "https://www.vasdev.au/blog" },
   openGraph: {
     title: "Articles & Resources | Vasyl Bakhmut",
     description:

@@ -32,11 +32,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: service.metaTitle,
     description: service.metaDescription,
-    alternates: { canonical: `https://vasdev.au/services/${service.slug}` },
+    alternates: { canonical: `https://www.vasdev.au/services/${service.slug}` },
     openGraph: {
       title: service.metaTitle,
       description: service.metaDescription,
-      url: `https://vasdev.au/services/${service.slug}`,
+      url: `https://www.vasdev.au/services/${service.slug}`,
       type: "website",
       locale: "en_AU",
     },
@@ -61,7 +61,7 @@ export default async function ServicePage({ params }: Props) {
       url: "https://vasdev.au",
     },
     areaServed: "Australia",
-    url: `https://vasdev.au/services/${service.slug}`,
+    url: `https://www.vasdev.au/services/${service.slug}`,
   };
 
   const breadcrumb = {
@@ -70,7 +70,7 @@ export default async function ServicePage({ params }: Props) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://vasdev.au" },
       { "@type": "ListItem", position: 2, name: "Services", item: "https://vasdev.au/services" },
-      { "@type": "ListItem", position: 3, name: service.name, item: `https://vasdev.au/services/${service.slug}` },
+      { "@type": "ListItem", position: 3, name: service.name, item: `https://www.vasdev.au/services/${service.slug}` },
     ],
   };
 

@@ -18,13 +18,13 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_URL = "https://vasdev.au";
+const SITE_URL = "https://www.vasdev.au";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Vasyl Bakhmut | Full-Stack Web Developer & AI Automation Specialist Melbourne",
-    template: "%s | Vasyl Bakhmut",
+    default: "Vasyl Bakhmut — Full-Stack Web Developer & AI Automation Specialist Melbourne",
+    template: "%s — Vasyl Bakhmut",
   },
   description:
     "Melbourne-based full-stack web developer and AI automation specialist. Custom websites, AI chatbots, workflow automation and SEO for Australian small businesses. Fast delivery, transparent pricing.",
@@ -67,8 +67,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
     ],
     apple: "/apple-touch-icon.png",
   },
@@ -83,7 +82,7 @@ const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Vasyl Bakhmut — Web Developer & AI Automation",
-  url: "https://vasdev.au",
+  url: "https://www.vasdev.au",
   telephone: "0425401444",
   email: "bakhmutvas@gmail.com",
   address: {
@@ -102,32 +101,27 @@ const LOCAL_BUSINESS_SCHEMA = {
     { "@type": "Country", name: "Australia" },
   ],
   priceRange: "$$",
-  sameAs: ["https://linkedin.com/in/vasylbakhmut", "https://github.com/vasylbakhmut"],
+  sameAs: ["https://linkedin.com/in/vasylbakhmut", "https://github.com/VasBakhmut"],
 };
 
 const PERSON_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Vasyl Bakhmut",
-  url: "https://vasdev.au",
+  url: "https://www.vasdev.au",
   jobTitle: "Full-Stack Web Developer & AI Automation Specialist",
   worksFor: { "@type": "Organization", name: "Self-Employed" },
   address: { "@type": "PostalAddress", addressLocality: "Cheltenham", addressRegion: "VIC", addressCountry: "AU" },
   email: "bakhmutvas@gmail.com",
-  sameAs: ["https://linkedin.com/in/vasylbakhmut", "https://github.com/vasylbakhmut"],
+  sameAs: ["https://linkedin.com/in/vasylbakhmut", "https://github.com/VasBakhmut"],
 };
 
 const WEBSITE_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Vasyl Bakhmut",
-  url: "https://vasdev.au",
+  url: "https://www.vasdev.au",
   description: "Full-stack web developer and AI automation specialist based in Melbourne, Australia.",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: "https://vasdev.au/#contact",
-    "query-input": "required name=search_term_string",
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

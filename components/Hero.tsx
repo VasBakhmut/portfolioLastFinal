@@ -222,7 +222,7 @@ export function Hero() {
                 src="/vasyl-avatar.jpg"
                 alt="Vasyl Bakhmut — Full-Stack Web Developer Melbourne"
                 fill
-                sizes="286px"
+                sizes="(max-width: 768px) 176px, 286px"
                 style={{ objectFit: "cover" }}
                 priority
               />

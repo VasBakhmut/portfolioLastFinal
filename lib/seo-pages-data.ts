@@ -32,7 +32,7 @@ export const SERVICES: ServiceData[] = [
     h1: "Professional Web Design Services",
     metaTitle: "Web Design Services Australia | Vasyl Bakhmut",
     metaDescription:
-      "Professional web design for Australian small businesses. Custom, mobile-first, SEO-optimised websites. From $199 AUD.",
+      "Professional web design for Australian small businesses. Mobile-first, SEO-optimised websites. From $199 AUD.",
     intro:
       "I design clean, fast, conversion-focused websites for Australian small businesses — built with modern technology that outperforms WordPress templates on every metric.",
     h2Sections: [
@@ -58,7 +58,7 @@ export const SERVICES: ServiceData[] = [
     h1: "Full-Stack Web Development Services",
     metaTitle: "Web Development Melbourne & Australia | Next.js, React | Vasyl Bakhmut",
     metaDescription:
-      "Custom full-stack web development with React, Next.js and TypeScript. Fast, accessible, SEO-ready. Melbourne-based, serving Australia.",
+      "Custom full-stack development with React, Next.js and TypeScript. Fast, accessible, SEO-ready. Melbourne-based, serving Australia.",
     intro:
       "I build performant web applications using React, Next.js and TypeScript — the same stack used by the world's fastest websites, now accessible to Australian small businesses.",
     h2Sections: [
@@ -84,7 +84,7 @@ export const SERVICES: ServiceData[] = [
     h1: "SEO Optimisation Services Australia",
     metaTitle: "SEO Services Melbourne & Australia | Free Audit | Vasyl Bakhmut",
     metaDescription:
-      "Technical SEO and local search optimisation for Australian businesses. Free SEO audit, weekly reporting. Melbourne-based. From $300/mo.",
+      "Technical SEO and local search optimisation for Australian businesses. Free audit, weekly reporting. From $300/mo.",
     intro:
       "I help Australian businesses rank on the first page of Google through technical SEO, local search optimisation, and content strategy — without agency price tags.",
     h2Sections: [
@@ -110,7 +110,7 @@ export const SERVICES: ServiceData[] = [
     h1: "Ecommerce Website Development Australia",
     metaTitle: "Ecommerce Website Design Australia | Custom Online Store | Vasyl Bakhmut",
     metaDescription:
-      "Custom ecommerce websites for Australian businesses. Shopping cart, payment gateway, product management. From $799 AUD.",
+      "Custom ecommerce websites for Australian businesses. Shopping cart, payments, product management. From $799 AUD.",
     intro:
       "I build ecommerce stores that sell — custom product management, Australian payment gateways, and mobile-first design that converts browsers into buyers.",
     h2Sections: [
@@ -136,7 +136,7 @@ export const SERVICES: ServiceData[] = [
     h1: "Business Website Solutions for Australian SMBs",
     metaTitle: "Business Website Design Australia | SMB Web Solutions | Vasyl Bakhmut",
     metaDescription:
-      "Complete website solutions for Australian small and medium businesses. Multi-page sites, CMS, SEO, forms. From $299 AUD.",
+      "Website solutions for Australian SMBs. Multi-page sites, CMS, SEO, contact forms. From $299 AUD.",
     intro:
       "From a simple 5-page business site to a full CMS-powered platform — I deliver complete web solutions for Australian SMBs that need more than a template but less than an enterprise build.",
     h2Sections: [
@@ -162,7 +162,7 @@ export const SERVICES: ServiceData[] = [
     h1: "AI Chatbots & Automation Services",
     metaTitle: "AI Automation Melbourne | Chatbots, n8n Workflows | Vasyl Bakhmut",
     metaDescription:
-      "AI chatbots, n8n workflow automation and CRM integration for Australian small businesses. Save 10+ hours per week. From $99 AUD.",
+      "AI chatbots and n8n workflow automation for Australian small businesses. Save 10+ hours/week. CRM integration. From $99.",
     intro:
       "I build AI automation systems that eliminate repetitive work — custom chatbots, n8n workflows, CRM integrations, and intelligent tools that run while you focus on growing your business.",
     h2Sections: [
@@ -188,7 +188,7 @@ export const SERVICES: ServiceData[] = [
     h1: "Cloud Infrastructure & DevOps Services",
     metaTitle: "Cloud & DevOps Consulting Melbourne | AWS, Docker, CI/CD | Vasyl Bakhmut",
     metaDescription:
-      "Cloud infrastructure and DevOps consulting for Australian businesses. AWS setup, Docker containerisation, CI/CD pipelines, Vercel deployments. From $149 AUD.",
+      "DevOps & cloud infrastructure for Australian businesses. AWS, Docker, CI/CD pipelines, Vercel deployments. From $149 AUD.",
     intro:
       "I help Australian businesses set up and optimise their cloud infrastructure — reliable, scalable, and cost-efficient. AWS, Docker, CI/CD, and Vercel deployments handled end to end.",
     h2Sections: [
