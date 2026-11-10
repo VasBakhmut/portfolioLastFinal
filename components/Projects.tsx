@@ -407,22 +407,12 @@ function ProjectCard({ project: p }: { project: ProjectWithPrice }) {
 						fontSize: '0.9375rem',
 						fontWeight: 700,
 						color: 'var(--text-primary)',
-						marginBottom: '0.375rem',
+						marginBottom: '0.875rem',
+						flex: 1,
 					}}
 				>
 					{p.title}
 				</h3>
-				<p
-					style={{
-						fontSize: '0.7875rem',
-						color: 'var(--text-secondary)',
-						lineHeight: 1.65,
-						flex: 1,
-						marginBottom: '0.875rem',
-					}}
-				>
-					{p.description}
-				</p>
 
 				<div
 					style={{
