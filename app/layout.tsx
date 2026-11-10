@@ -1,21 +1,25 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import { Providers } from "@/lib/providers";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+// Fonts are self-hosted (variable WOFF2, latin subset, same families as before).
+// next/font/google fetched them from Google at build time, and Google
+// intermittently returns a URL format Next 16.2.9 cannot parse, which broke
+// the production build ("next/font/google queries have exactly one entry").
+const spaceGrotesk = localFont({
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  src: [{ path: "./fonts/SpaceGrotesk-Variable-latin.woff2", weight: "300 700", style: "normal" }],
   display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });
 
-const inter = Inter({
+const inter = localFont({
   variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  src: [{ path: "./fonts/Inter-Variable-latin.woff2", weight: "100 900", style: "normal" }],
   display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });
 
 const SITE_URL = "https://www.vasdev.au";
