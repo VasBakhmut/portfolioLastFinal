@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vasdev — vasdev.au
 
-## Getting Started
+Source code of **[www.vasdev.au](https://www.vasdev.au)**, the website of **Vasdev**, the business of
+**Vasyl Bakhmut** — a Melbourne-based full-stack web developer and AI automation specialist.
 
-First, run the development server:
+Vasdev builds websites, Shopify stores and AI automation (n8n workflows, chatbots) for Australian small
+businesses, and helps them get found in Google and in AI search (SEO and GEO).
+
+## What the site covers
+
+- Websites from $199, Shopify stores from $599, AI automation from $99, GEO (AI search optimisation) from $399/month
+- Service pages for Melbourne and Sydney, FAQ, blog and a contact form
+- SEO / GEO foundations: structured data (JSON-LD), `sitemap.xml`, `robots.txt`, `llms.txt`,
+  generated Open Graph images
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) 16 (App Router), React 19, TypeScript
+- Tailwind CSS v4, Framer Motion
+- Deployed on Vercel
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev      # http://localhost:3000
+pnpm build    # production build
+pnpm lint     # ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Set `NEXT_PUBLIC_API_URL` to the URL of the backend API (blog posts, contact form) in `.env.local`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Author
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Built by **Vasyl Bakhmut**, founder of Vasdev — Melbourne web developer & AI automation.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Website: https://www.vasdev.au
+- LinkedIn: https://www.linkedin.com/in/vasyl-bakhmut-dev
+- GitHub: https://github.com/VasBakhmut

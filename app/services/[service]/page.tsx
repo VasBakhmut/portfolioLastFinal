@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { SERVICES, LOCATIONS, getService } from "@/lib/seo-pages-data";
+import { SERVICES, LOCATIONS, getService, hasServiceLocationPage } from "@/lib/seo-pages-data";
 
 interface Props {
   params: Promise<{ service: string }>;
@@ -19,6 +19,9 @@ const SERVICE_IMAGES: Record<string, string> = {
   "business-web-solutions": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=1200&auto=format&fit=crop&q=70",
   "ai-automation": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&fit=crop&q=70",
   "cloud-devops": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&auto=format&fit=crop&q=70",
+  // reuse existing, already-allowed images for the new pages
+  "shopify-stores": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&auto=format&fit=crop&q=70",
+  "geo-ai-search-optimisation": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=70",
 };
 
 export async function generateStaticParams() {
@@ -30,7 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = getService(slug);
   if (!service) return { title: "Service Not Found" };
   return {
-    title: service.metaTitle,
+    // absolute: metaTitle already contains the brand, skip the layout template
+    title: { absolute: service.metaTitle },
     description: service.metaDescription,
     alternates: { canonical: `https://www.vasdev.au/services/${service.slug}` },
     openGraph: {
@@ -58,18 +62,31 @@ export default async function ServicePage({ params }: Props) {
     provider: {
       "@type": "Person",
       name: "Vasyl Bakhmut",
-      url: "https://vasdev.au",
+      url: "https://www.vasdev.au",
     },
     areaServed: "Australia",
     url: `https://www.vasdev.au/services/${service.slug}`,
+    ...(service.priceFrom && {
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "AUD",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          priceCurrency: "AUD",
+          minPrice: service.priceFrom.amount,
+          ...(service.priceFrom.per === "month" && { unitText: "MONTH" }),
+        },
+        url: `https://www.vasdev.au/services/${service.slug}`,
+      },
+    }),
   };
 
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://vasdev.au" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "https://vasdev.au/services" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.vasdev.au" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://www.vasdev.au/#services" },
       { "@type": "ListItem", position: 3, name: service.name, item: `https://www.vasdev.au/services/${service.slug}` },
     ],
   };
@@ -274,7 +291,7 @@ export default async function ServicePage({ params }: Props) {
               Also serving:
             </h2>
             <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-              {LOCATIONS.map((loc) => (
+              {LOCATIONS.filter((loc) => hasServiceLocationPage(service.slug, loc.slug)).map((loc) => (
                 <Link
                   key={loc.slug}
                   href={`/services/${service.slug}/${loc.slug}`}

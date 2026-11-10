@@ -132,14 +132,11 @@ export function Process() {
                       fontSize: "1.0625rem",
                       fontWeight: 700,
                       color: "var(--text-primary)",
-                      marginBottom: "0.625rem",
+                      marginBottom: 0,
                     }}
                   >
                     {step.title}
                   </h3>
-                  <p style={{ fontSize: "0.8125rem", color: "var(--text-secondary)", lineHeight: 1.75 }}>
-                    {step.description}
-                  </p>
                 </div>
               </ScrollReveal>
             ))}

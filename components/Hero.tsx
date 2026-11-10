@@ -10,13 +10,13 @@ const fu = (delay: number) => ({
 export function Hero() {
   return (
     <section
-      id="top"
+      id="intro"
       style={{
         position: "relative",
-        minHeight: "100svh",
+        minHeight: "auto",
         display: "flex",
         alignItems: "center",
-        padding: "6rem 1.5rem 4rem",
+        padding: "3rem 1.5rem 4rem",
         overflow: "hidden",
       }}
     >

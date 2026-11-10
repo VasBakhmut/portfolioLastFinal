@@ -78,15 +78,16 @@ const SERVICES = [
   },
 ];
 
+
 export function Services() {
   return (
     <section
       id="services"
-      style={{ padding: "3.5rem 1.5rem", position: "relative", zIndex: 1 }}
+      style={{ padding: "2.5rem 1.5rem", position: "relative", zIndex: 1 }}
     >
       <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
         <ScrollReveal>
-          <div style={{ textAlign: "center", marginBottom: "2.25rem" }}>
+          <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
             <p className="section-label" style={{ justifyContent: "center" }}>
               <span>&#8212;</span> What I Do <span>&#8212;</span>
             </p>
@@ -100,25 +101,47 @@ export function Services() {
         </ScrollReveal>
 
         <div
-          style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}
+          style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: "0.875rem" }}
           className="services-grid"
         >
           {SERVICES.map((s, i) => (
-            <ScrollReveal key={s.title} delay={i * 0.1}>
+            <ScrollReveal key={s.title} delay={i * 0.08}>
               <Link
                 href={`/services/${s.slug}`}
                 className="glass-card service-card"
-                style={{ padding: "1.5rem", height: "100%", display: "flex", flexDirection: "column", textDecoration: "none", overflow: "hidden" }}
+                style={{
+                  position: "relative",
+                  padding: "1.125rem 0.75rem 1rem",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center",
+                  textDecoration: "none",
+                  overflow: "hidden",
+                  cursor: "pointer",
+                  ["--service-color" as string]: s.color,
+                }}
               >
-                {/* Icon — smaller on mobile via CSS class */}
+                {/* Clickable hint: arrow in the corner, animates on hover */}
+                <span
+                  className="service-arrow"
+                  aria-hidden="true"
+                  style={{ position: "absolute", top: 8, right: 8, color: s.color, display: "flex" }}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+                  </svg>
+                </span>
+
                 <div
                   className="service-icon"
                   style={{
-                    width: 56, height: 56, borderRadius: "0.875rem",
+                    width: 44, height: 44, borderRadius: "0.75rem",
                     display: "flex", alignItems: "center", justifyContent: "center",
                     background: `${s.color}18`,
                     color: s.color,
-                    marginBottom: "1rem",
+                    marginBottom: "0.75rem",
                   }}
                 >
                   {s.icon}
@@ -126,55 +149,27 @@ export function Services() {
                 <h3
                   style={{
                     fontFamily: "var(--font-display)",
-                    fontSize: "1rem", fontWeight: 700,
+                    fontSize: "0.875rem", fontWeight: 700,
                     color: "var(--text-primary)",
-                    marginBottom: "0.75rem", lineHeight: 1.3,
+                    marginBottom: "0.625rem", lineHeight: 1.3,
+                    flex: 1,
                   }}
                 >
                   {s.title}
                 </h3>
-                {/* Description — hidden on mobile */}
-                <p
-                  className="service-desc"
-                  style={{ fontSize: "0.8125rem", color: "var(--text-secondary)", lineHeight: 1.75, flex: 1 }}
-                  dangerouslySetInnerHTML={{ __html: s.description }}
-                />
-                {/* Desktop: price + learn more; Mobile: hidden, arrow shown in CSS */}
-                <div className="service-bottom" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "1rem" }}>
-                  <span
-                    style={{
-                      fontSize: "0.75rem", fontWeight: 700,
-                      color: s.color,
-                      background: `${s.color}12`,
-                      border: `1px solid ${s.color}28`,
-                      padding: "0.2rem 0.6rem",
-                      borderRadius: "100px",
-                    }}
-                  >
-                    {s.priceHint}
-                  </span>
-                  <span style={{ display: "flex", alignItems: "center", gap: "0.25rem", fontSize: "0.75rem", fontWeight: 600, color: "var(--text-muted)" }}>
-                    Learn more
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                    </svg>
-                  </span>
-                </div>
-                {/* Mobile-only: subtle arrow to hint clickability */}
-                <div
-                  className="service-arrow-mobile"
+                <span
                   style={{
-                    display: "none",
-                    marginTop: "0.5rem",
-                    justifyContent: "flex-end",
+                    fontSize: "0.7rem", fontWeight: 700,
                     color: s.color,
-                    opacity: 0.7,
+                    background: `${s.color}12`,
+                    border: `1px solid ${s.color}28`,
+                    padding: "0.15rem 0.55rem",
+                    borderRadius: "100px",
+                    whiteSpace: "nowrap",
                   }}
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                  </svg>
-                </div>
+                  {s.priceHint}
+                </span>
               </Link>
             </ScrollReveal>
           ))}
@@ -182,17 +177,14 @@ export function Services() {
       </div>
 
       <style>{`
+        .service-card:hover { border-color: var(--service-color) !important; }
+        .service-arrow { opacity: 0.45; transition: transform 0.25s ease, opacity 0.25s ease; }
+        .service-card:hover .service-arrow { opacity: 1; transform: translate(2px, -2px); }
         @media (max-width: 1024px) {
-          .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .services-grid { grid-template-columns: repeat(3, 1fr) !important; }
         }
         @media (max-width: 500px) {
           .services-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.75rem !important; }
-          .service-card { padding: 0.875rem !important; }
-          .service-icon { width: 40px !important; height: 40px !important; margin-bottom: 0.625rem !important; border-radius: 0.625rem !important; }
-          .service-icon svg { width: 20px !important; height: 20px !important; }
-          .service-desc { display: none !important; }
-          .service-bottom { display: none !important; }
-          .service-arrow-mobile { display: flex !important; }
         }
       `}</style>
     </section>

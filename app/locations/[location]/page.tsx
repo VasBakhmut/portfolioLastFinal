@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { LOCATIONS, SERVICES, getLocation } from "@/lib/seo-pages-data";
+import { LOCATIONS, SERVICES, getLocation, hasServiceLocationPage } from "@/lib/seo-pages-data";
 
 interface Props {
   params: Promise<{ location: string }>;
@@ -18,12 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const location = getLocation(slug);
   if (!location) return { title: "Not Found" };
 
-  const title = `Web Developer & AI Automation ${location.name} | Vasyl Bakhmut`;
-  const description = `Full-stack web developer and AI automation specialist serving ${location.name}, ${location.state}. Custom websites, AI chatbots, SEO. ${location.type === "local" ? "Based locally." : "Remote-first, same timezone."}`;
+  const title = `Web Developer ${location.name} | Websites, Shopify & AI Automation | Vasdev`;
+  const description = `Web developer serving ${location.name}, ${location.state}: websites from $199, Shopify stores from $599, AI automation from $99. ${location.type === "local" ? "Based locally." : "Remote-first, fixed prices."}`;
   const canonical = `https://www.vasdev.au/locations/${location.slug}`;
 
   return {
-    title,
+    // absolute: the title already contains the brand, skip the layout template
+    title: { absolute: title },
     description,
     alternates: { canonical },
     openGraph: { title, description, url: canonical, type: "website", locale: "en_AU" },
@@ -39,8 +40,8 @@ export default async function LocationPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://vasdev.au" },
-      { "@type": "ListItem", position: 2, name: location.name, item: `https://vasdev.au/locations/${location.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.vasdev.au" },
+      { "@type": "ListItem", position: 2, name: location.name, item: `https://www.vasdev.au/locations/${location.slug}` },
     ],
   };
 
@@ -138,7 +139,11 @@ export default async function LocationPage({ params }: Props) {
               {SERVICES.map((service) => (
                 <Link
                   key={service.slug}
-                  href={`/services/${service.slug}/${location.slug}`}
+                  href={
+                    hasServiceLocationPage(service.slug, location.slug)
+                      ? `/services/${service.slug}/${location.slug}`
+                      : `/services/${service.slug}`
+                  }
                   className="glass-card"
                   style={{
                     padding: "1.25rem 1.375rem",

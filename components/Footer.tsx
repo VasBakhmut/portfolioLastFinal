@@ -198,6 +198,10 @@ export function Footer() {
                   { label: "AI Automation (Melbourne)", href: "/services/ai-automation/melbourne" },
                   { label: "SEO Optimisation", href: "/services/seo-optimization" },
                   { label: "Ecommerce Solutions", href: "/services/ecommerce-solutions" },
+                  { label: "Shopify Stores", href: "/services/shopify-stores" },
+                  { label: "Website Cost Guide", href: "/guides/how-much-does-a-website-cost-in-australia" },
+                  { label: "All Guides", href: "/guides" },
+                  { label: "GEO & AI Search", href: "/services/geo-ai-search-optimisation" },
                   { label: "Business Web Solutions", href: "/services/business-web-solutions" },
                 ].map((l) => (
                   <li key={l.href}>
@@ -223,6 +227,12 @@ export function Footer() {
                 {[
                   { label: "Melbourne", href: "/locations/melbourne" },
                   { label: "Sydney", href: "/locations/sydney" },
+                  { label: "Brisbane", href: "/locations/brisbane" },
+                  { label: "Perth", href: "/locations/perth" },
+                  { label: "Adelaide", href: "/locations/adelaide" },
+                  { label: "Canberra", href: "/locations/canberra" },
+                  { label: "Gold Coast", href: "/locations/gold-coast" },
+                  { label: "Hobart", href: "/locations/hobart" },
                   { label: "Web Design Melbourne", href: "/services/web-design/melbourne" },
                   { label: "Web Design Sydney", href: "/services/web-design/sydney" },
                   { label: "AI Automation Melbourne", href: "/services/ai-automation/melbourne" },

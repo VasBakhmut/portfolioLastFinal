@@ -13,6 +13,8 @@ export interface ServiceData {
   h2Sections: H2Section[];
   pricing: string;
   schema: string;
+  /** Starting price in AUD, used for the Service/Offer structured data. */
+  priceFrom?: { amount: number; per?: "month" };
 }
 
 export interface LocationData {
@@ -51,6 +53,7 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "landing-business-ecommerce",
     schema: "WebDesign",
+    priceFrom: { amount: 199 },
   },
   {
     slug: "web-development",
@@ -129,6 +132,7 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "ecommerce",
     schema: "Ecommerce",
+    priceFrom: { amount: 799 },
   },
   {
     slug: "business-web-solutions",
@@ -155,6 +159,7 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "landing-business-ecommerce",
     schema: "BusinessWeb",
+    priceFrom: { amount: 299 },
   },
   {
     slug: "ai-automation",
@@ -181,6 +186,7 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "ai",
     schema: "AIAutomation",
+    priceFrom: { amount: 99 },
   },
   {
     slug: "cloud-devops",
@@ -207,6 +213,61 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "devops",
     schema: "CloudDevOps",
+    priceFrom: { amount: 149 },
+  },
+  {
+    slug: "shopify-stores",
+    name: "Shopify Stores",
+    h1: "Shopify Store Setup & Development in Australia",
+    metaTitle: "Shopify Developer Melbourne | Store Setup From $599 | Vasyl Bakhmut",
+    metaDescription:
+      "Shopify store setup and customisation for Australian small businesses. Australian payments, GST and shipping configured. From $599 AUD.",
+    intro:
+      "I set up Shopify stores for Australian small businesses — branded, mobile-first, and ready to take orders with Australian payments, GST and shipping configured from day one.",
+    h2Sections: [
+      {
+        heading: "How Much Does a Shopify Store Cost in Australia?",
+        body: "A professionally set-up Shopify store in Australia typically costs from a few hundred dollars for a basic template to $5,000+ at agency rates. My Shopify stores start from $599 AUD for a clean, mobile-first store with your branding, products and Australian checkout configured. Shopify's monthly subscription is separate and paid directly to Shopify, so the store account is yours from the start.",
+      },
+      {
+        heading: "Shopify Set Up for the Australian Market",
+        body: "Australian customers expect GST-inclusive pricing in AUD, familiar payment options such as card payments, Afterpay and PayPal, and clear Australia Post shipping rates. I configure these properly, along with the SEO basics Shopify leaves to you — page titles, descriptions, clean product URLs and structured data — so your store can be found in Google and in AI search tools.",
+      },
+      {
+        heading: "Shopify or Custom Ecommerce — Which Should You Choose?",
+        body: "Shopify is the fastest way to launch an online store and lets you manage products yourself without a developer. A custom ecommerce build gives you full ownership of the code and no platform fees, but costs more up front. If you want to start selling quickly and keep running costs predictable, Shopify is usually the right choice; if you have unusual requirements, we can talk through a custom build instead.",
+      },
+    ],
+    pricing: "ecommerce",
+    schema: "Shopify",
+    priceFrom: { amount: 599 },
+  },
+  {
+    slug: "geo-ai-search-optimisation",
+    name: "GEO & AI Search Optimisation",
+    h1: "GEO — AI Search Optimisation for Australian Businesses",
+    metaTitle: "GEO & AI Search Optimisation Melbourne | Vasyl Bakhmut",
+    metaDescription:
+      "Get your business found and cited by ChatGPT, Perplexity and Google AI. GEO and AI search optimisation for Australian businesses from $399/month.",
+    intro:
+      "More customers now ask ChatGPT, Perplexity and Google AI who to hire instead of scrolling search results. I make your business easy for these AI tools to find, understand and recommend.",
+    h2Sections: [
+      {
+        heading: "What Is GEO (Generative Engine Optimisation)?",
+        body: "GEO is the practice of making your business easy for AI answer engines — ChatGPT, Perplexity, Google AI Overviews and Microsoft Copilot — to find, understand and cite. Instead of ten blue links, these tools give one written answer and mention a handful of businesses. GEO focuses on making sure yours is one of them, and it builds on solid traditional SEO rather than replacing it.",
+      },
+      {
+        heading: "What I Do for GEO and AI Visibility",
+        body: "I start with an AI-readiness audit: whether AI crawlers can access your site, whether your structured data and llms.txt are in place, and whether your business details are consistent across the web. Then I restructure your key pages and FAQs so the answers are clear, factual and easy to quote, and I track which AI tools mention you for the questions your customers actually ask.",
+      },
+      {
+        heading: "How Much Does GEO Cost in Australia?",
+        body: "Australian agencies commonly quote GEO retainers from around $1,500 to $2,000 or more per month. Working directly with a specialist without agency overhead, ongoing GEO optimisation with me starts from $399 per month. I do not promise guaranteed placement in AI answers, because nobody honestly can — what I deliver is a site and a web presence that AI tools can understand and trust.",
+      },
+    ],
+    pricing: "seo",
+    schema: "GEO",
+    priceFrom: { amount: 399, per: "month" },
   },
 ];
 
@@ -252,6 +313,72 @@ export const LOCATIONS: LocationData[] = [
     locationNote:
       "Remote-first · Same AEDT timezone · Fast turnaround · No Sydney agency prices",
   },
+  {
+    slug: "brisbane",
+    name: "Brisbane",
+    state: "QLD",
+    type: "remote",
+    suburbs: ["CBD", "South Brisbane", "Fortitude Valley", "West End", "New Farm", "Paddington", "Indooroopilly", "Chermside"],
+    locationIntro:
+      "I build websites, Shopify stores and AI automation for Brisbane businesses remotely, with clear communication and fast turnaround. Brisbane stays on AEST all year, so our working hours overlap with Melbourne almost completely.",
+    locationNote:
+      "Remote-first · Brisbane runs on AEST · Fixed prices · No agency overhead",
+  },
+  {
+    slug: "perth",
+    name: "Perth",
+    state: "WA",
+    type: "remote",
+    suburbs: ["CBD", "Subiaco", "Fremantle", "Northbridge", "Joondalup", "Cottesloe", "Claremont", "Scarborough"],
+    locationIntro:
+      "Perth businesses work with me remotely, with calls scheduled around the two to three hour time difference so you still get same-day replies. Websites, Shopify stores and AI automation at fixed prices, without Perth agency overhead.",
+    locationNote:
+      "Remote-first · Perth is 2–3 hours behind Melbourne · Same-day replies · Fixed prices",
+  },
+  {
+    slug: "adelaide",
+    name: "Adelaide",
+    state: "SA",
+    type: "remote",
+    suburbs: ["CBD", "Glenelg", "Norwood", "Unley", "Prospect", "Mawson Lakes", "Henley Beach", "North Adelaide"],
+    locationIntro:
+      "Adelaide is only 30 minutes behind Melbourne, so working remotely with Adelaide businesses feels like working next door. I build websites, Shopify stores and AI automation with fixed prices agreed before any work starts.",
+    locationNote:
+      "Remote-first · Adelaide is 30 minutes behind Melbourne · Fixed prices · Fast turnaround",
+  },
+  {
+    slug: "canberra",
+    name: "Canberra",
+    state: "ACT",
+    type: "remote",
+    suburbs: ["City", "Braddon", "Kingston", "Belconnen", "Woden", "Gungahlin", "Manuka", "Fyshwick"],
+    locationIntro:
+      "I work with Canberra businesses, consultants and community organisations remotely, in the same timezone as Melbourne. Clear scoping, fixed prices and websites built to be fast, accessible and easy to find in search.",
+    locationNote:
+      "Remote-first · Same timezone as Melbourne · Fixed prices · Accessible, SEO-ready builds",
+  },
+  {
+    slug: "gold-coast",
+    name: "Gold Coast",
+    state: "QLD",
+    type: "remote",
+    suburbs: ["Surfers Paradise", "Broadbeach", "Burleigh Heads", "Southport", "Robina", "Coolangatta", "Palm Beach", "Nerang"],
+    locationIntro:
+      "Gold Coast service businesses, hospitality venues and retailers need websites that work on a phone first. I build them remotely, in a timezone that closely matches Melbourne, with fixed prices and fast delivery.",
+    locationNote:
+      "Remote-first · Gold Coast runs on AEST · Mobile-first builds · Fixed prices",
+  },
+  {
+    slug: "hobart",
+    name: "Hobart",
+    state: "TAS",
+    type: "remote",
+    suburbs: ["CBD", "Sandy Bay", "Battery Point", "North Hobart", "Glenorchy", "Kingston", "Bellerive", "Moonah"],
+    locationIntro:
+      "Hobart makers, producers and small businesses often sell to customers far beyond Tasmania. I build their websites and Shopify stores remotely, in the same timezone as Melbourne, with fixed prices and no agency overhead.",
+    locationNote:
+      "Remote-first · Same timezone as Melbourne · Shopify and website specialist · Fixed prices",
+  },
 ];
 
 export const SERVICE_LOCATION_INTROS: Record<string, Record<string, string>> = {
@@ -291,6 +418,18 @@ export const SERVICE_LOCATION_INTROS: Record<string, Record<string, string>> = {
     sydney:
       "Sydney businesses move fast and expect systems that keep up. I build AI automation and n8n workflows for Sydney companies remotely — same AEDT timezone, fast delivery, and no Sydney agency overhead. Your customer enquiries, follow-ups, and repetitive tasks — automated.",
   },
+  "shopify-stores": {
+    melbourne:
+      "Melbourne's independent retailers, makers and local brands are moving online fast. Based in Cheltenham, I set up Shopify stores for Melbourne businesses that look the part, handle GST and Australian shipping correctly, and are ready to be found in local and AI search.",
+    sydney:
+      "Sydney shoppers expect a fast, polished checkout. I set up Shopify stores for Sydney businesses remotely — same AEDT timezone, clear communication and a launch-ready store without Sydney agency pricing.",
+  },
+  "geo-ai-search-optimisation": {
+    melbourne:
+      "Melbourne customers increasingly ask ChatGPT and Google AI for the best local provider instead of searching. I help Melbourne businesses give those tools clear, consistent local information to cite — from suburb-level details to structured data and well-structured FAQs.",
+    sydney:
+      "Sydney is a crowded market, and AI answers only name a few businesses. I work remotely with Sydney businesses to make their sites and online presence easy for AI search tools to understand and cite — same AEDT timezone and no agency overhead.",
+  },
   "cloud-devops": {
     melbourne:
       "Melbourne tech startups and growing SMBs need cloud infrastructure that scales with them. Based locally, I can meet in person to audit your current setup and build a cost-efficient AWS or Vercel architecture tailored to your Melbourne business needs.",
@@ -298,6 +437,48 @@ export const SERVICE_LOCATION_INTROS: Record<string, Record<string, string>> = {
       "Sydney businesses need cloud infrastructure that's reliable, compliant, and cost-effective. I design and implement cloud setups for Sydney companies remotely — same timezone, fast delivery, and no Sydney agency markup on straightforward DevOps work.",
   },
 };
+
+// Extra Australian cities: a service × city page only exists where a genuinely
+// unique intro is written below (avoids thin, near-duplicate doorway pages).
+const EXTRA_CITY_INTROS: Record<string, Record<string, string>> = {
+  "web-design": {
+    brisbane:
+      "Brisbane businesses compete for attention in a fast-growing market, and a clear, quick-loading website is often the first thing customers judge. I design mobile-first websites for Brisbane small businesses, remotely and at fixed prices.",
+    perth:
+      "Perth businesses often serve a market that is far from the east-coast agencies. I design websites for Perth small businesses remotely, schedule calls around the time difference, and keep pricing fixed and transparent.",
+    adelaide:
+      "Adelaide small businesses deserve a website that looks as good as the bigger players. I design clean, mobile-first websites for Adelaide businesses, working remotely with only a 30 minute time difference.",
+    canberra:
+      "Canberra consultancies, professional services and community groups need websites that are clear, accessible and trustworthy. I design them remotely, in the same timezone as Melbourne, with fixed prices.",
+    "gold-coast":
+      "On the Gold Coast, most visitors find a business on their phone, often while they are already nearby. I design fast, mobile-first websites for Gold Coast hospitality, service and retail businesses, remotely.",
+    hobart:
+      "Hobart businesses often have a strong story and products worth showing off. I design websites for Hobart small businesses that present that story clearly and load quickly, working remotely at fixed prices.",
+  },
+  "shopify-stores": {
+    brisbane:
+      "Brisbane retailers and online brands can start selling quickly on Shopify. I set up Shopify stores for Brisbane businesses remotely, with GST, Australian shipping and payments configured and a fixed starting price of $599.",
+    perth:
+      "Perth online sellers face longer shipping distances to most customers, so clear delivery information and a smooth checkout matter. I set up Shopify stores for Perth businesses remotely, with Australian shipping and payments configured.",
+    adelaide:
+      "Adelaide makers and food and lifestyle brands can reach customers Australia-wide through Shopify. I set up Shopify stores for Adelaide businesses remotely, from $599, with checkout and shipping configured for Australia.",
+    canberra:
+      "Canberra businesses selling online need a store that is simple to run and easy for customers to trust. I set up Shopify stores for Canberra businesses remotely, in the Melbourne timezone, from $599.",
+    "gold-coast":
+      "Gold Coast surf, fashion and lifestyle brands often sell to customers beyond the coast. I set up Shopify stores for Gold Coast businesses remotely, with mobile-first design and Australian payments and shipping configured, from $599.",
+    hobart:
+      "Hobart producers and makers sell to customers on the mainland and overseas. I set up Shopify stores for Hobart businesses remotely, with GST and Australian shipping configured and a fixed starting price of $599.",
+  },
+};
+
+for (const [service, byCity] of Object.entries(EXTRA_CITY_INTROS)) {
+  SERVICE_LOCATION_INTROS[service] = { ...SERVICE_LOCATION_INTROS[service], ...byCity };
+}
+
+/** True when a service × city page has genuinely unique content and should exist. */
+export function hasServiceLocationPage(serviceSlug: string, locationSlug: string): boolean {
+  return Boolean(SERVICE_LOCATION_INTROS[serviceSlug]?.[locationSlug]);
+}
 
 export function getService(slug: string): ServiceData | undefined {
   return SERVICES.find((s) => s.slug === slug);

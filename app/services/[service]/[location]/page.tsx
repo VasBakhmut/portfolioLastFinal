@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { SERVICES, LOCATIONS, SERVICE_LOCATION_INTROS, getService, getLocation } from "@/lib/seo-pages-data";
+import { SERVICES, LOCATIONS, SERVICE_LOCATION_INTROS, getService, getLocation, hasServiceLocationPage } from "@/lib/seo-pages-data";
 
 interface Props {
   params: Promise<{ service: string; location: string }>;
@@ -11,7 +11,10 @@ interface Props {
 
 export async function generateStaticParams() {
   return SERVICES.flatMap((s) =>
-    LOCATIONS.map((l) => ({ service: s.slug, location: l.slug }))
+    LOCATIONS.filter((l) => hasServiceLocationPage(s.slug, l.slug)).map((l) => ({
+      service: s.slug,
+      location: l.slug,
+    }))
   );
 }
 
@@ -26,7 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonical = `https://www.vasdev.au/services/${service.slug}/${location.slug}`;
 
   return {
-    title,
+    // absolute: the title already contains the brand, skip the layout template
+    title: { absolute: title },
     description,
     alternates: { canonical },
     openGraph: { title, description, url: canonical, type: "website", locale: "en_AU" },
@@ -37,7 +41,7 @@ export default async function ServiceLocationPage({ params }: Props) {
   const { service: sSlug, location: lSlug } = await params;
   const service = getService(sSlug);
   const location = getLocation(lSlug);
-  if (!service || !location) notFound();
+  if (!service || !location || !hasServiceLocationPage(sSlug, lSlug)) notFound();
 
   const uniqueIntro = SERVICE_LOCATION_INTROS[sSlug]?.[lSlug];
 
@@ -49,28 +53,41 @@ export default async function ServiceLocationPage({ params }: Props) {
     provider: {
       "@type": "Person",
       name: "Vasyl Bakhmut",
-      url: "https://vasdev.au",
+      url: "https://www.vasdev.au",
     },
     areaServed: {
       "@type": "City",
       name: location.name,
       containedIn: location.state,
     },
-    url: `https://vasdev.au/services/${service.slug}/${location.slug}`,
+    url: `https://www.vasdev.au/services/${service.slug}/${location.slug}`,
+    ...(service.priceFrom && {
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "AUD",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          priceCurrency: "AUD",
+          minPrice: service.priceFrom.amount,
+          ...(service.priceFrom.per === "month" && { unitText: "MONTH" }),
+        },
+        url: `https://www.vasdev.au/services/${service.slug}/${location.slug}`,
+      },
+    }),
   };
 
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://vasdev.au" },
-      { "@type": "ListItem", position: 2, name: "Services", item: "https://vasdev.au/services" },
-      { "@type": "ListItem", position: 3, name: service.name, item: `https://vasdev.au/services/${service.slug}` },
-      { "@type": "ListItem", position: 4, name: location.name, item: `https://vasdev.au/services/${service.slug}/${location.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.vasdev.au" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://www.vasdev.au/#services" },
+      { "@type": "ListItem", position: 3, name: service.name, item: `https://www.vasdev.au/services/${service.slug}` },
+      { "@type": "ListItem", position: 4, name: location.name, item: `https://www.vasdev.au/services/${service.slug}/${location.slug}` },
     ],
   };
 
-  const otherLocations = LOCATIONS.filter((l) => l.slug !== lSlug);
+  const otherLocations = LOCATIONS.filter((l) => l.slug !== lSlug && hasServiceLocationPage(sSlug, l.slug));
 
   return (
     <>
@@ -146,27 +163,55 @@ export default async function ServiceLocationPage({ params }: Props) {
           </div>
         </section>
 
-        {/* H2 keyword sections — localised */}
+        {/* City-specific content. The long service text lives only on the main
+            service page (linked below), so city pages are not near-duplicates. */}
         <section style={{ padding: "2rem 1.5rem 3rem", maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
-            {service.h2Sections.map((sec) => (
-              <div key={sec.heading} className="glass-card" style={{ padding: "1.75rem 2rem" }}>
-                <h2
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)",
-                    fontWeight: 700,
-                    color: "var(--text-primary)",
-                    marginBottom: "0.875rem",
-                  }}
-                >
-                  {sec.heading} in {location.name}
-                </h2>
-                <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", lineHeight: 1.8, maxWidth: 680 }}>
-                  {sec.body}
+          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+            <div className="glass-card" style={{ padding: "1.75rem 2rem" }}>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)",
+                  fontWeight: 700,
+                  color: "var(--text-primary)",
+                  marginBottom: "0.875rem",
+                }}
+              >
+                Working with {location.name} businesses
+              </h2>
+              <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", lineHeight: 1.8, maxWidth: 680 }}>
+                {location.locationIntro}
+              </p>
+              {service.priceFrom && (
+                <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", lineHeight: 1.8, maxWidth: 680, marginTop: "0.875rem" }}>
+                  {service.name} for {location.name} businesses starts from{" "}
+                  <strong style={{ color: "var(--text-primary)" }}>
+                    ${service.priceFrom.amount.toLocaleString("en-AU")} AUD{service.priceFrom.per === "month" ? " per month" : ""}
+                  </strong>
+                  , with the final price agreed in writing before any work starts.
                 </p>
-              </div>
-            ))}
+              )}
+            </div>
+
+            <div className="glass-card" style={{ padding: "1.75rem 2rem" }}>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)",
+                  fontWeight: 700,
+                  color: "var(--text-primary)",
+                  marginBottom: "0.875rem",
+                }}
+              >
+                More about {service.name}
+              </h2>
+              <Link
+                href={`/services/${service.slug}`}
+                style={{ fontSize: "0.9375rem", color: "var(--accent)", fontWeight: 600, textDecoration: "none" }}
+              >
+                Read the full {service.name} guide &#8594;
+              </Link>
+            </div>
           </div>
         </section>
 

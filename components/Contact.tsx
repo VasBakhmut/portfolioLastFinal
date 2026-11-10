@@ -3,17 +3,8 @@
 import { useState } from "react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-const BUDGET_OPTIONS = [
-  "Under $500",
-  "$500 – $1,000",
-  "$1,000 – $3,000",
-  "$3,000 – $10,000",
-  "$10,000+",
-  "Not sure yet",
-];
-
 export function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "", budget: "" });
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -78,12 +69,12 @@ export function Contact() {
         </ScrollReveal>
 
         <div
-          style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "start" }}
+          style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "stretch" }}
           className="contact-grid"
         >
           {/* Form */}
-          <ScrollReveal direction="left">
-            <div className="glass-card" style={{ padding: "2.5rem" }}>
+          <ScrollReveal direction="left" style={{ height: "100%" }}>
+            <div className="glass-card" style={{ padding: "2.5rem", height: "100%", display: "flex", flexDirection: "column" }}>
               {submitted ? (
                 <div style={{ textAlign: "center", padding: "2rem 0" }}>
                   <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>🎉</div>
@@ -95,7 +86,7 @@ export function Contact() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem", flex: 1 }}>
                   <div>
                     <label style={{ display: "block", fontSize: "0.8125rem", fontWeight: 600, color: "var(--text-secondary)", marginBottom: "0.4rem" }}>
                       Name *
@@ -128,26 +119,7 @@ export function Contact() {
                       onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)")}
                     />
                   </div>
-                  <div>
-                    <label style={{ display: "block", fontSize: "0.8125rem", fontWeight: 600, color: "var(--text-secondary)", marginBottom: "0.4rem" }}>
-                      Budget (AUD)
-                    </label>
-                    <select
-                      name="budget"
-                      aria-label="Budget range (AUD)"
-                      value={form.budget}
-                      onChange={handleChange}
-                      style={{ ...inputStyle, cursor: "pointer" }}
-                      onFocus={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--accent)")}
-                      onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)")}
-                    >
-                      <option value="">Select budget range</option>
-                      {BUDGET_OPTIONS.map((o) => (
-                        <option key={o} value={o}>{o}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
+                  <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
                     <label style={{ display: "block", fontSize: "0.8125rem", fontWeight: 600, color: "var(--text-secondary)", marginBottom: "0.4rem" }}>
                       Message *
                     </label>
@@ -156,9 +128,9 @@ export function Contact() {
                       value={form.message}
                       onChange={handleChange}
                       required
-                      rows={5}
+                      rows={2}
                       placeholder="Tell me about your project, goals, and timeline..."
-                      style={{ ...inputStyle, resize: "vertical", minHeight: 120 }}
+                      style={{ ...inputStyle, resize: "none", minHeight: 80, flex: 1 }}
                       onFocus={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--accent)")}
                       onBlur={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)")}
                     />

@@ -1,16 +1,27 @@
-# Vasyl Bakhmut — Full-Stack Web Developer & AI Automation Specialist
+# Vasdev — Vasyl Bakhmut, Web Developer & AI Automation Specialist, Melbourne
 
-> Melbourne-based full-stack web developer and AI automation
-specialist helping Australian small businesses grow online.
+> Vasdev is the business of Vasyl Bakhmut, a Melbourne-based full-stack
+web developer and AI automation specialist helping Australian small
+businesses grow online.
 
 ## About
 
-Vasyl Bakhmut is a full-stack web developer and AI automation
+Vasyl Bakhmut (founder of Vasdev) is a full-stack web developer and AI automation
 specialist based in Cheltenham, Melbourne VIC 3192, Australia.
 With a background in construction project management and 3+ years
 in software development, Vasyl builds custom websites, AI chatbots,
-workflow automations, and SEO strategies for small businesses
-across Melbourne, Sydney, and Australia-wide.
+workflow automations, Shopify stores, and SEO / GEO (Generative
+Engine Optimisation) strategies for small businesses across
+Melbourne, Sydney, and Australia-wide. Fixed prices, fast delivery.
+
+## What Vasyl offers (summary)
+
+- Websites for small businesses: from $199 AUD
+- Shopify stores: from $599 AUD
+- AI chatbots and workflow automation (n8n, CRM integrations): from $99 AUD
+- SEO and GEO (getting a business found in Google and in AI search
+  such as ChatGPT, Perplexity and Google AI Overviews): GEO from
+  $399 AUD/month, SEO audit free
 
 ## Services
 
@@ -19,20 +30,46 @@ across Melbourne, Sydney, and Australia-wide.
 - [AI Chatbots & Automation Melbourne](https://www.vasdev.au/services/ai-automation/melbourne)
 - [SEO Optimisation](https://www.vasdev.au/services/seo-optimization)
 - [Ecommerce Solutions](https://www.vasdev.au/services/ecommerce-solutions)
+- [Shopify Stores](https://www.vasdev.au/services/shopify-stores)
+- [GEO & AI Search Optimisation](https://www.vasdev.au/services/geo-ai-search-optimisation)
 - [Business Web Solutions](https://www.vasdev.au/services/business-web-solutions)
 
 ## Locations
 
+Based in Melbourne, working with clients across Australia (remote-first).
+
 - [Melbourne](https://www.vasdev.au/locations/melbourne)
 - [Sydney](https://www.vasdev.au/locations/sydney)
+- [Brisbane](https://www.vasdev.au/locations/brisbane)
+- [Perth](https://www.vasdev.au/locations/perth)
+- [Adelaide](https://www.vasdev.au/locations/adelaide)
+- [Canberra](https://www.vasdev.au/locations/canberra)
+- [Gold Coast](https://www.vasdev.au/locations/gold-coast)
+- [Hobart](https://www.vasdev.au/locations/hobart)
+
+## Guides
+
+- [How much does a small business website cost in Australia?](https://www.vasdev.au/guides/how-much-does-a-website-cost-in-australia)
+- [How to choose a web developer for your small business in Australia](https://www.vasdev.au/guides/how-to-choose-a-web-developer-small-business-australia)
+- [WordPress vs Shopify vs Next.js for Australian businesses](https://www.vasdev.au/guides/wordpress-vs-shopify-vs-nextjs-australia)
 
 ## Pricing
 
 - Web Design: from $199 AUD
 - Business Website: from $299 AUD
+- Shopify Store: from $599 AUD
 - AI Automation: from $99 AUD
-- Ecommerce Store: from $799 AUD
-- SEO Care Plan: from $300/month
+- Custom Ecommerce Store: from $799 AUD
+- Basic Care Plan (hosting, backups, minor edits): from $29/month
+- SEO Care Plan (weekly SEO reports + optimisation): from $199/month
+- GEO / AI Search Optimisation (ongoing): from $399/month
+
+## Selected client websites built by Vasdev
+
+- [serhiio.ph](https://serhiiophotography.com.au/) — fashion and street fashion photographer, Sydney
+- [Live Taste](https://livetaste.com.au/) — online shop for Ukrainian borscht and fruit rolls, shipped Australia-wide
+- [Orh Torah Chabad Community](https://www.orhtorah.au/) — Jewish community website, Melbourne
+- [Balance With Maksym](https://www.balancewithmaksym.com.au/) — therapeutic massage, Sydney
 
 ## Blog
 

@@ -2,15 +2,13 @@ import { getProjects, getBlogs, type ApiProject, type ApiBlog } from "@/lib/api"
 
 export const revalidate = 300; // re-fetch every 5 min as fallback if webhook revalidation fails
 import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
 import { Stats } from "@/components/Stats";
-import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects";
 import { Blog } from "@/components/Blog";
 import { Services } from "@/components/Services";
 import { Process } from "@/components/Process";
 import { Pricing } from "@/components/Pricing";
-import { SeoAuditBanner } from "@/components/SeoAuditBanner";
+import { HeroMain } from "@/components/HeroMain";import { SeoAuditBanner } from "@/components/SeoAuditBanner";
 import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
@@ -63,17 +61,16 @@ export default async function Home() {
       <div style={{ position: "relative", zIndex: 1 }}>
         <Navbar />
         <main>
-          <Hero />
+          <HeroMain />
           <Stats />
           <Projects projects={projects} />
-          <Skills />
           <Services />
-          <Process />
           <Pricing />
-          <Blog posts={blogs} />
+          <Process />
           <SeoAuditBanner />
-          <FAQ />
           <Contact />
+          <FAQ />
+          <Blog posts={blogs} />
         </main>
         <Footer />
       </div>
