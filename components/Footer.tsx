@@ -1,10 +1,10 @@
 "use client";
 
 const NAV_LINKS = [
-  { label: "Projects", href: "#projects" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Pricing", href: "/#pricing" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const SOCIAL_LINKS = [
@@ -90,7 +90,7 @@ export function Footer() {
             Whether it&apos;s a new website, an AI workflow, or an SEO strategy &#8212; I&apos;m here to help your Melbourne business grow online.
           </p>
           <div style={{ display: "flex", gap: "0.875rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="#contact" className="btn-primary">
+            <a href="/#contact" className="btn-primary">
               Start a Project
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
@@ -119,7 +119,13 @@ export function Footer() {
             {/* Brand */}
             <div>
               <a
-                href="#top"
+                href="/"
+                onClick={(e) => {
+                  if (window.location.pathname === "/") {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
                 style={{
                   fontFamily: "var(--font-display)",
                   fontWeight: 800,
