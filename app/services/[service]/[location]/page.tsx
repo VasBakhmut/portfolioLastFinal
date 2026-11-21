@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const location = getLocation(lSlug);
   if (!service || !location) return { title: "Not Found" };
 
-  const title = `${service.name} ${location.name} | ${location.state} | Vasyl Bakhmut`;
+  const title = `${service.name} ${location.name} | ${location.state} | Vasdev`;
   const description = `${service.name} services in ${location.name}, ${location.state}. ${service.metaDescription}`;
   const canonical = `https://www.vasdev.au/services/${service.slug}/${location.slug}`;
 

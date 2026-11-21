@@ -13,6 +13,8 @@ export interface ServiceData {
   h2Sections: H2Section[];
   pricing: string;
   schema: string;
+  /** Question and answer pairs, shown on the page and as FAQPage structured data. */
+  faqs: { q: string; a: string }[];
   /** Starting price in AUD, used for the Service/Offer structured data. */
   priceFrom?: { amount: number; per?: "month" };
 }
@@ -53,6 +55,12 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "landing-business-ecommerce",
     schema: "WebDesign",
+    faqs: [
+      { q: "How much does website design cost in Australia?", a: "Agencies commonly charge from about $500 to $10,000 or more. My web design starts from $199 for a landing page and from $299 for a full business website. The price is fixed and agreed in writing before any work begins." },
+      { q: "How long does web design take?", a: "Most landing pages take about a week. A business website usually takes one to three weeks, depending on the scope and on how quickly I receive your content." },
+      { q: "Will my website work well on a phone?", a: "Yes. Every site is designed mobile-first, because most visitors arrive on a phone. I check each page on small screens before launch." },
+      { q: "Do I own the website after it is built?", a: "Yes. At handover you receive your code, your deployment and any accounts created for the project, so you are never locked in to me." },
+    ],
     priceFrom: { amount: 199 },
   },
   {
@@ -80,6 +88,12 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "landing-business-ecommerce",
     schema: "WebDevelopment",
+    faqs: [
+      { q: "What is the difference between web design and web development?", a: "Design is how a site looks and how it is organised. Development is how it works: forms, bookings, content editing and connections to other tools. I do both, so you deal with one person." },
+      { q: "Is a custom website better than WordPress?", a: "It depends. WordPress suits content-heavy sites that you edit often. A custom-built site is usually faster and needs no plugin updates, but changes go through me or through an editing tool I set up for you." },
+      { q: "How much does website development cost?", a: "Websites start from $299 AUD. Larger projects with bookings, payments or custom features are quoted after a free consultation, and you know the full price before any work begins." },
+      { q: "Can you rebuild my existing website?", a: "Yes. I can update the design, improve the speed or rebuild the site from scratch, depending on what you have now and what you want." },
+    ],
     priceFrom: { amount: 299 },
   },
   {
@@ -107,6 +121,12 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "seo",
     schema: "SEO",
+    faqs: [
+      { q: "How long does SEO take to work?", a: "Rankings usually take a few months to move, and the time depends on your competition and your starting point. I report on progress along the way and do not promise a date." },
+      { q: "What does the free SEO audit cover?", a: "It looks at technical health, relevance and authority: how fast and crawlable your site is, how well your pages match what people search for, and what links and reviews you have. You get a list of the biggest problems to fix first." },
+      { q: "Do you guarantee first-page rankings?", a: "No. Nobody can guarantee a ranking, and a provider who does should be treated with caution. I focus on the fixes that improve your chances and I report on what changes." },
+      { q: "Is SEO worth it for a small local business?", a: "For businesses that depend on local customers, usually yes. Local SEO helps people near you find you when they search, through your Google Business Profile, suburb-level keywords and reviews." },
+    ],
   },
   {
     slug: "ecommerce-solutions",
@@ -133,6 +153,12 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "ecommerce",
     schema: "Ecommerce",
+    faqs: [
+      { q: "How much does an ecommerce website cost in Australia?", a: "Typically from $799 to $5,000 or more, depending on the number of products, the payment setup and any custom features. My ecommerce builds start at $799 for up to 50 products, including cart, checkout and an Australian payment gateway." },
+      { q: "Should I choose Shopify or a custom online store?", a: "Shopify is the quickest way to launch and lets you manage products yourself. A custom store gives you full ownership of the code and no platform fees, but costs more up front. I will tell you which one fits your case." },
+      { q: "Which payment options do you set up?", a: "I set up Stripe and can connect Afterpay and PayPal, with prices in AUD and GST included, so customers see the same price at checkout." },
+      { q: "Are hosting and a domain included?", a: "No. Hosting and a domain are third-party services that you own directly. I help you choose and set them up. If you would rather not deal with it, a Care plan from $59 a month covers hosting, backups and small edits." },
+    ],
     priceFrom: { amount: 799 },
   },
   {
@@ -160,6 +186,12 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "landing-business-ecommerce",
     schema: "BusinessWeb",
+    faqs: [
+      { q: "How much does a business website cost in Australia?", a: "A multi-page business website usually costs between $299 and $2,000, depending on the pages and features. Mine start at $299 for up to 5 pages, and additional pages are $50 each." },
+      { q: "How many pages does a small business website need?", a: "Most small businesses need a homepage, a page for each service or product, a contact page and some proof that you can be trusted, such as testimonials or past work. That fits within the 5 pages in my starting package." },
+      { q: "Can I edit the website myself?", a: "Yes, if you want to. I can set up an easy way to change text and images, and I show you how to make basic updates yourself." },
+      { q: "What happens after the website is launched?", a: "You get a full handover: your code, your deployment and any accounts created for the project. If you want ongoing help, a Care plan from $59 a month covers hosting, backups and small edits." },
+    ],
     priceFrom: { amount: 299 },
   },
   {
@@ -187,6 +219,12 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "ai",
     schema: "AIAutomation",
+    faqs: [
+      { q: "What can an AI chatbot do for my business?", a: "It can answer common questions, collect contact details, qualify leads and pass harder questions to you. It will not replace a person for complex or sensitive conversations." },
+      { q: "How much does an AI chatbot cost?", a: "Chatbots and automations start from $99 AUD. The final price depends on what the chatbot needs to do and which tools it has to connect to." },
+      { q: "Which tasks can be automated?", a: "Typical examples are appointment reminders, lead follow-ups, invoice emails and moving data between tools such as Google Workspace, HubSpot, Xero, Slack and Stripe." },
+      { q: "How do I know automation is worth it for me?", a: "How much time you save depends on how much of your week goes into repetitive admin. I estimate it with you before you pay for anything." },
+    ],
     priceFrom: { amount: 99 },
   },
   {
@@ -214,6 +252,12 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "devops",
     schema: "CloudDevOps",
+    faqs: [
+      { q: "What does cloud hosting setup involve?", a: "I choose sensible sizes for your setup, configure storage and databases, set up fast delivery for Australian visitors and add billing alerts so there are no surprise invoices." },
+      { q: "How much does cloud setup cost?", a: "Setup starts from $149 AUD. The running costs of the hosting itself are paid to your cloud provider, and I help keep them as low as the setup allows." },
+      { q: "Can you review my current cloud bill?", a: "Yes. If you already have a cloud account, I can review the bill and the setup first and tell you where you are paying for more than you need." },
+      { q: "What is automatic deployment?", a: "It means your site or app is tested and published for you whenever there is an update, so releases do not depend on someone remembering the right steps." },
+    ],
     priceFrom: { amount: 149 },
   },
   {
@@ -241,6 +285,12 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "ecommerce",
     schema: "Shopify",
+    faqs: [
+      { q: "How much does a Shopify store cost in Australia?", a: "A Shopify store can cost a few hundred dollars for a basic template or $5,000 and up at agency rates. My stores start from $599 AUD and include your branding, your products and an Australian checkout." },
+      { q: "Do I pay Shopify separately?", a: "Yes. Shopify's monthly subscription is paid directly to Shopify, so the store account belongs to you from the start. My price covers the setup work." },
+      { q: "Is GST and Australian shipping set up?", a: "Yes. I configure prices in AUD with GST included, card payments, Afterpay and PayPal, and clear Australia Post shipping rates." },
+      { q: "Is Shopify better than a custom online store?", a: "For most small businesses that want to start selling quickly with predictable running costs, yes. A custom store makes sense only if your needs are unusual." },
+    ],
     priceFrom: { amount: 599 },
   },
   {
@@ -268,6 +318,12 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "seo",
     schema: "GEO",
+    faqs: [
+      { q: "What is GEO?", a: "GEO, or generative engine optimisation, is the work of helping AI answer engines such as ChatGPT, Perplexity, Google AI Overviews and Microsoft Copilot find, understand and cite your business." },
+      { q: "How is GEO different from SEO?", a: "SEO aims to rank your pages in a list of links. GEO aims to get your business named in the single written answer that an AI tool gives. GEO builds on good SEO rather than replacing it." },
+      { q: "Can you guarantee ChatGPT will recommend my business?", a: "No. Nobody can guarantee that. What I deliver is a site and an online presence that AI tools can read and trust, and I track which tools mention you." },
+      { q: "How much does GEO cost?", a: "Ongoing GEO work starts from $399 a month. Agencies often quote retainers of about $1,500 to $2,000 a month or more." },
+    ],
     priceFrom: { amount: 399, per: "month" },
   },
   {
@@ -295,6 +351,12 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: "software",
     schema: "BusinessSoftware",
+    faqs: [
+      { q: "What is custom business software?", a: "It is a tool built around the way your business already works, such as a booking and quoting system, a client portal, a simple CRM or a dashboard, instead of forcing your process into an off-the-shelf app." },
+      { q: "How much does custom business software cost?", a: "Small software and automation projects start from $499 AUD, at a fixed price agreed beforehand. Larger systems are scoped after a free consultation." },
+      { q: "Do I need a chatbot or business automation?", a: "If your main problem is answering customer questions, a chatbot from $99 is usually enough. If the time goes into admin behind the scenes, such as quoting, scheduling or reporting, you need workflow automation or a small custom tool." },
+      { q: "Can you connect software to the tools I already use?", a: "Yes. I can connect it to your website, email, accounting and spreadsheets, so data moves between them without anyone retyping it." },
+    ],
     priceFrom: { amount: 499 },
   },
 ];

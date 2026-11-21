@@ -68,6 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: { absolute: service.metaTitle },
     description: service.metaDescription,
     alternates: { canonical: `https://www.vasdev.au/services/${service.slug}` },
+    twitter: { title: service.metaTitle, description: service.metaDescription },
     openGraph: {
       title: service.metaTitle,
       description: service.metaDescription,
@@ -114,6 +115,18 @@ export default async function ServicePage({ params }: Props) {
     }),
   };
 
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: service.faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
+  const related = SERVICES.filter((s) => s.slug !== service.slug && s.slug !== "cloud-devops").slice(0, 4);
+
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -128,6 +141,7 @@ export default async function ServicePage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
       <Navbar />
 
@@ -299,6 +313,66 @@ export default async function ServicePage({ params }: Props) {
                   {sec.body}
                 </p>
               </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── FAQ (also exposed as FAQPage structured data) ── */}
+        <section style={{ padding: "0 1.5rem 3rem", maxWidth: 1200, margin: "0 auto" }}>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
+              fontWeight: 700,
+              color: "var(--text-primary)",
+              marginBottom: "1.25rem",
+            }}
+          >
+            {service.name}: common questions
+          </h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            {service.faqs.map((f) => (
+              <div key={f.q} className="glass-card" style={{ padding: "1.25rem 1.5rem" }}>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "1.0625rem",
+                    fontWeight: 700,
+                    color: "var(--text-primary)",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  {f.q}
+                </h3>
+                <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", lineHeight: 1.75, maxWidth: 760 }}>{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Related services (internal links) ── */}
+        <section style={{ padding: "0 1.5rem 3rem", maxWidth: 1200, margin: "0 auto" }}>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "1.125rem",
+              fontWeight: 700,
+              color: "var(--text-primary)",
+              marginBottom: "1rem",
+            }}
+          >
+            Related services
+          </h2>
+          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+            {related.map((r) => (
+              <Link
+                key={r.slug}
+                href={`/services/${r.slug}`}
+                className="glass-card"
+                style={{ padding: "0.6rem 1.25rem", textDecoration: "none", fontSize: "0.875rem", fontWeight: 600, color: "var(--accent)" }}
+              >
+                {r.name}
+              </Link>
             ))}
           </div>
         </section>
