@@ -18,8 +18,8 @@ const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
     alt: "Web designer's desk with a laptop and tablet showing a small business website layout, colour swatches and wireframe sketches",
   },
   "web-development": {
-    src: "/images/services/website-development-melbourne-nextjs.webp",
-    alt: "Website development workstation with a Next.js code editor and a website preview on two monitors",
+    src: "/images/services/website-development-melbourne.webp",
+    alt: "Website development workstation with a code editor on one monitor and a website preview on another",
   },
   "seo-optimization": {
     src: "/images/services/seo-optimisation-melbourne-australia.webp",
@@ -34,12 +34,12 @@ const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
     alt: "Laptop on a small business counter showing a multi-page business website with a contact form",
   },
   "ai-automation": {
-    src: "/images/services/ai-chatbot-n8n-automation-melbourne.webp",
-    alt: "AI chatbot conversation on a phone beside a laptop showing a connected n8n-style workflow automation diagram",
+    src: "/images/services/ai-chatbot-automation-melbourne.webp",
+    alt: "AI chatbot conversation on a phone beside a laptop showing a connected workflow automation diagram",
   },
   "cloud-devops": {
-    src: "/images/services/cloud-devops-aws-docker-ci-cd.webp",
-    alt: "Data centre aisle of server racks with a glowing cloud deployment pipeline of connected nodes",
+    src: "/images/services/cloud-hosting-setup-melbourne.webp",
+    alt: "Data centre aisle of server racks with a glowing network of connected cloud nodes",
   },
   "shopify-stores": {
     src: "/images/services/shopify-store-setup-australia.webp",

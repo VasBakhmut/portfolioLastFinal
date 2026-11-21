@@ -18,7 +18,7 @@ Melbourne, Sydney, and Australia-wide. Fixed prices, fast delivery.
 
 - Websites for small businesses: from $299 AUD
 - Shopify stores: from $599 AUD
-- AI chatbots and workflow automation (n8n, CRM integrations): from $99 AUD
+- AI chatbots and workflow automation (automated workflows, CRM integrations): from $99 AUD
 - SEO and GEO (getting a business found in Google and in AI search
   such as ChatGPT, Perplexity and Google AI Overviews): GEO from
   $399 AUD/month, SEO audit free
@@ -52,7 +52,7 @@ Based in Melbourne, working with clients across Australia (remote-first).
 
 - [How much does a small business website cost in Australia?](https://www.vasdev.au/guides/how-much-does-a-website-cost-in-australia)
 - [How to choose a web developer for your small business in Australia](https://www.vasdev.au/guides/how-to-choose-a-web-developer-small-business-australia)
-- [WordPress vs Shopify vs Next.js for Australian businesses](https://www.vasdev.au/guides/wordpress-vs-shopify-vs-nextjs-australia)
+- [WordPress vs Shopify vs a custom website for Australian businesses](https://www.vasdev.au/guides/wordpress-vs-shopify-vs-custom-website-australia)
 
 ## Pricing
 

@@ -32,7 +32,7 @@ export const SERVICES: ServiceData[] = [
     slug: "web-design",
     name: "Web Design",
     h1: "Professional Web Design Services",
-    metaTitle: "Web Design Services Australia | Vasyl Bakhmut",
+    metaTitle: "Web Design Services Australia | Vasdev",
     metaDescription:
       "Web design for Australian small businesses. Mobile-first, search-friendly websites from $199 AUD. Based in Melbourne, working Australia-wide.",
     intro:
@@ -59,23 +59,23 @@ export const SERVICES: ServiceData[] = [
     slug: "web-development",
     name: "Website Development",
     h1: "Website Development Services",
-    metaTitle: "Website Development Melbourne & Australia | Next.js, React | Vasyl Bakhmut",
+    metaTitle: "Website Development Melbourne | Custom Websites | Vasdev",
     metaDescription:
-      "Custom website development with React, Next.js and TypeScript. Fast, accessible, SEO-ready websites from $299. Melbourne-based, serving Australia.",
+      "Custom website development for Australian small businesses. Fast, mobile-friendly, search-ready websites from $299. Melbourne-based, serving Australia.",
     intro:
-      "I build websites and web applications with React, Next.js and TypeScript. You get a fast site that you own, without the plugin updates and slowdowns that come with many WordPress sites.",
+      "I build fast, custom websites and web applications for small businesses. You get a site that you own, without the plugin updates and slowdowns that come with many WordPress sites.",
     h2Sections: [
       {
-        heading: "Why I build with Next.js instead of WordPress",
-        body: "WordPress runs more than 40% of websites and works well for many of them. It also relies on plugins that need regular updates, and one slow or outdated plugin can drag a whole site down. Next.js is built for fast pages that search engines can read easily. A well-built Next.js site often scores above 90 on Google PageSpeed, although the result depends on the content and images.",
+        heading: "Why I build custom sites instead of using WordPress",
+        body: "WordPress runs more than 40% of websites and works well for many of them. It also relies on plugins that need regular updates, and one slow or outdated plugin can drag a whole site down. A custom-built site loads only what it needs, which usually means faster pages that search engines can read easily. Speed still depends on the content and images, so I test every site with Google PageSpeed before launch.",
       },
       {
         heading: "Custom development or a website builder?",
-        body: "A website builder gives you a template and the limits that come with it. Custom development means the site is built around what your business needs. I write it in React and TypeScript so it stays easy to maintain and does not depend on one platform's pricing or rules. If the business grows, the site can grow with it.",
+        body: "A website builder gives you a template and the limits that come with it. Custom development means the site is built around what your business needs. I build it so that it stays easy to maintain and does not depend on one platform's pricing or rules. If the business grows, the site can grow with it.",
       },
       {
-        heading: "Full-stack development for small business",
-        body: "Full-stack means I build the part your customers see and the part behind it: contact forms, booking systems, CMS connections and APIs. You deal with one person instead of coordinating a designer and a separate developer.",
+        heading: "One developer for the whole website",
+        body: "I build the part your customers see and the part behind it: contact forms, booking systems, a way for you to edit your own content, and connections to the other tools you use. You deal with one person instead of coordinating a designer and a separate developer.",
       },
     ],
     pricing: "landing-business-ecommerce",
@@ -86,7 +86,7 @@ export const SERVICES: ServiceData[] = [
     slug: "seo-optimization",
     name: "SEO Optimisation",
     h1: "SEO Optimisation Services Australia",
-    metaTitle: "SEO Services Melbourne & Australia | Free Audit | Vasyl Bakhmut",
+    metaTitle: "SEO Services Melbourne & Australia | Free Audit | Vasdev",
     metaDescription:
       "Technical SEO and local search optimisation for Australian businesses. Free audit and regular reporting, without an agency retainer.",
     intro:
@@ -112,7 +112,7 @@ export const SERVICES: ServiceData[] = [
     slug: "ecommerce-solutions",
     name: "Ecommerce Solutions",
     h1: "Ecommerce Website Development Australia",
-    metaTitle: "Ecommerce Website Design Australia | Custom Online Store | Vasyl Bakhmut",
+    metaTitle: "Ecommerce Website Design Australia | Online Stores | Vasdev",
     metaDescription:
       "Custom ecommerce websites for Australian businesses. Shopping cart, payments, product management. From $799 AUD.",
     intro:
@@ -139,11 +139,11 @@ export const SERVICES: ServiceData[] = [
     slug: "business-web-solutions",
     name: "Business Web Solutions",
     h1: "Business Website Solutions for Australian SMBs",
-    metaTitle: "Business Website Design Australia | SMB Web Solutions | Vasyl Bakhmut",
+    metaTitle: "Business Website Design Australia | SMB Sites | Vasdev",
     metaDescription:
-      "Website solutions for Australian SMBs. Multi-page sites, CMS, SEO, contact forms. From $299 AUD.",
+      "Website solutions for Australian SMBs. Multi-page sites, easy content editing, SEO, contact forms. From $299 AUD.",
     intro:
-      "From a five-page business site to a larger site with a CMS, I build complete websites for Australian small and medium businesses that need more than a template but less than an enterprise project.",
+      "From a five-page business site to a larger site you can edit yourself, I build complete websites for Australian small and medium businesses that need more than a template but less than an enterprise project.",
     h2Sections: [
       {
         heading: "What does a business website cost in Australia?",
@@ -166,19 +166,19 @@ export const SERVICES: ServiceData[] = [
     slug: "ai-automation",
     name: "AI Chatbots & Automation",
     h1: "AI Chatbots & Automation Services",
-    metaTitle: "AI Automation Melbourne | Chatbots, n8n Workflows | Vasyl Bakhmut",
+    metaTitle: "AI Automation Melbourne | Chatbots & Workflows | Vasdev",
     metaDescription:
-      "AI chatbots and n8n workflow automation for Australian small businesses. CRM integration and less repetitive admin. From $99.",
+      "AI chatbots and workflow automation for Australian small businesses. CRM integration and less repetitive admin. From $99.",
     intro:
-      "I build chatbots, n8n workflows and CRM integrations that take repetitive work off your plate, so you can spend the time on customers.",
+      "I build chatbots, automated workflows and CRM integrations that take repetitive work off your plate, so you can spend the time on customers.",
     h2Sections: [
       {
         heading: "Where AI automation saves time",
-        body: "Hospitality, retail, trades and professional services all have tasks that repeat every day: appointment reminders, lead follow-ups, invoice emails. These are good candidates for automation with n8n workflows or an AI assistant. How many hours you save depends on how much of your week goes into that kind of admin, and I estimate it with you before you pay for anything.",
+        body: "Hospitality, retail, trades and professional services all have tasks that repeat every day: appointment reminders, lead follow-ups, invoice emails. These are good candidates for automation with automated workflows or an AI assistant. How many hours you save depends on how much of your week goes into that kind of admin, and I estimate it with you before you pay for anything.",
       },
       {
-        heading: "n8n workflow automation for Australian small business",
-        body: "n8n is an open-source automation platform. It connects tools you already use, such as Google Workspace, HubSpot, Xero, Slack and Stripe, so data moves between them without anyone retyping it. I build, host and maintain n8n workflows for small businesses, and the running cost can be lower than a Zapier plan at the same volume.",
+        heading: "Workflow automation for Australian small business",
+        body: "Workflow automation connects tools you already use, such as Google Workspace, HubSpot, Xero, Slack and Stripe, so data moves between them without anyone retyping it. I build, host and maintain the workflows for small businesses, and the running cost can be lower than a Zapier plan at the same volume.",
       },
       {
         heading: "AI chatbot or a person answering enquiries?",
@@ -191,25 +191,25 @@ export const SERVICES: ServiceData[] = [
   },
   {
     slug: "cloud-devops",
-    name: "Cloud & DevOps",
-    h1: "Cloud Infrastructure & DevOps Services",
-    metaTitle: "Cloud & DevOps Consulting Melbourne | AWS, Docker, CI/CD | Vasyl Bakhmut",
+    name: "Cloud Hosting & Deployment",
+    h1: "Cloud Hosting & Deployment Services",
+    metaTitle: "Cloud Hosting Setup Melbourne | Vasdev",
     metaDescription:
-      "DevOps and cloud infrastructure for Australian businesses. AWS, Docker, CI/CD pipelines, Vercel deployments. From $149 AUD.",
+      "Cloud hosting setup and automatic deployment for Australian businesses. Reliable, cost-conscious and fully managed. From $149 AUD.",
     intro:
-      "I set up and tidy cloud infrastructure for Australian businesses: AWS, Docker, CI/CD pipelines and Vercel deployments, from setup to day-to-day running.",
+      "I set up cloud hosting for Australian businesses so your website or app runs reliably and costs what it should, from first setup to day-to-day running.",
     h2Sections: [
       {
-        heading: "AWS setup for small businesses",
-        body: "AWS is easy to misconfigure, and a wrongly sized setup can cost far more than it should. I set up environments with sensible sizing from the start: EC2 for compute, S3 for storage, RDS for databases and CloudFront for fast delivery in Australia. If you already have an AWS account, I can review the bill and the setup first.",
+        heading: "Cloud hosting setup for small businesses",
+        body: "A wrongly sized cloud setup can cost far more than it should. I choose sensible sizes from the start, set up storage, databases and fast delivery for Australian visitors, and add billing alerts so there are no surprise invoices. If you already have an account with a cloud provider, I can review the bill and the setup first.",
       },
       {
-        heading: "Why use a CI/CD pipeline",
-        body: "A CI/CD pipeline tests your code and deploys it automatically, so releases do not depend on someone remembering the right steps. That means fewer deployment mistakes and safer updates. GitHub Actions setup is included in my web development packages.",
+        heading: "Automatic deployment",
+        body: "Automatic deployment tests your site or app and publishes updates for you, so releases do not depend on someone remembering the right steps. That means fewer mistakes and safer updates. It is included in my website development packages.",
       },
       {
-        heading: "Docker for small business applications",
-        body: "Docker packages an application so it runs the same way on your laptop, on a test server and in production. That makes it easier to move between hosts and to scale. I can containerise an existing application on its own or as part of a wider move to the cloud.",
+        heading: "Backups and moving between hosts",
+        body: "I set your application up so that it runs the same way on a test copy and on the live site, and so that it can move between hosts without trouble. That makes it easier to grow later and to recover if something fails.",
       },
     ],
     pricing: "devops",
@@ -220,7 +220,7 @@ export const SERVICES: ServiceData[] = [
     slug: "shopify-stores",
     name: "Shopify Stores",
     h1: "Shopify Store Setup & Development in Australia",
-    metaTitle: "Shopify Developer Melbourne | Store Setup From $599 | Vasyl Bakhmut",
+    metaTitle: "Shopify Developer Melbourne | Stores From $599 | Vasdev",
     metaDescription:
       "Shopify store setup and customisation for Australian small businesses. Australian payments, GST and shipping configured. From $599 AUD.",
     intro:
@@ -247,7 +247,7 @@ export const SERVICES: ServiceData[] = [
     slug: "geo-ai-search-optimisation",
     name: "GEO & AI Search Optimisation",
     h1: "GEO: AI Search Optimisation for Australian Businesses",
-    metaTitle: "GEO & AI Search Optimisation Melbourne | Vasyl Bakhmut",
+    metaTitle: "GEO & AI Search Optimisation Melbourne | Vasdev",
     metaDescription:
       "Get your business found and cited by ChatGPT, Perplexity and Google AI. GEO and AI search optimisation for Australian businesses from $399/month.",
     intro:
@@ -274,7 +274,7 @@ export const SERVICES: ServiceData[] = [
     slug: "business-software-automation",
     name: "Business Software & Automation",
     h1: "Custom Business Software & Automation in Australia",
-    metaTitle: "Business Software & Automation Melbourne | From $499 | Vasyl Bakhmut",
+    metaTitle: "Business Software & Automation | From $499 | Vasdev",
     metaDescription:
       "Custom business software and workflow automation for Australian small businesses: booking systems, client portals, dashboards and integrations. From $499 AUD.",
     intro:
@@ -418,7 +418,7 @@ export const SERVICE_LOCATION_INTROS: Record<string, Record<string, string>> = {
   },
   "web-development": {
     melbourne:
-      "I build Next.js and React websites for Melbourne businesses that want something faster and easier to maintain than a typical WordPress site. Because I work on my own, you pay for the development and not for agency overhead.",
+      "I build custom websites for Melbourne businesses that want something faster and easier to maintain than a typical WordPress site. Because I work on my own, you pay for the development and not for agency overhead.",
     sydney:
       "Sydney businesses want a developer who delivers on time and on budget. I work remotely from Melbourne in the same timezone, so we talk during Sydney business hours, and the work is done by me, not passed to someone else.",
   },
@@ -442,9 +442,9 @@ export const SERVICE_LOCATION_INTROS: Record<string, Record<string, string>> = {
   },
   "ai-automation": {
     melbourne:
-      "Melbourne hospitality, retail, trades and professional services businesses are using automation to cut repetitive admin. Because I am based locally, I can review your current workflows in person and then build n8n automations, chatbots and CRM integrations that fit how you work.",
+      "Melbourne hospitality, retail, trades and professional services businesses are using automation to cut repetitive admin. Because I am based locally, I can review your current workflows in person and then build automations, chatbots and CRM integrations that fit how you work.",
     sydney:
-      "Sydney businesses move quickly and expect their systems to keep up. I build AI automation and n8n workflows for Sydney companies remotely, in the same timezone. Customer enquiries, follow-ups and repetitive tasks can run on their own, without an agency's overhead.",
+      "Sydney businesses move quickly and expect their systems to keep up. I build AI automation and automated workflows for Sydney companies remotely, in the same timezone. Customer enquiries, follow-ups and repetitive tasks can run on their own, without an agency's overhead.",
   },
   "shopify-stores": {
     melbourne:
@@ -460,9 +460,9 @@ export const SERVICE_LOCATION_INTROS: Record<string, Record<string, string>> = {
   },
   "cloud-devops": {
     melbourne:
-      "Melbourne startups and growing small businesses need cloud infrastructure that can scale. Being local, I can meet in person to review your current setup, then build a cost-conscious AWS or Vercel architecture that fits your business.",
+      "Melbourne startups and growing small businesses need cloud hosting that can scale. Being local, I can meet in person to review your current setup, then build a cost-conscious cloud setup that fits your business.",
     sydney:
-      "Sydney businesses need cloud infrastructure that is reliable and does not cost more than it should. I design and set up cloud environments for Sydney companies remotely, in the same timezone, without an agency markup on straightforward DevOps work.",
+      "Sydney businesses need cloud hosting that is reliable and does not cost more than it should. I design and set up cloud hosting for Sydney companies remotely, in the same timezone, without an agency markup on straightforward setup work.",
   },
 };
 

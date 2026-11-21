@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const location = getLocation(slug);
   if (!location) return { title: "Not Found" };
 
-  const title = `Web Developer ${location.name} | Websites, Shopify & AI Automation | Vasdev`;
+  const title = `Web Developer ${location.name} | Websites, Shopify & AI | Vasdev`;
   const description = `Web developer serving ${location.name}, ${location.state}: websites from $299, Shopify stores from $599, AI automation from $99. ${location.type === "local" ? "Based locally." : "Remote-first, fixed prices."}`;
   const canonical = `https://www.vasdev.au/locations/${location.slug}`;
 

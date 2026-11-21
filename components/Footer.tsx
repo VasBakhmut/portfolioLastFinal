@@ -46,7 +46,6 @@ const SOCIAL_LINKS = [
   },
 ];
 
-const TECH_STACK = ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Node.js", "MongoDB"];
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -144,25 +143,6 @@ export function Footer() {
               <p style={{ fontSize: "0.75rem", color: "var(--text-secondary)", marginBottom: "1.25rem" }}>
                 Serving Melbourne CBD &#183; Bayside Melbourne &#183; Sydney &#183; Victoria &#183; Australia-wide
               </p>
-              {/* Tech stack pills */}
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
-                {TECH_STACK.map((t) => (
-                  <span
-                    key={t}
-                    style={{
-                      fontSize: "0.65rem",
-                      fontWeight: 600,
-                      padding: "0.2rem 0.55rem",
-                      borderRadius: "100px",
-                      background: "transparent",
-                      color: "var(--btn-outline-color)",
-                      border: "1px solid var(--btn-outline-color)",
-                    }}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
             </div>
 
             {/* Nav */}

@@ -9,6 +9,15 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+  async redirects() {
+    return [
+      {
+        source: "/guides/wordpress-vs-shopify-vs-nextjs-australia",
+        destination: "/guides/wordpress-vs-shopify-vs-custom-website-australia",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },

@@ -15,7 +15,7 @@ const FAQ_ITEMS = [
 	},
 	{
 		q: 'Can you redesign my existing website?',
-		a: 'Yes. I can update the design, improve the speed or rebuild the site in Next.js, depending on what you have now and what you want.',
+		a: 'Yes. I can update the design, improve the speed or rebuild the site from scratch, depending on what you have now and what you want.',
 	},
 	{
 		q: 'Does my website come with hosting and a domain?',

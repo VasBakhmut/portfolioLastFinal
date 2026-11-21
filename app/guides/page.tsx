@@ -9,7 +9,7 @@ const url = "https://www.vasdev.au/guides";
 export const metadata: Metadata = {
   title: { absolute: "Website Guides for Australian Small Businesses | Vasdev" },
   description:
-    "Plain-English guides for Australian small businesses: website costs, how to choose a web developer, and WordPress vs Shopify vs Next.js.",
+    "Plain-English guides for Australian small businesses: website costs, how to choose a web developer, and WordPress vs Shopify vs a custom website.",
   alternates: { canonical: url },
   openGraph: {
     title: "Website Guides for Australian Small Businesses",

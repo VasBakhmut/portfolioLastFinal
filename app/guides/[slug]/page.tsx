@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!guide) return { title: "Guide Not Found" };
   const url = `${ORIGIN}/guides/${guide.slug}`;
   return {
-    title: { absolute: `${guide.title} | Vasdev` },
+    title: { absolute: guide.seoTitle },
     description: guide.description,
     alternates: { canonical: url },
     openGraph: {

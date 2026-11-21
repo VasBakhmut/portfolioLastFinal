@@ -24,7 +24,7 @@ const SERVICES = [
       </svg>
     ),
     title: "Website Development",
-    description: "Fast, accessible, and SEO-optimised websites and web applications built with React, Next.js, and TypeScript &#8212; designed to convert visitors into customers.",
+    description: "Fast, accessible, and SEO-optimised websites and web applications &#8212; designed to convert visitors into customers.",
     color: "#06b6d4",
     priceHint: "from $299",
   },
@@ -60,7 +60,7 @@ const SERVICES = [
       </svg>
     ),
     title: "Business Web Solutions",
-    description: "Complete website packages for Australian SMBs &#8212; multi-page sites, CMS integration, contact forms, and SEO basics from a single point of contact.",
+    description: "Complete website packages for Australian SMBs &#8212; multi-page sites, easy content editing, contact forms, and SEO basics from a single point of contact.",
     color: "#3b82f6",
     priceHint: "from $299",
   },
@@ -72,7 +72,7 @@ const SERVICES = [
       </svg>
     ),
     title: "AI Chatbots & Automation",
-    description: "Custom AI assistants, workflow automation with n8n, CRM integrations, and intelligent tools that save your team hours of repetitive work every week.",
+    description: "Custom AI assistants, workflow automation, CRM integrations, and intelligent tools that save your team hours of repetitive work every week.",
     color: "#8b5cf6",
     priceHint: "from $99",
   },

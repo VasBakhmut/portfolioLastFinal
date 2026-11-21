@@ -11,6 +11,8 @@ export interface GuideFaq {
 export interface Guide {
   slug: string;
   title: string;
+  /** Short <title> tag (60 characters or fewer) */
+  seoTitle: string;
   description: string;
   h1: string;
   intro: string;
@@ -26,6 +28,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "how-much-does-a-website-cost-in-australia",
     title: "How Much Does a Small Business Website Cost in Australia? (2026)",
+    seoTitle: "Website Cost in Australia for Small Business (2026) | Vasdev",
     description:
       "What small business websites typically cost in Australia in 2026: agency and freelancer price ranges, Shopify and ecommerce costs, ongoing fees, and what Vasdev charges from $299.",
     h1: "How Much Does a Small Business Website Cost in Australia?",
@@ -104,6 +107,7 @@ export const GUIDES: Guide[] = [
   {
     slug: "how-to-choose-a-web-developer-small-business-australia",
     title: "How to Choose a Web Developer for Your Small Business in Australia",
+    seoTitle: "How to Choose a Web Developer in Australia | Vasdev",
     description:
       "A practical checklist for choosing a web developer in Australia: freelancer or agency, what to check in a portfolio, which questions to ask, and the red flags to avoid.",
     h1: "How to Choose a Web Developer for Your Small Business in Australia",
@@ -183,13 +187,14 @@ export const GUIDES: Guide[] = [
     ],
   },
   {
-    slug: "wordpress-vs-shopify-vs-nextjs-australia",
-    title: "WordPress vs Shopify vs Next.js: Which Is Right for Your Australian Business?",
+    slug: "wordpress-vs-shopify-vs-custom-website-australia",
+    title: "WordPress vs Shopify vs a Custom Website: Which Is Right for Your Australian Business?",
+    seoTitle: "WordPress vs Shopify vs Custom Website in Australia | Vasdev",
     description:
-      "A plain-English comparison of WordPress, Shopify and Next.js for Australian small businesses: cost, speed, SEO, ease of editing, and which one suits a brochure site or an online store.",
-    h1: "WordPress vs Shopify vs Next.js for Your Australian Business Website",
+      "A plain-English comparison of WordPress, Shopify and a custom-built website for Australian small businesses: cost, speed, SEO, ease of editing, and which one suits a brochure site or an online store.",
+    h1: "WordPress vs Shopify vs a Custom Website for Your Australian Business",
     intro:
-      "Choosing the platform is the first big decision for a new website. Here is a plain comparison of WordPress, Shopify and Next.js, and which one tends to suit which kind of business.",
+      "Choosing the platform is the first big decision for a new website. Here is a plain comparison of WordPress, Shopify and a custom-built website, and which one tends to suit which kind of business.",
     datePublished: "2026-11-10",
     dateModified: "2026-11-10",
     readTime: "6 min read",
@@ -197,7 +202,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "The short answer",
         paragraphs: [
-          "If you sell products online, Shopify is usually the quickest and safest choice. If you want a content-heavy website that a non-technical person edits often, WordPress is a common fit. If speed, custom features and long-term control matter most, a custom Next.js site is a strong option.",
+          "If you sell products online, Shopify is usually the quickest and safest choice. If you want a content-heavy website that a non-technical person edits often, WordPress is a common fit. If speed, custom features and long-term control matter most, a custom-built site is a strong option.",
         ],
       },
       {
@@ -213,15 +218,15 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        heading: "Next.js: fast and fully custom",
+        heading: "Custom website: fast and fully yours",
         paragraphs: [
-          "Next.js is a modern framework for building fast, SEO-friendly websites and web applications. Sites built with it are typically very quick and have no plugin maintenance, and you own the code. The trade-off is that changes usually go through a developer, or through a content system we connect for you.",
+          "A custom-built website is coded around your business instead of a template. Sites built this way are typically very quick and have no plugin maintenance, and you own the code. The trade-off is that changes usually go through a developer, or through an editing tool I connect for you.",
         ],
       },
       {
         heading: "Which one should you pick?",
         paragraphs: [
-          "Selling products and want to start quickly: Shopify. A content website you will edit yourself: WordPress. A fast brochure site or a business with custom needs and a focus on search visibility: Next.js. If you are unsure, describe what you need and I will recommend one.",
+          "Selling products and want to start quickly: Shopify. A content website you will edit yourself: WordPress. A fast brochure site or a business with custom needs and a focus on search visibility: a custom-built site. If you are unsure, describe what you need and I will recommend one.",
         ],
       },
       {
@@ -237,8 +242,8 @@ export const GUIDES: Guide[] = [
         a: "For most small online stores, yes: Shopify bundles hosting, checkout and payments, so there is less to maintain. WordPress with WooCommerce offers more control but needs more upkeep.",
       },
       {
-        q: "Is Next.js better than WordPress for SEO?",
-        a: "Next.js sites are typically very fast and have no plugin overhead, which helps. But a well-built WordPress site can also rank well. What matters most is speed, structure and useful content.",
+        q: "Is a custom website better than WordPress for SEO?",
+        a: "Custom-built sites are typically very fast and have no plugin overhead, which helps. But a well-built WordPress site can also rank well. What matters most is speed, structure and useful content.",
       },
       {
         q: "How much does a Shopify store cost to set up in Australia?",
