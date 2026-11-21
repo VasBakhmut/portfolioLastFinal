@@ -162,7 +162,7 @@ export function Hero() {
             {...fu(0.6)}
             style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginTop: "2.5rem" }}
           >
-            {["React", "Next.js", "TypeScript", "Node.js", "AI/ML"].map((t) => (
+            {["Websites", "Shopify stores", "AI chatbots", "SEO"].map((t) => (
               <span
                 key={t}
                 style={{
