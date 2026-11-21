@@ -54,7 +54,7 @@ export function Pricing() {
 						},
 						{
 							name: 'Basic Care',
-							price: 'from $29',
+							price: 'from $59',
 							period: '/mo',
 							note: 'Hosting, backups, minor edits',
 							color: 'var(--accent)',

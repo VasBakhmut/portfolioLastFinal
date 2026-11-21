@@ -8,7 +8,7 @@ businesses, and helps them get found in Google and in AI search (SEO and GEO).
 
 ## What the site covers
 
-- Websites from $199, Shopify stores from $599, AI automation from $99, GEO (AI search optimisation) from $399/month
+- Websites from $299, Shopify stores from $599, AI automation from $99, GEO (AI search optimisation) from $399/month
 - Service pages for Melbourne and Sydney, FAQ, blog and a contact form
 - SEO / GEO foundations: structured data (JSON-LD), `sitemap.xml`, `robots.txt`, `llms.txt`,
   generated Open Graph images

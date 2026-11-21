@@ -7,143 +7,59 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 const FAQ_ITEMS = [
 	{
 		q: 'How long does it take to build a website?',
-		a: 'Most landing pages are completed within 7 days, while business websites typically take 1–3 weeks depending on the project scope and content.',
+		a: 'Most landing pages take about a week. A business website usually takes one to three weeks, depending on the scope and how quickly you send me your content.',
 	},
 	{
 		q: 'Do you work with businesses across Australia?',
-		a: "Yes. I'm based in Melbourne and work remotely with clients across Australia via email, phone and video calls.",
+		a: 'Yes. I am based in Melbourne and work with clients across Australia by email, phone and video call.',
 	},
 	{
 		q: 'Can you redesign my existing website?',
-		a: 'Absolutely. I can modernise your current website, improve performance, update the design, or rebuild it using modern technologies like Next.js.',
+		a: 'Yes. I can update the design, improve the speed or rebuild the site in Next.js, depending on what you have now and what you want.',
 	},
 	{
 		q: 'Does my website come with hosting and a domain?',
-		a: "Hosting and domain registration are not included in the website price — these are third-party services you own directly. I'll guide you through choosing the right provider, setting up your domain, and deploying your site. Or if you'd prefer, I can handle all of it for you under a Care plan from $29/month — so you never have to think about it.",
+		a: 'Hosting and a domain are not included in the website price. They are third-party services that you own directly. I help you choose a provider, set up the domain and deploy the site. If you would rather not deal with it, a Care plan from $59 a month covers hosting, backups and small edits.',
 	},
 	{
 		q: 'Will my website be SEO-friendly?',
-		a: 'Yes. Every website includes technical SEO fundamentals such as clean code, metadata, fast loading speeds, mobile responsiveness and a search-engine-friendly structure.',
+		a: 'Yes. Every website includes the technical SEO basics: clean code, page titles and descriptions, fast loading, a mobile-friendly layout and a structure that search engines can read.',
 	},
 	{
 		q: 'Can you add AI features to my website?',
-		a: 'Yes. I build AI-powered chatbots, business automations, lead qualification tools, booking assistants and custom AI workflows tailored to your business.',
+		a: 'Yes. I build AI chatbots, business automations, lead qualification tools and booking assistants, and I can connect them to your website.',
 	},
 	{
 		q: 'What happens after my website is finished?',
-		a: "After launch I provide a full handover — you get access to everything: your code, deployment, and any accounts created during the project. I'll walk you through how to make basic updates yourself, and I'm always available if you need ongoing help or have questions down the line.",
+		a: 'After launch you get a full handover: your code, your deployment and any accounts created for the project. I show you how to make basic updates yourself, and you can contact me if you need help later.',
 	},
 	{
 		q: 'Do I need to pay everything upfront?',
-		a: "No. For simple projects like landing pages, payment is due before the site goes live — you only pay once you're happy with the result. For larger projects, I split payments into stages aligned with project milestones, with the final balance due before launch. I never ask for large upfront deposits — my goal is that you feel confident before any money changes hands.",
+		a: 'No. For simple projects such as landing pages, you pay before the site goes live, once you are happy with it. Larger projects are split into stages tied to milestones, with the final payment due before launch. I do not ask for large deposits up front.',
 	},
 	{
 		q: 'What if I need changes during or after the project?',
-		a: "Every project includes revision rounds covered in the price. If you need changes that weren't part of the original scope — new sections, additional features, or a shift in direction — I'll let you know upfront what's extra before doing any additional work. No surprises, no hidden charges.",
+		a: 'Every project includes revision rounds in the price. If you ask for something outside the original scope, such as a new section or an extra feature, I tell you the cost before I do any of that work.',
 	},
 	{
 		q: 'How do we get started?',
-		a: "Simply reach out through the contact form or any way that suits you — phone, WhatsApp, SMS, or Telegram. We'll discuss your goals and I'll recommend the best solution for your business.",
+		a: 'Use the contact form, or reach me by phone, WhatsApp, SMS or Telegram. We talk through your goals and I recommend a solution.',
 	},
 	{
 		q: 'How much does a website cost?',
-		a: "Every project is different, so I provide a fixed quote after a free consultation — no surprises. Most small business websites start from $199 AUD, and you'll always know the full price before any work begins.",
+		a: 'I give a fixed quote after a free consultation. Most small business websites start from $299 AUD, and you will know the full price before any work begins.',
 	},
 ]
 
+// Built from FAQ_ITEMS so the visible text and the structured data always match.
 const FAQ_SCHEMA = {
 	'@context': 'https://schema.org',
 	'@type': 'FAQPage',
-	mainEntity: [
-		{
-			'@type': 'Question',
-			name: 'How long does it take to build a website?',
-			acceptedAnswer: {
-				'@type': 'Answer',
-				text: 'Most landing pages are completed within 7 days, while business websites typically take 1–3 weeks depending on the project scope and content.',
-			},
-		},
-		{
-			'@type': 'Question',
-			name: 'Do you work with businesses across Australia?',
-			acceptedAnswer: {
-				'@type': 'Answer',
-				text: "Yes. I'm based in Melbourne and work remotely with clients across Australia via email, phone and video calls.",
-			},
-		},
-		{
-			'@type': 'Question',
-			name: 'Can you redesign my existing website?',
-			acceptedAnswer: {
-				'@type': 'Answer',
-				text: 'Absolutely. I can modernise your current website, improve performance, update the design, or rebuild it using modern technologies like Next.js.',
-			},
-		},
-		{
-			'@type': 'Question',
-			name: 'Does my website come with hosting and a domain?',
-			acceptedAnswer: {
-				'@type': 'Answer',
-				text: "Hosting and domain registration are not included in the website price — these are third-party services you own directly. I'll guide you through choosing the right provider, setting up your domain, and deploying your site. Or if you'd prefer, I can handle all of it for you under a Care plan from $29/month — so you never have to think about it.",
-			},
-		},
-		{
-			'@type': 'Question',
-			name: 'Will my website be SEO-friendly?',
-			acceptedAnswer: {
-				'@type': 'Answer',
-				text: 'Yes. Every website includes technical SEO fundamentals such as clean code, metadata, fast loading speeds, mobile responsiveness and a search-engine-friendly structure.',
-			},
-		},
-		{
-			'@type': 'Question',
-			name: 'Can you add AI features to my website?',
-			acceptedAnswer: {
-				'@type': 'Answer',
-				text: 'Yes. I build AI-powered chatbots, business automations, lead qualification tools, booking assistants and custom AI workflows tailored to your business.',
-			},
-		},
-		{
-			'@type': 'Question',
-			name: 'What happens after my website is finished?',
-			acceptedAnswer: {
-				'@type': 'Answer',
-				text: "After launch I provide a full handover — you get access to everything: your code, deployment, and any accounts created during the project. I'll walk you through how to make basic updates yourself, and I'm always available if you need ongoing help or have questions down the line.",
-			},
-		},
-		{
-			'@type': 'Question',
-			name: 'Do I need to pay everything upfront?',
-			acceptedAnswer: {
-				'@type': 'Answer',
-				text: "No. For simple projects like landing pages, payment is due before the site goes live — you only pay once you're happy with the result. For larger projects, I split payments into stages aligned with project milestones, with the final balance due before launch. I never ask for large upfront deposits — my goal is that you feel confident before any money changes hands.",
-			},
-		},
-		{
-			'@type': 'Question',
-			name: 'What if I need changes during or after the project?',
-			acceptedAnswer: {
-				'@type': 'Answer',
-				text: "Every project includes revision rounds covered in the price. If you need changes that weren't part of the original scope — new sections, additional features, or a shift in direction — I'll let you know upfront what's extra before doing any additional work. No surprises, no hidden charges.",
-			},
-		},
-		{
-			'@type': 'Question',
-			name: 'How do we get started?',
-			acceptedAnswer: {
-				'@type': 'Answer',
-				text: "Simply reach out through the contact form or any way that suits you — phone, WhatsApp, SMS, or Telegram. We'll discuss your goals and I'll recommend the best solution for your business.",
-			},
-		},
-		{
-			'@type': 'Question',
-			name: 'How much does a website cost?',
-			acceptedAnswer: {
-				'@type': 'Answer',
-				text: "Every project is different, so I provide a fixed quote after a free consultation — no surprises. Most small business websites start from $199 AUD, and you'll always know the full price before any work begins.",
-			},
-		},
-	],
+	mainEntity: FAQ_ITEMS.map((item) => ({
+		'@type': 'Question',
+		name: item.q,
+		acceptedAnswer: { '@type': 'Answer', text: item.a },
+	})),
 }
 
 const MOBILE_VISIBLE = 3

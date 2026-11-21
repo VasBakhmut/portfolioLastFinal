@@ -7,7 +7,7 @@ const fu = (delay: number) => ({
 });
 
 const PRICES = [
-  { label: "Websites", price: "from $199", color: "#06b6d4" },
+  { label: "Websites", price: "from $299", color: "#06b6d4" },
   { label: "Shopify stores", price: "from $599", color: "#84cc16" },
   { label: "AI & automation", price: "from $99", color: "#8b5cf6" },
   { label: "", price: "GEO", suffix: "get found in AI search", color: "#f59e0b" },

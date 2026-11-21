@@ -23,7 +23,7 @@ export function Contact() {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form),
+          body: JSON.stringify({ budget: "Not specified", ...form }),
         }
       );
       if (!res.ok) throw new Error("api error");

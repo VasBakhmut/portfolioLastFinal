@@ -16,7 +16,7 @@ Melbourne, Sydney, and Australia-wide. Fixed prices, fast delivery.
 
 ## What Vasyl offers (summary)
 
-- Websites for small businesses: from $199 AUD
+- Websites for small businesses: from $299 AUD
 - Shopify stores: from $599 AUD
 - AI chatbots and workflow automation (n8n, CRM integrations): from $99 AUD
 - SEO and GEO (getting a business found in Google and in AI search
@@ -26,11 +26,12 @@ Melbourne, Sydney, and Australia-wide. Fixed prices, fast delivery.
 ## Services
 
 - [Web Design Melbourne](https://www.vasdev.au/services/web-design/melbourne)
-- [Web Development](https://www.vasdev.au/services/web-development)
+- [Website Development](https://www.vasdev.au/services/web-development)
 - [AI Chatbots & Automation Melbourne](https://www.vasdev.au/services/ai-automation/melbourne)
 - [SEO Optimisation](https://www.vasdev.au/services/seo-optimization)
 - [Ecommerce Solutions](https://www.vasdev.au/services/ecommerce-solutions)
 - [Shopify Stores](https://www.vasdev.au/services/shopify-stores)
+- [Business Software & Automation](https://www.vasdev.au/services/business-software-automation)
 - [GEO & AI Search Optimisation](https://www.vasdev.au/services/geo-ai-search-optimisation)
 - [Business Web Solutions](https://www.vasdev.au/services/business-web-solutions)
 
@@ -59,8 +60,9 @@ Based in Melbourne, working with clients across Australia (remote-first).
 - Business Website: from $299 AUD
 - Shopify Store: from $599 AUD
 - AI Automation: from $99 AUD
+- Business Software & Automation: from $499 AUD
 - Custom Ecommerce Store: from $799 AUD
-- Basic Care Plan (hosting, backups, minor edits): from $29/month
+- Basic Care Plan (hosting, backups, minor edits): from $59/month
 - SEO Care Plan (weekly SEO reports + optimisation): from $199/month
 - GEO / AI Search Optimisation (ongoing): from $399/month
 

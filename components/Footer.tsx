@@ -194,11 +194,12 @@ export function Footer() {
               <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                 {[
                   { label: "Web Design (Melbourne)", href: "/services/web-design/melbourne" },
-                  { label: "Web Development (Melbourne)", href: "/services/web-development/melbourne" },
+                  { label: "Website Development (Melbourne)", href: "/services/web-development/melbourne" },
                   { label: "AI Automation (Melbourne)", href: "/services/ai-automation/melbourne" },
                   { label: "SEO Optimisation", href: "/services/seo-optimization" },
                   { label: "Ecommerce Solutions", href: "/services/ecommerce-solutions" },
                   { label: "Shopify Stores", href: "/services/shopify-stores" },
+                  { label: "Business Software & Automation", href: "/services/business-software-automation" },
                   { label: "Website Cost Guide", href: "/guides/how-much-does-a-website-cost-in-australia" },
                   { label: "All Guides", href: "/guides" },
                   { label: "GEO & AI Search", href: "/services/geo-ai-search-optimisation" },

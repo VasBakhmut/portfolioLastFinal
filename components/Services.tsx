@@ -23,10 +23,10 @@ const SERVICES = [
         <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
       </svg>
     ),
-    title: "Web Development",
+    title: "Website Development",
     description: "Fast, accessible, and SEO-optimised websites and web applications built with React, Next.js, and TypeScript &#8212; designed to convert visitors into customers.",
     color: "#06b6d4",
-    priceHint: "from $199",
+    priceHint: "from $299",
   },
   {
     slug: "seo-optimization",
@@ -76,6 +76,30 @@ const SERVICES = [
     color: "#8b5cf6",
     priceHint: "from $99",
   },
+  {
+    slug: "shopify-stores",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+    ),
+    title: "Shopify Stores",
+    description: "Shopify store setup for Australian small businesses.",
+    color: "#84cc16",
+    priceHint: "from $599",
+  },
+  {
+    slug: "business-software-automation",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+    ),
+    title: "Business Software & Automation",
+    description: "Custom business software and automation for Australian small businesses.",
+    color: "#eab308",
+    priceHint: "from $499",
+  },
 ];
 
 
@@ -101,7 +125,7 @@ export function Services() {
         </ScrollReveal>
 
         <div
-          style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: "0.875rem" }}
+          style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "0.875rem" }}
           className="services-grid"
         >
           {SERVICES.map((s, i) => (
@@ -180,9 +204,6 @@ export function Services() {
         .service-card:hover { border-color: var(--service-color) !important; }
         .service-arrow { opacity: 0.45; transition: transform 0.25s ease, opacity 0.25s ease; }
         .service-card:hover .service-arrow { opacity: 1; transform: translate(2px, -2px); }
-        @media (max-width: 1024px) {
-          .services-grid { grid-template-columns: repeat(3, 1fr) !important; }
-        }
         @media (max-width: 500px) {
           .services-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.75rem !important; }
         }

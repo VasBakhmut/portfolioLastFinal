@@ -27,10 +27,10 @@ export const GUIDES: Guide[] = [
     slug: "how-much-does-a-website-cost-in-australia",
     title: "How Much Does a Small Business Website Cost in Australia? (2026)",
     description:
-      "What small business websites typically cost in Australia in 2026: agency and freelancer price ranges, Shopify and ecommerce costs, ongoing fees, and what Vasdev charges from $199.",
+      "What small business websites typically cost in Australia in 2026: agency and freelancer price ranges, Shopify and ecommerce costs, ongoing fees, and what Vasdev charges from $299.",
     h1: "How Much Does a Small Business Website Cost in Australia?",
     intro:
-      "Prices for a small business website in Australia range from a few hundred dollars to tens of thousands. This guide explains what drives the price, what published market ranges look like in 2026, and what to budget for after launch.",
+      "Prices for a small business website in Australia run from a few hundred dollars to tens of thousands. This guide covers what drives the price, what published ranges look like in 2026 and what to budget after launch.",
     datePublished: "2026-11-10",
     dateModified: "2026-11-10",
     readTime: "6 min read",
@@ -39,7 +39,7 @@ export const GUIDES: Guide[] = [
         heading: "The short answer",
         paragraphs: [
           "Published Australian agency guides most often put a professionally built small business website at roughly $2,000 to $8,000. Basic three to six page sites are sometimes quoted from about $1,500, and larger custom builds go well beyond $10,000. Online stores cost more, commonly quoted from around $5,000 and into the tens of thousands for large catalogues.",
-          "Most of these figures come from agency pricing pages, so treat them as benchmarks rather than rules. The scope of the project matters far more than the city you are in.",
+          "Most of these figures come from agency pricing pages, so treat them as rough benchmarks. Scope affects the price far more than the city does.",
         ],
       },
       {
@@ -52,20 +52,20 @@ export const GUIDES: Guide[] = [
       {
         heading: "Costs after launch",
         paragraphs: [
-          "A website is not a one-off purchase. Budget for a domain name, hosting, security and software updates, small content changes, and search engine optimisation if you want to be found on Google.",
-          "Agency care plans are often advertised from around $97 per month. My Basic Care plan covers hosting, backups and minor edits from $29 per month, and ongoing SEO care starts from $199 per month.",
+          "Plan for ongoing costs: a domain name, hosting, security and software updates, small content changes and, if you want to be found on Google, SEO.",
+          "Agency care plans are often advertised from around $97 per month. My Basic Care plan covers hosting, backups and minor edits from $59 per month, and ongoing SEO care starts from $199 per month.",
         ],
       },
       {
         heading: "Does the city matter?",
         paragraphs: [
-          "Less than most people expect. A website for a Melbourne, Sydney, Brisbane or Perth business is priced mainly on scope. I work remotely with small businesses across Australia, so you do not pay extra for a local office.",
+          "Not much. A website for a Melbourne, Sydney, Brisbane or Perth business is priced mainly on scope. I work remotely with small businesses across Australia, so you do not pay extra for a local office.",
         ],
       },
       {
         heading: "What Vasdev charges",
         paragraphs: [
-          "I publish starting prices so you can plan before we talk: landing page websites from $199, multi-page business websites from $299, Shopify stores from $599, custom ecommerce from $799, AI chatbots and automation from $99, and ongoing GEO and AI search optimisation from $399 per month.",
+          "I publish starting prices so you can plan before we talk: websites from $299, Shopify stores from $599, custom ecommerce from $799, AI chatbots and automation from $99, and ongoing GEO and AI search optimisation from $399 per month.",
           "These are starting prices. The final quote depends on scope and is agreed in writing before any work begins.",
         ],
       },
@@ -73,7 +73,7 @@ export const GUIDES: Guide[] = [
         heading: "How to compare quotes properly",
         paragraphs: [
           "Two quotes are only comparable if they include the same things. Ask each provider whether the price covers design, the number of pages, mobile optimisation, basic SEO, contact forms, hosting, revisions, and a handover so you own your site and domain.",
-          "Be cautious of any quote that promises a guaranteed first-page ranking. Nobody can honestly guarantee that.",
+          "Be wary of any quote that guarantees a first-page ranking. Nobody can guarantee that.",
         ],
       },
     ],
@@ -88,7 +88,7 @@ export const GUIDES: Guide[] = [
       },
       {
         q: "What ongoing costs should I budget for?",
-        a: "At minimum, a domain name and hosting, plus security updates and occasional edits. If you want to be found in search, add SEO. Care plans from $29 per month cover hosting, backups and minor edits with Vasdev.",
+        a: "At minimum, a domain name and hosting, plus security updates and occasional edits. If you want to be found in search, add SEO. Care plans from $59 per month cover hosting, backups and minor edits with Vasdev.",
       },
       {
         q: "How much does an online store cost in Australia?",
@@ -108,7 +108,7 @@ export const GUIDES: Guide[] = [
       "A practical checklist for choosing a web developer in Australia: freelancer or agency, what to check in a portfolio, which questions to ask, and the red flags to avoid.",
     h1: "How to Choose a Web Developer for Your Small Business in Australia",
     intro:
-      "The right web developer saves you months of frustration, and the wrong one can leave you with a slow site you do not even own. Use this checklist before you sign anything.",
+      "A good web developer saves you months of frustration. A poor one can leave you with a slow site you do not own. Use this checklist before you sign anything.",
     datePublished: "2026-11-10",
     dateModified: "2026-11-10",
     readTime: "5 min read",
@@ -189,7 +189,7 @@ export const GUIDES: Guide[] = [
       "A plain-English comparison of WordPress, Shopify and Next.js for Australian small businesses: cost, speed, SEO, ease of editing, and which one suits a brochure site or an online store.",
     h1: "WordPress vs Shopify vs Next.js for Your Australian Business Website",
     intro:
-      "Choosing the platform is the first big decision for a new website. Here is an honest comparison of WordPress, Shopify and Next.js, and which one tends to suit which kind of business.",
+      "Choosing the platform is the first big decision for a new website. Here is a plain comparison of WordPress, Shopify and Next.js, and which one tends to suit which kind of business.",
     datePublished: "2026-11-10",
     dateModified: "2026-11-10",
     readTime: "6 min read",
@@ -197,7 +197,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "The short answer",
         paragraphs: [
-          "If you sell products online, Shopify is usually the quickest and safest choice. If you want a content-heavy website that a non-technical person edits often, WordPress is a common fit. If speed, custom features and long-term control matter most, a custom Next.js site is hard to beat.",
+          "If you sell products online, Shopify is usually the quickest and safest choice. If you want a content-heavy website that a non-technical person edits often, WordPress is a common fit. If speed, custom features and long-term control matter most, a custom Next.js site is a strong option.",
         ],
       },
       {
@@ -221,7 +221,7 @@ export const GUIDES: Guide[] = [
       {
         heading: "Which one should you pick?",
         paragraphs: [
-          "Selling products and want to start quickly: Shopify. A content website you will edit yourself: WordPress. A fast brochure site or a business with custom needs and a focus on search visibility: Next.js. If you are unsure, describe what you need and I will recommend one honestly.",
+          "Selling products and want to start quickly: Shopify. A content website you will edit yourself: WordPress. A fast brochure site or a business with custom needs and a focus on search visibility: Next.js. If you are unsure, describe what you need and I will recommend one.",
         ],
       },
       {

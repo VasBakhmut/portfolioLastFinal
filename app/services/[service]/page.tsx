@@ -10,18 +10,49 @@ interface Props {
   params: Promise<{ service: string }>;
 }
 
-// Hero image per service — thematic Unsplash photos
-const SERVICE_IMAGES: Record<string, string> = {
-  "web-design": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&auto=format&fit=crop&q=70",
-  "web-development": "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=1200&auto=format&fit=crop&q=70",
-  "seo-optimization": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=70",
-  "ecommerce-solutions": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&auto=format&fit=crop&q=70",
-  "business-web-solutions": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=1200&auto=format&fit=crop&q=70",
-  "ai-automation": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&fit=crop&q=70",
-  "cloud-devops": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1200&auto=format&fit=crop&q=70",
-  // reuse existing, already-allowed images for the new pages
-  "shopify-stores": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&auto=format&fit=crop&q=70",
-  "geo-ai-search-optimisation": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop&q=70",
+// Hero image per service: original banners in /public/images/services.
+// File names carry the target keywords; alt text describes the picture.
+const SERVICE_IMAGES: Record<string, { src: string; alt: string }> = {
+  "web-design": {
+    src: "/images/services/web-design-services-australia.webp",
+    alt: "Web designer's desk with a laptop and tablet showing a small business website layout, colour swatches and wireframe sketches",
+  },
+  "web-development": {
+    src: "/images/services/website-development-melbourne-nextjs.webp",
+    alt: "Website development workstation with a Next.js code editor and a website preview on two monitors",
+  },
+  "seo-optimization": {
+    src: "/images/services/seo-optimisation-melbourne-australia.webp",
+    alt: "Laptop showing an SEO analytics dashboard with a rising traffic chart, next to a magnifying glass and keyword notes",
+  },
+  "ecommerce-solutions": {
+    src: "/images/services/ecommerce-website-development-australia.webp",
+    alt: "Online store product grid on a laptop and phone with a payment terminal and parcels ready to ship",
+  },
+  "business-web-solutions": {
+    src: "/images/services/small-business-website-design-australia.webp",
+    alt: "Laptop on a small business counter showing a multi-page business website with a contact form",
+  },
+  "ai-automation": {
+    src: "/images/services/ai-chatbot-n8n-automation-melbourne.webp",
+    alt: "AI chatbot conversation on a phone beside a laptop showing a connected n8n-style workflow automation diagram",
+  },
+  "cloud-devops": {
+    src: "/images/services/cloud-devops-aws-docker-ci-cd.webp",
+    alt: "Data centre aisle of server racks with a glowing cloud deployment pipeline of connected nodes",
+  },
+  "shopify-stores": {
+    src: "/images/services/shopify-store-setup-australia.webp",
+    alt: "Shopify store product page on a laptop and phone on a packing table with wrapped parcels",
+  },
+  "geo-ai-search-optimisation": {
+    src: "/images/services/geo-ai-search-optimisation-australia.webp",
+    alt: "AI search assistant on a laptop and phone recommending local businesses in a written answer",
+  },
+  "business-software-automation": {
+    src: "/images/services/custom-business-software-automation-australia.webp",
+    alt: "Business dashboard with charts on a monitor and a booking calendar on a tablet in a small office",
+  },
 };
 
 export async function generateStaticParams() {
@@ -43,6 +74,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://www.vasdev.au/services/${service.slug}`,
       type: "website",
       locale: "en_AU",
+      images: [{ url: SERVICE_IMAGES[slug]?.src ?? SERVICE_IMAGES["web-development"].src, width: 1920, height: 720, alt: SERVICE_IMAGES[slug]?.alt }],
     },
   };
 }
@@ -52,7 +84,7 @@ export default async function ServicePage({ params }: Props) {
   const service = getService(slug);
   if (!service) notFound();
 
-  const heroImage = SERVICE_IMAGES[slug] ?? SERVICE_IMAGES["web-development"];
+  const hero = SERVICE_IMAGES[slug] ?? SERVICE_IMAGES["web-development"];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -66,6 +98,7 @@ export default async function ServicePage({ params }: Props) {
     },
     areaServed: "Australia",
     url: `https://www.vasdev.au/services/${service.slug}`,
+    image: `https://www.vasdev.au${hero.src}`,
     ...(service.priceFrom && {
       offers: {
         "@type": "Offer",
@@ -228,8 +261,8 @@ export default async function ServicePage({ params }: Props) {
             }}
           >
             <Image
-              src={heroImage}
-              alt={`${service.name} services — Vasyl Bakhmut, Melbourne`}
+              src={hero.src}
+              alt={hero.alt}
               fill
               sizes="(max-width: 768px) 100vw, 1200px"
               style={{ objectFit: "cover" }}

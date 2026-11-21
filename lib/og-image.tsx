@@ -68,7 +68,7 @@ export function renderOgImage() {
         <div style={{ display: "flex", gap: 40, fontSize: 30, fontWeight: 700 }}>
           <div style={{ display: "flex", gap: 10 }}>
             <span style={{ color: "#94a3b8", fontWeight: 500 }}>Websites</span>
-            <span style={{ color: "#06b6d4" }}>from $199</span>
+            <span style={{ color: "#06b6d4" }}>from $299</span>
           </div>
           <div style={{ display: "flex", gap: 10 }}>
             <span style={{ color: "#94a3b8", fontWeight: 500 }}>Shopify</span>
