@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { SERVICES, LOCATIONS, SERVICE_LOCATION_INTROS, getService, getLocation, hasServiceLocationPage } from "@/lib/seo-pages-data";
+import { SERVICES, LOCATIONS, SERVICE_LOCATION_INTROS, SERVICE_LOCATION_EXTRAS, getService, getLocation, hasServiceLocationPage } from "@/lib/seo-pages-data";
 
 interface Props {
   params: Promise<{ service: string; location: string }>;
@@ -25,7 +25,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!service || !location) return { title: "Not Found" };
 
   const title = `${service.name} ${location.name} | ${location.state} | Vasdev`;
-  const description = `${service.name} services in ${location.name}, ${location.state}. ${service.metaDescription}`;
+  const intro = SERVICE_LOCATION_INTROS[sSlug]?.[lSlug] ?? "";
+  let description = "";
+  for (const sentence of intro.match(/[^.]+\./g) ?? []) {
+    if ((description + sentence).trim().length > 155) break;
+    description = (description + sentence).trim() + " ";
+  }
+  description = description.trim() || `${service.name} in ${location.name}, ${location.state}. ${service.metaDescription}`;
   const canonical = `https://www.vasdev.au/services/${service.slug}/${location.slug}`;
 
   return {
@@ -44,6 +50,7 @@ export default async function ServiceLocationPage({ params }: Props) {
   if (!service || !location || !hasServiceLocationPage(sSlug, lSlug)) notFound();
 
   const uniqueIntro = SERVICE_LOCATION_INTROS[sSlug]?.[lSlug];
+  const extras = SERVICE_LOCATION_EXTRAS[sSlug]?.[lSlug];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -76,6 +83,16 @@ export default async function ServiceLocationPage({ params }: Props) {
     }),
   };
 
+  const faqLd = extras && {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: extras.faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -93,6 +110,7 @@ export default async function ServiceLocationPage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      {faqLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />}
 
       <Navbar />
 
@@ -146,14 +164,11 @@ export default async function ServiceLocationPage({ params }: Props) {
           </p>
 
           {uniqueIntro && (
-            <p style={{ fontSize: "1.0625rem", color: "var(--text-secondary)", lineHeight: 1.75, maxWidth: 640, marginBottom: "1rem" }}>
+            <p style={{ fontSize: "1.0625rem", color: "var(--text-secondary)", lineHeight: 1.75, maxWidth: 640, marginBottom: "2rem" }}>
               {uniqueIntro}
             </p>
           )}
 
-          <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", lineHeight: 1.75, maxWidth: 640, marginBottom: "2rem" }}>
-            Serving {location.name} including {location.suburbs.join(", ")}.
-          </p>
 
           <div style={{ display: "flex", gap: "0.875rem", flexWrap: "wrap" }}>
             <a href="/#contact" className="btn-primary">Get a Free Quote</a>
@@ -167,6 +182,7 @@ export default async function ServiceLocationPage({ params }: Props) {
             service page (linked below), so city pages are not near-duplicates. */}
         <section style={{ padding: "2rem 1.5rem 3rem", maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+            {!extras && (
             <div className="glass-card" style={{ padding: "1.75rem 2rem" }}>
               <h2
                 style={{
@@ -192,6 +208,44 @@ export default async function ServiceLocationPage({ params }: Props) {
                 </p>
               )}
             </div>
+            )}
+
+            {extras && (
+              <div className="glass-card" style={{ padding: "1.75rem 2rem" }}>
+                <h2
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)",
+                    fontWeight: 700,
+                    color: "var(--text-primary)",
+                    marginBottom: "0.875rem",
+                  }}
+                >
+                  {service.name} in {location.name}: how it works
+                </h2>
+                <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", lineHeight: 1.8, maxWidth: 680 }}>
+                  {extras.body}
+                </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginTop: "1.25rem" }}>
+                  {extras.faqs.map((f) => (
+                    <div key={f.q}>
+                      <h3
+                        style={{
+                          fontFamily: "var(--font-display)",
+                          fontSize: "1rem",
+                          fontWeight: 700,
+                          color: "var(--text-primary)",
+                          marginBottom: "0.35rem",
+                        }}
+                      >
+                        {f.q}
+                      </h3>
+                      <p style={{ fontSize: "0.9375rem", color: "var(--text-secondary)", lineHeight: 1.75, maxWidth: 680 }}>{f.a}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="glass-card" style={{ padding: "1.75rem 2rem" }}>
               <h2

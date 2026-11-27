@@ -377,7 +377,7 @@ export default async function ServicePage({ params }: Props) {
           </div>
         </section>
 
-        {/* ── Location links ── */}
+        {LOCATIONS.some((loc) => hasServiceLocationPage(service.slug, loc.slug)) && (
         <section
           style={{
             padding: "2.5rem 1.5rem",
@@ -423,6 +423,7 @@ export default async function ServicePage({ params }: Props) {
             </div>
           </div>
         </section>
+        )}
 
         {/* ── CTA ── */}
         <section style={{ padding: "4rem 1.5rem", textAlign: "center" }}>

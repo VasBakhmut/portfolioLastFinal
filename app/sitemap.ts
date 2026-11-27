@@ -3,7 +3,7 @@ import { SERVICES, LOCATIONS, hasServiceLocationPage } from "@/lib/seo-pages-dat
 import { GUIDES } from "@/lib/guides-data";
 
 const BASE = "https://www.vasdev.au";
-const LAST_CONTENT_UPDATE = new Date("2026-11-10");
+const LAST_CONTENT_UPDATE = new Date("2026-11-27");
 
 export const revalidate = 86400; // refresh every 24 hours
 

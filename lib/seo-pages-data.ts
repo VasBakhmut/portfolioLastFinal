@@ -200,7 +200,7 @@ export const SERVICES: ServiceData[] = [
     h1: "AI Chatbots & Automation Services",
     metaTitle: "AI Automation Melbourne | Chatbots & Workflows | Vasdev",
     metaDescription:
-      "AI chatbots and workflow automation for Australian small businesses. CRM integration and less repetitive admin. From $99.",
+      "AI chatbots and business automation for Australian small businesses: workflows, CRM integration and less repetitive admin. From $99.",
     intro:
       "I build chatbots, automated workflows and CRM integrations that take repetitive work off your plate, so you can spend the time on customers.",
     h2Sections: [
@@ -209,7 +209,7 @@ export const SERVICES: ServiceData[] = [
         body: "Hospitality, retail, trades and professional services all have tasks that repeat every day: appointment reminders, lead follow-ups, invoice emails. These are good candidates for automation with automated workflows or an AI assistant. How many hours you save depends on how much of your week goes into that kind of admin, and I estimate it with you before you pay for anything.",
       },
       {
-        heading: "Workflow automation for Australian small business",
+        heading: "Business automation for Australian small business",
         body: "Workflow automation connects tools you already use, such as Google Workspace, HubSpot, Xero, Slack and Stripe, so data moves between them without anyone retyping it. I build, host and maintain the workflows for small businesses, and the running cost can be lower than a Zapier plan at the same volume.",
       },
       {
@@ -319,7 +319,7 @@ export const SERVICES: ServiceData[] = [
     pricing: "seo",
     schema: "GEO",
     faqs: [
-      { q: "What is GEO?", a: "GEO, or generative engine optimisation, is the work of helping AI answer engines such as ChatGPT, Perplexity, Google AI Overviews and Microsoft Copilot find, understand and cite your business." },
+      { q: "What is GEO?", a: "GEO, or generative engine optimisation (also called AI search optimisation, or optimization in US spelling), is the work of helping AI answer engines such as ChatGPT, Perplexity, Google AI Overviews and Microsoft Copilot find, understand and cite your business." },
       { q: "How is GEO different from SEO?", a: "SEO aims to rank your pages in a list of links. GEO aims to get your business named in the single written answer that an AI tool gives. GEO builds on good SEO rather than replacing it." },
       { q: "Can you guarantee ChatGPT will recommend my business?", a: "No. Nobody can guarantee that. What I deliver is a site and an online presence that AI tools can read and trust, and I track which tools mention you." },
       { q: "How much does GEO cost?", a: "Ongoing GEO work starts from $399 a month. Agencies often quote retainers of about $1,500 to $2,000 a month or more." },
@@ -520,50 +520,152 @@ export const SERVICE_LOCATION_INTROS: Record<string, Record<string, string>> = {
     sydney:
       "Sydney is crowded, and AI answers only name a few businesses. I work remotely with Sydney businesses to make their sites easier for AI search tools to read and cite, in the same timezone and without agency overhead.",
   },
-  "cloud-devops": {
+  "business-software-automation": {
     melbourne:
-      "Melbourne startups and growing small businesses need cloud hosting that can scale. Being local, I can meet in person to review your current setup, then build a cost-conscious cloud setup that fits your business.",
-    sydney:
-      "Sydney businesses need cloud hosting that is reliable and does not cost more than it should. I design and set up cloud hosting for Sydney companies remotely, in the same timezone, without an agency markup on straightforward setup work.",
+      "Many Melbourne businesses lose hours every week to admin: quoting, booking, chasing invoices and copying data between a website, email and accounting software. I am based in Cheltenham, so I can meet in person, walk through how your business runs and then build business automation or a small custom tool around it. Typical examples for a Melbourne trade, clinic or retailer are automatic quote follow-ups, appointment reminders, or a simple dashboard that brings sales and bookings into one place.",
   },
 };
 
-// Extra Australian cities: a service x city page only exists where a genuinely
-// unique intro is written below (avoids thin, near-duplicate doorway pages).
-const EXTRA_CITY_INTROS: Record<string, Record<string, string>> = {
+/** City-specific body copy and questions for each service x city page. Every page has its own text. */
+export const SERVICE_LOCATION_EXTRAS: Record<string, Record<string, { body: string; faqs: { q: string; a: string }[] }>> = {
   "web-design": {
-    brisbane:
-      "Brisbane customers often find a business on their phone first. I design mobile-first websites for Brisbane small businesses, working remotely at fixed prices. Brisbane stays on AEST all year, so our working day overlaps with mine for most of the year.",
-    perth:
-      "Perth businesses often serve customers far from the east-coast agencies. I design websites for Perth small businesses remotely, book calls around the two to three hour time difference and keep pricing fixed and written down.",
-    adelaide:
-      "Adelaide is only 30 minutes behind Melbourne, so working together is easy. I design clean, mobile-first websites for Adelaide small businesses so they can stand next to bigger competitors online.",
-    canberra:
-      "Canberra consultancies, professional services and community groups need websites that are clear, accessible and easy to trust. I design them remotely, in the same timezone as Melbourne, at fixed prices.",
-    "gold-coast":
-      "On the Gold Coast, many visitors look up a business on their phone while they are nearby. I design fast, mobile-first websites for Gold Coast hospitality, service and retail businesses, working remotely.",
-    hobart:
-      "Hobart businesses often have a strong story and products worth showing. I design websites for Hobart small businesses that present them clearly and load quickly, working remotely at fixed prices.",
+    "melbourne": {
+      body: "Design work for a Melbourne business starts with a look at who walks in or calls you today. Because I live in Cheltenham, I can sit down with you at your premises or a cafe, look at your signage, flyers and photos, and carry that style into the site. A landing page starts from $199 and usually takes about a week.",
+      faqs: [
+        { q: "Will the design match my existing branding?", a: "Yes. I start from your logo, colours and any printed material you already have, so the site looks like the same business. If you have no branding yet, I suggest a simple palette and fonts for you to approve first." },
+        { q: "Can I see the design before it is built?", a: "Yes. You receive a design of the main pages to approve before I build them, and requests for changes at that stage are included." },
+      ],
+    },
+    "sydney": {
+      body: "Visitors in Sydney compare a lot of similar businesses in a short time, so I design with one question in mind: can a stranger understand what you do and how to contact you within a few seconds? Everything is handled remotely. You send your logo and photos, we review the design together on a video call, and I adjust it before anything is built. Landing pages start from $199, and a full business website from $299.",
+      faqs: [
+        { q: "How do design approvals work when we are not in the same room?", a: "I share the design as a link or a screen share. You comment on it, I make the changes, and we repeat that until you are happy, within the revisions agreed in the quote." },
+        { q: "What do I need to send you to start?", a: "Your logo if you have one, a few photos of your work or premises, and the text for the main pages. If something is missing, I tell you what to prepare or help you write it." },
+      ],
+    },
+  },
+  "web-development": {
+    "melbourne": {
+      body: "A Melbourne business site has to show what you offer and make it easy to call or book, and it also has to appear when people search nearby. I build for those first. As I am in Cheltenham, I can meet in person in Melbourne or work by video, and you get a preview link while the site is being built.",
+      faqs: [
+        { q: "Can I meet you in person in Melbourne?", a: "Yes. I am based in Cheltenham and can meet Melbourne clients in person. Video calls work just as well if you prefer them." },
+        { q: "How much does a website cost for a Melbourne business?", a: "Websites start from $299 AUD. Bigger projects with bookings, payments or custom features are quoted after a free consultation, and you see the full price before any work starts." },
+      ],
+    },
+    "sydney": {
+      body: "Sydney businesses often need a site that can grow later: more pages, a booking form or a link to the software they already use. I plan the structure with that in mind, so adding something later does not mean starting again. The work is remote, with a live preview link throughout, and I explain each decision in plain language. Websites start from $299.",
+      faqs: [
+        { q: "What happens if I want to add features after launch?", a: "Small additions can be quoted separately at a fixed price. Because the site is built with growth in mind, adding a page or a form does not usually mean a rebuild." },
+        { q: "Can you rebuild my existing Sydney website?", a: "Yes. I can update the design, improve the speed or rebuild the site from scratch, depending on what you have now and what you want from it." },
+      ],
+    },
+  },
+  "seo-optimization": {
+    "melbourne": {
+      body: "Local SEO in Melbourne is mostly about showing up for suburb searches. I look at your Google Business Profile, the pages that target your suburbs and the reviews you already have, then list the biggest fixes first. I report what changed each month, and I do not promise a ranking.",
+      faqs: [
+        { q: "Do you offer a free SEO audit for Melbourne businesses?", a: "Yes. The audit covers technical health, how well your pages match what people search for, and the links and reviews you have, and it ends with a list of the biggest problems to fix first." },
+        { q: "Can SEO help me appear in searches for my suburb?", a: "It can improve your chances. Suburb pages, a complete Google Business Profile and genuine reviews all help, but results depend on your competition and take a few months." },
+      ],
+    },
+    "sydney": {
+      body: "Ranking in Sydney means competing with many businesses that sell the same thing, so the first job is to find searches where you can realistically appear. I begin with an audit of your site, your Google Business Profile and your reviews, then choose a few service or suburb searches worth targeting instead of trying everything at once. Reporting is monthly, and I do not promise rankings.",
+      faqs: [
+        { q: "Should I focus on Sydney as a whole or on suburbs?", a: "For most local businesses, a suburb search such as Parramatta or Chatswood is easier to win than a search for all of Sydney. I check where your customers come from and target those areas first." },
+        { q: "What do you need from me to start an audit?", a: "Your website address and, if you have one, access to your Google Business Profile. I do the rest remotely and send you a list of fixes in order of importance." },
+      ],
+    },
+  },
+  "ecommerce-solutions": {
+    "melbourne": {
+      body: "A Melbourne store owner can choose the setup that suits them: a Shopify store managed on your own account, or a custom store that you own outright. I am in Cheltenham, so we can go through your products, packaging and shipping at a table, or by video if that is easier. Prices are shown in AUD with GST included, and delivery options are set for Melbourne and the rest of Australia.",
+      faqs: [
+        { q: "Can we meet in person to plan my online store in Melbourne?", a: "Yes. I am based in Cheltenham and can meet Melbourne clients in person. Many clients prefer video calls, and both work well." },
+        { q: "How much does an online store for a Melbourne business cost?", a: "Custom ecommerce builds start from $799 AUD for up to 50 products, with cart, checkout and an Australian payment gateway. A Shopify store starts from $599 AUD. The price is agreed in writing first." },
+      ],
+    },
+    "sydney": {
+      body: "Sydney shoppers compare stores quickly, so a clear product page and a short checkout matter more than extra features. I work with Sydney store owners by video call and shared notes, and replies come the same business day because we share a timezone. Prices are in AUD with GST included, and delivery rules can be set for Sydney, interstate and overseas orders.",
+      faqs: [
+        { q: "Do you work with Sydney businesses without meeting in person?", a: "Yes. Everything is done by video call, messages and a shared preview link, and we share the same timezone, so replies come within the working day." },
+        { q: "What does a Sydney online store need before we start?", a: "Your product list with names, prices and photos, your logo and brand colours, and your shipping rules. If something is missing, I tell you what to prepare first." },
+      ],
+    },
+  },
+  "business-web-solutions": {
+    "melbourne": {
+      body: "Melbourne trades, clinics and local shops usually need the same few pages: what you do, where you work, a starting price and a clear way to book or call. The starting package covers up to five pages for $299, with extra pages at $50 each. I can meet in person to go through the questions customers ask you most often, and put those answers on the page.",
+      faqs: [
+        { q: "Which pages should a small Melbourne business start with?", a: "Most start with a home page, a page for each main service, an about page, a contact page and some proof such as reviews or past work. That fits within the five pages in the starting package." },
+        { q: "Can you add pages later?", a: "Yes. Additional pages are $50 each, and I can add them whenever you are ready." },
+      ],
+    },
+    "sydney": {
+      body: "A Sydney small business website has to build trust quickly with people who do not know you yet. I put your strongest proof near the top, such as reviews, past work and a clear contact option, and explain the services below it. The project runs online with a preview link, and the starting package covers up to five pages for $299.",
+      faqs: [
+        { q: "How do you build trust on a business website?", a: "By showing real evidence early: genuine reviews, photos or examples of your work, your location and a phone number that is easy to find. I do not add made-up testimonials." },
+        { q: "Can I update the site myself?", a: "Yes, if you want to. I can set up an easy way to change text and images and show you how to make basic updates." },
+      ],
+    },
+  },
+  "ai-automation": {
+    "melbourne": {
+      body: "Melbourne hospitality, retail and trades businesses often lose time to the same few tasks: confirming bookings, answering the same questions and following up enquiries. I can visit you, watch how that happens in a normal week, and then suggest the one or two automations that save the most time. Chatbots and automations start from $99.",
+      faqs: [
+        { q: "Can you look at how my Melbourne business works before quoting?", a: "Yes. I can meet in person or by video, ask how you handle enquiries and bookings today, and then suggest what is worth automating and what is not." },
+        { q: "What is a sensible first automation?", a: "Usually an automatic reply to new enquiries or a reminder before appointments. Both are simple, easy to test and save time quickly." },
+      ],
+    },
+    "sydney": {
+      body: "Sydney businesses that receive many enquiries need a quick first reply more than anything else. A chatbot on your website can answer the common questions and pass the rest to you, and an automation can send each new enquiry to your email or a spreadsheet. I build and test these remotely, and a simple chatbot starts from $99.",
+      faqs: [
+        { q: "How does a chatbot hand over to a person?", a: "It collects the visitor's name and contact details and sends them to you by email or into a spreadsheet, so you can reply personally to anything it cannot answer." },
+        { q: "Do I need to change my existing software?", a: "Usually not. The chatbot or automation connects to tools you already use, such as your website, email and spreadsheets." },
+      ],
+    },
   },
   "shopify-stores": {
-    brisbane:
-      "Brisbane retailers and online brands can start selling quickly on Shopify. I set up Shopify stores for Brisbane businesses remotely, with GST, Australian shipping and payments configured, from $599.",
-    perth:
-      "Perth online sellers ship long distances to most customers, so clear delivery information and a smooth checkout matter. I set up Shopify stores for Perth businesses remotely, with Australian shipping and payments configured.",
-    adelaide:
-      "Adelaide makers, food brands and lifestyle labels can reach customers across Australia through Shopify. I set up Shopify stores for Adelaide businesses remotely, from $599, with checkout and shipping configured for Australia.",
-    canberra:
-      "Canberra businesses selling online need a store that is simple to run and easy for customers to trust. I set up Shopify stores for Canberra businesses remotely, in the Melbourne timezone, from $599.",
-    "gold-coast":
-      "Gold Coast surf, fashion and lifestyle brands often sell beyond the coast. I set up mobile-first Shopify stores for Gold Coast businesses remotely, with Australian payments and shipping configured, from $599.",
-    hobart:
-      "Hobart producers and makers sell to customers on the mainland and overseas. I set up Shopify stores for Hobart businesses remotely, with GST and Australian shipping configured, from $599.",
+    "melbourne": {
+      body: "Melbourne makers and independent retailers often sell at markets or from a studio first. I set up Shopify so your products, prices and stock can be managed from one dashboard, with GST included and shipping rates set for Melbourne and the rest of Australia. If you want, we can go through your range in person, and I show you how to add and edit products yourself. Stores start from $599.",
+      faqs: [
+        { q: "Can customers collect orders from me in Melbourne?", a: "Yes. Shopify supports local pickup alongside shipping, so customers can collect from you or have an order posted." },
+        { q: "Who owns the Shopify account?", a: "You do. The store is created on your own Shopify account from the start, and the subscription is paid directly to Shopify." },
+      ],
+    },
+    "sydney": {
+      body: "Sydney shoppers expect a fast checkout and clear delivery details. I set up Shopify stores for Sydney businesses remotely: theme, products, payments, GST and shipping rates, with a preview link before launch. Delivery can be set separately for Sydney, the rest of Australia and overseas if you ship abroad. Stores start from $599.",
+      faqs: [
+        { q: "Can I offer different delivery prices for Sydney and the rest of Australia?", a: "Yes. Shopify lets you set shipping rates by region, so Sydney orders can have different options from interstate or overseas orders." },
+        { q: "What do I need to send before you start?", a: "Your logo, product names, prices and photos, and your shipping rules. A spreadsheet of products is fine." },
+      ],
+    },
+  },
+  "geo-ai-search-optimisation": {
+    "melbourne": {
+      body: "When a Melbourne customer asks an AI tool for a recommendation, the answer is built from pages the tool can read. I check whether your site says clearly what you do, where you work and what you charge, and whether your details match on your Google Business Profile and directories. Then I rewrite the weakest pages and add questions and answers that are easy to quote. Ongoing work starts from $399 a month.",
+      faqs: [
+        { q: "How do I check what AI tools say about my Melbourne business?", a: "Ask ChatGPT, Perplexity and Google the questions your customers ask, for example who is a good plumber in your suburb, and note which businesses are named. I do this for you each month." },
+        { q: "Can you guarantee my business will be named?", a: "No. Nobody can. I improve what the tools can read and trust, and I report which ones mention you." },
+      ],
+    },
+    "sydney": {
+      body: "Sydney has many businesses in every category, so AI tools tend to name the ones with the clearest information. I audit your pages and online details, fix inconsistencies and rewrite key pages so the answers are easy to quote. The work is remote, in the same timezone, and starts from $399 a month.",
+      faqs: [
+        { q: "What does the AI readiness check cover?", a: "Whether AI crawlers can reach your site, whether your business details match across the web, and whether your pages answer real customer questions in plain language." },
+        { q: "How long before AI tools mention my Sydney business?", a: "It varies. Updated pages can be read within weeks, but being named in AI answers also depends on your reviews and mentions elsewhere, which build over months." },
+      ],
+    },
+  },
+  "business-software-automation": {
+    "melbourne": {
+      body: "A small Melbourne business usually has one workflow that costs more time than the rest, such as quoting, booking or chasing payments. I start there. After a short conversation I propose a fixed price for a tool that handles that workflow, and we test it on a few real jobs before it goes live.",
+      faqs: [
+        { q: "Can you meet me in Melbourne to look at how my business runs?", a: "Yes. I am based in Cheltenham and can meet in person, or we can go through the process over a video call." },
+        { q: "How much does business automation cost in Melbourne?", a: "Small projects start from $499 AUD at a fixed price agreed beforehand, and a simple chatbot or automation can start from $99." },
+      ],
+    },
   },
 };
-
-for (const [service, byCity] of Object.entries(EXTRA_CITY_INTROS)) {
-  SERVICE_LOCATION_INTROS[service] = { ...SERVICE_LOCATION_INTROS[service], ...byCity };
-}
 
 /** True when a service × city page has genuinely unique content and should exist. */
 export function hasServiceLocationPage(serviceSlug: string, locationSlug: string): boolean {

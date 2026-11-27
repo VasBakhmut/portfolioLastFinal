@@ -1,6 +1,6 @@
-# Vasdev — Vasyl Bakhmut, Web Developer & AI Automation Specialist, Melbourne
+# VasDev — Vasyl Bakhmut, Web Developer & AI Automation Specialist, Melbourne
 
-> Vasdev is the business of Vasyl Bakhmut, a Melbourne-based full-stack
+> VasDev is the business of Vasyl Bakhmut, a Melbourne-based full-stack
 web developer and AI automation specialist helping Australian small
 businesses grow online.
 
@@ -8,7 +8,7 @@ businesses grow online.
 
 Vasyl Bakhmut (founder of Vasdev) is a full-stack web developer and AI automation
 specialist based in Cheltenham, Melbourne VIC 3192, Australia.
-With a background in construction project management and 3+ years
+With a background in construction project management over 12 years and 3+ years
 in software development, Vasyl builds custom websites, AI chatbots,
 workflow automations, Shopify stores, and SEO / GEO (Generative
 Engine Optimisation) strategies for small businesses across
@@ -42,11 +42,9 @@ Based in Melbourne, working with clients across Australia (remote-first).
 - [Melbourne](https://www.vasdev.au/locations/melbourne)
 - [Sydney](https://www.vasdev.au/locations/sydney)
 - [Brisbane](https://www.vasdev.au/locations/brisbane)
-- [Perth](https://www.vasdev.au/locations/perth)
-- [Adelaide](https://www.vasdev.au/locations/adelaide)
 - [Canberra](https://www.vasdev.au/locations/canberra)
 - [Gold Coast](https://www.vasdev.au/locations/gold-coast)
-- [Hobart](https://www.vasdev.au/locations/hobart)
+
 
 ## Guides
 
